@@ -17,7 +17,7 @@ CipherTech is a modern tech company focused on building scalable mobile apps, we
 ---
 
 ## 🔗 Website
-Coming soon: https://skypro-droid.github.io
+Coming soon: https://skypro-droid.github.io/CipherTech.com/
 
 ---
 
