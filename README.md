@@ -8,34 +8,38 @@
 CipherTech is a modern tech company focused on building scalable mobile apps, web platforms, and smart automation systems using technologies like Flutter and Android.
 
 #Why Choose Us
-✅ Clean and modern design
-✅ Fast delivery and reliable performance
-✅ Scalable solutions for growing businesses
-✅ Dedicated support and communication
+#✅ Clean and modern design
+#✅ Fast delivery and reliable performance
+#✅ Scalable solutions for growing businesses
+#✅ Dedicated support and communication
 
 #How It Works
 
-Consultation – We understand your idea and goals
-Planning – We create a clear development strategy
-Development – We build your solution step by step
-Launch – You go live with a powerful product
+#Consultation – We understand your idea and goals
+#Planning – We create a clear development strategy
+#Development – We build your solution step by step
+#Launch – You go live with a powerful product
 
 #Testimonials
 
-(Add real feedback as soon as possible)
+#(Add real feedback as soon as possible)
 “Great experience, very professional and delivered exactly what I needed.”
 
 – Client Name
 
-Call To Action (Important Section)
+#Call To Action (Important Section)
 Ready to bring your idea to life?
 Let’s build something amazing together.
 [ Get Started Now ]
 [ Contact Us on WhatsApp ]
-Contact Us
-📧 Email: skypromax6@gmail.com 
-📱 Phone/WhatsApp: +234 7084980648,7037604756
-🌐 Location: Nigeria (Remote & On-site Services Available)
+
+#Contact Us
+
+#📧 Email: skypromax6@gmail.com 
+
+#📱 Phone/WhatsApp: +234 7084980648,7037604756
+
+#🌐 Location: Nigeria (Remote & On-site Services Available)
 ---
 
 ## 🚀 Projects
