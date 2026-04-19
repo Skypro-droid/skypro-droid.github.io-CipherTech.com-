@@ -19,6 +19,18 @@
       line-height: 1.6;
     }
 
+    /* FADE ANIMATION */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     header {
       display: flex;
       justify-content: space-between;
@@ -125,23 +137,23 @@
   </nav>
 </header>
 
-<!-- HOME SECTION -->
-<section class="hero" id="home">
+<!-- HOME -->
+<section class="hero fade-in" id="home">
   <h2>Welcome to CipherTech</h2>
   <p>We build modern, scalable software solutions for the future.</p>
 </section>
 
-<!-- APPS SECTION -->
-<section class="section" id="apps">
+<!-- APPS -->
+<section class="section fade-in" id="apps">
   <h2>Our Apps</h2>
 
   <div class="cards">
-    <div class="card">
+    <div class="card fade-in">
       <h3>App 1</h3>
       <p>Sample description of your app.</p>
     </div>
 
-    <div class="card">
+    <div class="card fade-in">
       <h3>App 2</h3>
       <p>Another app description.</p>
     </div>
@@ -149,7 +161,7 @@
 </section>
 
 <!-- ABOUT -->
-<section class="section" id="about">
+<section class="section fade-in" id="about">
   <h2>About Us</h2>
   <p>
     CipherTech is a modern software company focused on building high-quality,
@@ -158,7 +170,7 @@
 </section>
 
 <!-- CONTACT -->
-<section class="section" id="contact">
+<section class="section fade-in" id="contact">
   <h2>Contact</h2>
 
   <p>Email: skypromax6@gmail.com</p>
@@ -175,6 +187,25 @@
 <footer>
   © 2026 CipherTech. All rights reserved.
 </footer>
+
+<!-- JAVASCRIPT (correct place) -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    elements.forEach(el => observer.observe(el));
+  });
+</script>
 
 </body>
 </html>
