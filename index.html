@@ -29,6 +29,7 @@
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -53,40 +54,54 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
 
-    /* LOGO */
+    /* ================= LOGO ================= */
     .logo img {
-      height: 45px;
+      height: 60px;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 0 6px rgba(56,189,248,0.6));
+      display: block;
+      filter: drop-shadow(0 0 8px rgba(56,189,248,0.7));
     }
 
+    /* ================= NAV ================= */
     nav {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 18px;
+    }
+
+    nav a {
+      font-weight: bold;
+      transition: 0.3s;
     }
 
     nav a:hover {
       color: var(--accent);
     }
 
+    /* ================= BUTTON ================= */
     .toggle-btn {
       background: var(--accent);
       border: none;
-      padding: 8px 12px;
+      padding: 8px 14px;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
       color: #0f172a;
+      transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+      transform: scale(1.05);
     }
 
     /* ================= HERO ================= */
     .hero {
       text-align: center;
-      padding: 120px 20px;
+      padding: 140px 20px;
       background: linear-gradient(135deg, var(--bg), var(--card));
     }
 
@@ -96,16 +111,23 @@
       margin-bottom: 20px;
     }
 
+    .hero p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+    }
+
     .cursor {
       animation: blink 0.7s infinite;
       color: var(--accent);
     }
 
     @keyframes blink {
-      50% { opacity: 0; }
+      50% {
+        opacity: 0;
+      }
     }
 
-    /* ================= SECTIONS ================= */
+    /* ================= SECTION ================= */
     .section {
       padding: 80px 20px;
       text-align: center;
@@ -114,6 +136,7 @@
     .section h2 {
       margin-bottom: 30px;
       color: var(--accent);
+      font-size: 2rem;
     }
 
     /* ================= CARDS ================= */
@@ -126,19 +149,25 @@
 
     .card {
       background: var(--card);
-      padding: 20px;
-      border-radius: 12px;
-      width: 250px;
+      padding: 25px;
+      border-radius: 14px;
+      width: 260px;
       transition: 0.3s;
       display: block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--accent);
     }
 
     .card p:last-child {
-      margin-top: 10px;
+      margin-top: 15px;
       color: var(--accent);
       font-weight: bold;
     }
@@ -148,22 +177,23 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 15px;
+      margin-top: 20px;
       align-items: center;
     }
 
     .social-links a {
       background: var(--card);
-      padding: 12px 18px;
+      padding: 14px 18px;
       border-radius: 10px;
-      width: 220px;
+      width: 240px;
       text-align: center;
       transition: 0.3s;
       font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .social-links a:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       color: var(--accent);
     }
 
@@ -172,13 +202,20 @@
       text-align: center;
       padding: 30px;
       background: var(--header);
+      margin-top: 40px;
     }
 
     /* ================= MOBILE ================= */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
+        padding: 20px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .hero h2 {
@@ -189,138 +226,232 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .logo img {
+        height: 50px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="logo">
-    <img src="1776522241189.jpg" alt="CipherTech Logo">
-  </div>
+  <!-- ================= HEADER ================= -->
+  <header>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#apps">Apps</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <div class="logo">
+      <!-- IMPORTANT: logo.jpg must be beside index.html -->
+      <img src="logo.jpg" alt="CipherTech Logo">
+    </div>
 
-    <button class="toggle-btn" onclick="toggleTheme()">🌙</button>
-  </nav>
-</header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <h2>
-    <span id="typing-text"></span><span class="cursor">|</span>
-  </h2>
-  <p>We build modern, scalable software solutions for the future.</p>
-</section>
+      <button class="toggle-btn" onclick="toggleTheme()">🌙</button>
+    </nav>
 
-<!-- APPS -->
-<section class="section" id="apps">
-  <h2>Our Apps</h2>
+  </header>
 
-  <div class="cards">
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home">
 
-    <a class="card" href="https://github.com/yourusername/cipherchat" target="_blank">
-      <h3>CipherChat</h3>
-      <p>Real-time chat application with modern UI.</p>
-      <p>View Project →</p>
-    </a>
+    <h2>
+      <span id="typing-text"></span>
+      <span class="cursor">|</span>
+    </h2>
 
-    <a class="card" href="https://your-live-demo.com" target="_blank">
-      <h3>SkyNotes</h3>
-      <p>Smart note-taking app with cloud sync.</p>
-      <p>Live Demo →</p>
-    </a>
+    <p>
+      We build modern, scalable software solutions for the future.
+    </p>
 
-    <a class="card" href="https://github.com/yourusername/ai-toolkit" target="_blank">
-      <h3>AI Toolkit</h3>
-      <p>AI-powered productivity tools suite.</p>
-      <p>GitHub Repo →</p>
-    </a>
+  </section>
 
-  </div>
-</section>
+  <!-- ================= APPS ================= -->
+  <section class="section" id="apps">
 
-<!-- ABOUT -->
-<section class="section" id="about">
-  <h2>About Us</h2>
-  <p>
-    CipherTech is a modern software company focused on building high-quality,
-    scalable digital products that solve real-world problems.
-  </p>
-</section>
+    <h2>Our Apps</h2>
 
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <h2>Contact</h2>
+    <div class="cards">
 
-  <p>Email: skypromax6@gmail.com</p>
-  <p>Phone/WhatsApp: +2347084980648</p>
+      <a class="card"
+         href="https://github.com/yourusername/cipherchat"
+         target="_blank">
 
-  <h3>🌐 Social Media</h3>
+        <h3>💬 CipherChat</h3>
 
-  <div class="social-links">
-    <a href="https://www.instagram.com/skypro_droid" target="_blank">📸 Instagram</a>
-    <a href="https://x.com/DroidSkypr4230" target="_blank">🐦 Twitter (X)</a>
-    <a href="https://www.linkedin.com/in/sky-pro-069459263" target="_blank">💼 LinkedIn</a>
-    <a href="https://www.tiktok.com/@skypro_droid" target="_blank">🎵 TikTok</a>
-  </div>
-</section>
+        <p>
+          Real-time chat application with modern UI and fast messaging.
+        </p>
 
-<!-- FOOTER -->
-<footer>
-  © 2026 CipherTech. All rights reserved.
-</footer>
+        <p>View Project →</p>
 
-<!-- SCRIPT -->
-<script>
-  function toggleTheme() {
-    document.body.classList.toggle("light");
-    localStorage.setItem("theme",
-      document.body.classList.contains("light") ? "light" : "dark"
-    );
-  }
+      </a>
 
-  window.addEventListener("load", () => {
-    if (localStorage.getItem("theme") === "light") {
-      document.body.classList.add("light");
+      <a class="card"
+         href="https://your-live-demo.com"
+         target="_blank">
+
+        <h3>📝 SkyNotes</h3>
+
+        <p>
+          Smart cloud-based note-taking app for productivity.
+        </p>
+
+        <p>Live Demo →</p>
+
+      </a>
+
+      <a class="card"
+         href="https://github.com/yourusername/ai-toolkit"
+         target="_blank">
+
+        <h3>🤖 AI Toolkit</h3>
+
+        <p>
+          AI-powered tools suite for developers and creators.
+        </p>
+
+        <p>GitHub Repo →</p>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="about">
+
+    <h2>About Us</h2>
+
+    <p>
+      CipherTech is a modern software company focused on building
+      high-quality, scalable digital products that solve real-world problems.
+    </p>
+
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section" id="contact">
+
+    <h2>Contact</h2>
+
+    <p>Email: skypromax6@gmail.com</p>
+
+    <p>Phone/WhatsApp: +2347084980648</p>
+
+    <h3 style="margin-top:20px;">🌐 Social Media</h3>
+
+    <div class="social-links">
+
+      <a href="https://www.instagram.com/skypro_droid"
+         target="_blank">
+
+         📸 Instagram
+      </a>
+
+      <a href="https://x.com/DroidSkypr4230"
+         target="_blank">
+
+         🐦 Twitter (X)
+      </a>
+
+      <a href="https://www.linkedin.com/in/sky-pro-069459263"
+         target="_blank">
+
+         💼 LinkedIn
+      </a>
+
+      <a href="https://www.tiktok.com/@skypro_droid"
+         target="_blank">
+
+         🎵 TikTok
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    © 2026 CipherTech. All rights reserved.
+  </footer>
+
+  <!-- ================= SCRIPT ================= -->
+  <script>
+
+    /* ================= DARK/LIGHT MODE ================= */
+
+    function toggleTheme() {
+
+      document.body.classList.toggle("light");
+
+      localStorage.setItem(
+        "theme",
+        document.body.classList.contains("light")
+          ? "light"
+          : "dark"
+      );
     }
-  });
 
-  const text = "Welcome to CipherTech";
-  let i = 0;
-  let deleting = false;
+    window.addEventListener("load", () => {
 
-  function typeEffect() {
-    const el = document.getElementById("typing-text");
-    if (!el) return;
-
-    if (!deleting) {
-      el.textContent = text.substring(0, i + 1);
-      i++;
-
-      if (i === text.length) {
-        deleting = true;
-        setTimeout(typeEffect, 1500);
-        return;
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light");
       }
-    } else {
-      el.textContent = text.substring(0, i - 1);
-      i--;
 
-      if (i === 0) deleting = false;
+    });
+
+    /* ================= TYPING EFFECT ================= */
+
+    const text = "Welcome to CipherTech";
+
+    let i = 0;
+
+    let deleting = false;
+
+    function typeEffect() {
+
+      const el = document.getElementById("typing-text");
+
+      if (!el) return;
+
+      if (!deleting) {
+
+        el.textContent = text.substring(0, i + 1);
+
+        i++;
+
+        if (i === text.length) {
+
+          deleting = true;
+
+          setTimeout(typeEffect, 1500);
+
+          return;
+        }
+
+      } else {
+
+        el.textContent = text.substring(0, i - 1);
+
+        i--;
+
+        if (i === 0) {
+          deleting = false;
+        }
+
+      }
+
+      setTimeout(typeEffect, deleting ? 60 : 100);
     }
 
-    setTimeout(typeEffect, deleting ? 60 : 100);
-  }
+    window.addEventListener("load", typeEffect);
 
-  window.addEventListener("load", typeEffect);
-</script>
+  </script>
 
 </body>
 </html>
