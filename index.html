@@ -93,7 +93,7 @@
 
     /* MODAL OVERLAY */
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;}
-    .overlay.open{display:flex;}
+    .overlay.open{display:flex !important;}
     .modal{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;width:100%;max-width:440px;position:relative;box-shadow:0 20px 80px rgba(0,0,0,0.6);}
     .modal h2{font-size:1.5rem;font-weight:800;margin-bottom:6px;}
     .modal p.sub{color:var(--muted);font-size:0.85rem;margin-bottom:28px;}
@@ -823,6 +823,95 @@
     };
 
   
+
+// =================== STRIPE SETUP MODAL ===================
+function showSetupStripeModal() {
+  const existing = document.getElementById('stripeSetupModal');
+  if (existing) { existing.style.display='flex'; return; }
+
+  const modal = document.createElement('div');
+  modal.id = 'stripeSetupModal';
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';
+  modal.innerHTML = `
+    <div style="background:var(--card);border:1.5px solid var(--accent);border-radius:20px;padding:30px;max-width:460px;width:100%;position:relative;">
+      <button onclick="document.getElementById('stripeSetupModal').style.display='none'" style="position:absolute;top:14px;right:14px;background:var(--bg2);border:none;color:var(--text);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;">✕</button>
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="font-size:2.5rem;margin-bottom:10px;">💳</div>
+        <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:6px;">Set Up Stripe Payment Links</h2>
+        <p style="font-size:0.8rem;color:var(--muted);">You need to create Payment Links in your Stripe Dashboard. It takes 5 minutes!</p>
+      </div>
+
+      <div style="background:var(--bg2);border-radius:12px;padding:16px;margin-bottom:16px;">
+        <p style="font-size:0.82rem;font-weight:700;color:var(--accent);margin-bottom:10px;">📋 Steps to create Payment Links:</p>
+        <div style="font-size:0.8rem;line-height:1.8;color:var(--text);">
+          <p>1. Go to <strong>dashboard.stripe.com</strong></p>
+          <p>2. Click <strong>"Payment Links"</strong> in left menu</p>
+          <p>3. Click <strong>"+ New"</strong></p>
+          <p>4. Set the price (e.g. $100 for Starter Ad)</p>
+          <p>5. Copy the link (looks like: buy.stripe.com/...)</p>
+          <p>6. Send all your links to CipherTech support</p>
+        </div>
+      </div>
+
+      <div style="background:var(--bg2);border-radius:12px;padding:14px;margin-bottom:16px;font-size:0.78rem;">
+        <p style="font-weight:700;color:var(--accent2);margin-bottom:8px;">💰 Prices to create links for:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;color:var(--muted);">
+          <span>Ad Starter → $100</span><span>Ad Standard → $300</span>
+          <span>Ad Pro → $750</span><span>Ad Elite → $1,200</span>
+          <span>1K Followers → $100</span><span>10K Followers → $400</span>
+          <span>1M Followers → $1,500</span><span>+ all other boosts</span>
+        </div>
+      </div>
+
+      <a href="https://dashboard.stripe.com/payment-links" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06090f;padding:13px;border-radius:10px;font-weight:800;font-size:0.9rem;text-decoration:none;">
+        🔗 Open Stripe Dashboard →
+      </a>
+      <p style="text-align:center;font-size:0.72rem;color:var(--muted);margin-top:10px;">Once you create them, send the links here and I'll plug them in!</p>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+// =================== HANDLE PAYMENT SUCCESS ON RETURN ===================
+window.addEventListener('load', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const payment = urlParams.get('payment');
+  const type = urlParams.get('type');
+  const plan = urlParams.get('plan');
+
+  if (payment === 'success') {
+    const pending = JSON.parse(localStorage.getItem('ciphertech_pending_order') || 'null');
+    localStorage.removeItem('ciphertech_pending_order');
+
+    // Show success toast
+    setTimeout(() => {
+      showToast('🎉 Payment successful! Your ' + (type === 'ad' ? 'campaign' : 'boost') + ' is now active!');
+
+      // Show success banner
+      const banner = document.createElement('div');
+      banner.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--card);border:2px solid var(--green);border-radius:16px;padding:20px 28px;z-index:9999;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.4);max-width:340px;width:90%;';
+      banner.innerHTML = `
+        <div style="font-size:2.5rem;margin-bottom:8px;">🎉</div>
+        <h3 style="font-size:1rem;font-weight:800;color:var(--green);margin-bottom:6px;">Payment Successful!</h3>
+        <p style="font-size:0.82rem;color:var(--muted);margin-bottom:4px;">${type === 'ad' ? '📣 Your ad campaign' : '📈 Your boost order'} <strong>${plan ? '(' + plan + ')' : ''}</strong> is now active!</p>
+        <p style="font-size:0.75rem;color:var(--muted);">Check your email for confirmation 📧</p>
+        <button onclick="this.parentElement.remove();window.history.replaceState({},'',window.location.pathname);" style="margin-top:12px;background:var(--green);border:none;color:#06090f;padding:8px 20px;border-radius:8px;font-weight:800;cursor:pointer;font-size:0.85rem;">✅ Done</button>
+      `;
+      document.body.appendChild(banner);
+      setTimeout(() => { if (banner.parentElement) banner.remove(); }, 8000);
+    }, 800);
+
+    // Clean URL
+    window.history.replaceState({}, '', window.location.pathname);
+
+  } else if (payment === 'cancelled') {
+    setTimeout(() => {
+      showToast('❌ Payment cancelled — you were not charged.');
+      window.history.replaceState({}, '', window.location.pathname);
+    }, 500);
+  }
+});
+
 // =================== FIREBASE STATUS ===================
 window.addEventListener('load', () => {
   setTimeout(() => {
@@ -1904,6 +1993,56 @@ window.addEventListener('load', () => {
 
 </script>
 
+  <!-- Stripe.js for real payments -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    window.STRIPE_PUBLISHABLE_KEY = 'pk_test_51Tk3L8IToZwk5G5xMsh6bIF99an1JB3mQBnQjndTdEqQS5cAZGfCbH0UAqB4elmIWry3thJfbsViJD7d5KVMwUYH00QgOXHgFy';
+    window.stripeInstance = Stripe(window.STRIPE_PUBLISHABLE_KEY);
+
+    // ===== STRIPE PAYMENT LINKS =====
+    // These are pre-built Stripe Checkout pages for each price point
+    // Create these in your Stripe Dashboard → Payment Links → Create Link
+    // Then replace the URLs below with your real payment links
+    window.STRIPE_PAYMENT_LINKS = {
+      // AD PLANS
+      ad_starter:   'https://buy.stripe.com/test_ad_starter',    // $100/week
+      ad_standard:  'https://buy.stripe.com/test_ad_standard',   // $300/month
+      ad_pro:       'https://buy.stripe.com/test_ad_pro',        // $750/3months
+      ad_elite:     'https://buy.stripe.com/test_ad_elite',      // $1200/6months
+
+      // BOOST - FOLLOWERS
+      boost_f1:     'https://buy.stripe.com/test_boost_f1',      // $100 - 1K
+      boost_f2:     'https://buy.stripe.com/test_boost_f2',      // $250 - 5K
+      boost_f3:     'https://buy.stripe.com/test_boost_f3',      // $400 - 10K
+      boost_f4:     'https://buy.stripe.com/test_boost_f4',      // $700 - 50K
+      boost_f5:     'https://buy.stripe.com/test_boost_f5',      // $900 - 100K
+      boost_f6:     'https://buy.stripe.com/test_boost_f6',      // $1200 - 500K
+      boost_f7:     'https://buy.stripe.com/test_boost_f7',      // $1500 - 1M
+
+      // BOOST - LIKES
+      boost_l1:     'https://buy.stripe.com/test_boost_l1',      // $20
+      boost_l2:     'https://buy.stripe.com/test_boost_l2',      // $35
+      boost_l3:     'https://buy.stripe.com/test_boost_l3',      // $100
+      boost_l4:     'https://buy.stripe.com/test_boost_l4',      // $180
+      boost_l5:     'https://buy.stripe.com/test_boost_l5',      // $500
+      boost_l6:     'https://buy.stripe.com/test_boost_l6',      // $900
+
+      // BOOST - VIEWS
+      boost_v1:     'https://buy.stripe.com/test_boost_v1',      // $30
+      boost_v2:     'https://buy.stripe.com/test_boost_v2',      // $80
+      boost_v3:     'https://buy.stripe.com/test_boost_v3',      // $150
+      boost_v4:     'https://buy.stripe.com/test_boost_v4',      // $400
+      boost_v5:     'https://buy.stripe.com/test_boost_v5',      // $700
+
+      // BOOST - COMMENTS
+      boost_c1:     'https://buy.stripe.com/test_boost_c1',      // $30
+      boost_c2:     'https://buy.stripe.com/test_boost_c2',      // $60
+      boost_c3:     'https://buy.stripe.com/test_boost_c3',      // $100
+      boost_c4:     'https://buy.stripe.com/test_boost_c4',      // $180
+      boost_c5:     'https://buy.stripe.com/test_boost_c5',      // $600
+    };
+  </script>
+
 </head>
 <body>
 
@@ -1957,7 +2096,7 @@ window.addEventListener('load', () => {
     <a href="#contact">Contact</a>
   </nav>
   <div class="nav-btns" id="authBtns">
-    <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+    <button class="theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
     <button class="theme-btn" onclick="openOwnerLogin()" title="Owner Access" style="font-size:0.9rem;opacity:0.35;transition:0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.35'">🔑</button>
   </div>
   <div id="userBar" class="user-bar" style="display:none;">
@@ -2220,7 +2359,10 @@ window.addEventListener('load', () => {
 
       <div class="label-sm" style="margin-bottom:10px;">Select Payment Method</div>
       <div class="payment-methods">
-        <div class="pay-method selected" onclick="selectPayMethod(this,'paypal')">
+        <div class="pay-method selected" onclick="selectPayMethod(this,'card')">
+          <span class="pay-icon">💳</span>Credit/Debit Card
+        </div>
+        <div class="pay-method" onclick="selectPayMethod(this,'paypal')">
           <span class="pay-icon">🅿️</span>PayPal
         </div>
         <div class="pay-method" onclick="selectPayMethod(this,'crypto')">
@@ -2229,26 +2371,36 @@ window.addEventListener('load', () => {
         <div class="pay-method" onclick="selectPayMethod(this,'bank')">
           <span class="pay-icon">🏦</span>Bank Transfer
         </div>
-        <div class="pay-method" onclick="selectPayMethod(this,'card')">
-          <span class="pay-icon">💳</span>Credit/Debit Card
-        </div>
       </div>
 
-      <!-- PAYMENT DETAILS (changes per method) -->
-      <div id="paymentDetails" class="ad-summary-box" style="text-align:center;">
+      <!-- CARD PAYMENT (Stripe Checkout) -->
+      <div id="cardPaymentBox" class="ad-summary-box" style="text-align:center;">
+        <div style="font-size:2rem;margin-bottom:8px;">💳</div>
+        <p style="font-size:0.88rem;font-weight:800;margin-bottom:6px;">Pay Securely with Stripe</p>
+        <p style="font-size:0.75rem;color:var(--muted);margin-bottom:14px;">Click below — you'll go to a secure Stripe payment page, then come back automatically</p>
+        <div style="display:flex;gap:8px;justify-content:center;margin-bottom:10px;flex-wrap:wrap;">
+          <img src="https://js.stripe.com/v3/fingerprinted/img/visa-365725566f9578a9589553aa9296d178.svg" height="24" alt="Visa">
+          <img src="https://js.stripe.com/v3/fingerprinted/img/mastercard-4d8844094130711885b5e41b28c9848f.svg" height="24" alt="Mastercard">
+          <img src="https://js.stripe.com/v3/fingerprinted/img/amex-a49b82f46c5cd6a96a6e418a6ca1717c.svg" height="24" alt="Amex">
+        </div>
+        <p style="font-size:0.68rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:4px;">🔒 256-bit SSL encryption • Powered by Stripe</p>
+      </div>
+
+      <!-- OTHER PAYMENT DETAILS (changes per method) -->
+      <div id="paymentDetails" class="ad-summary-box" style="text-align:center;display:none;">
         <p style="font-size:0.85rem;font-weight:700;color:var(--accent);margin-bottom:8px;">🅿️ PayPal</p>
         <p style="font-size:1rem;font-weight:800;">paypal.me/CipherTech</p>
         <p style="font-size:0.75rem;color:var(--muted);margin-top:6px;">Send exact amount & include your campaign name in the note</p>
       </div>
 
-      <div class="form-group" style="margin-top:12px;">
+      <div class="form-group" style="margin-top:12px;display:none;" id="paymentRefGroup">
         <label>Transaction / Payment Reference ID</label>
         <input type="text" id="paymentRef" placeholder="e.g. PAY-ABC123XYZ or TxID">
       </div>
 
       <div style="display:flex;gap:10px;margin-top:8px;">
         <button class="btn btn-outline" style="flex:1;padding:12px;" onclick="adNextStep(2)">← Back</button>
-        <button class="btn btn-primary" style="flex:2;padding:12px;background:linear-gradient(135deg,var(--green),var(--accent));" onclick="adNextStep(4)">✅ I've Paid → Confirm</button>
+        <button class="btn btn-primary" id="adPayBtn" style="flex:2;padding:12px;background:linear-gradient(135deg,var(--green),var(--accent));" onclick="handleAdPayment()">💳 Pay & Submit</button>
       </div>
     </div>
 
@@ -3011,19 +3163,23 @@ function openAdLaunchModal() {
 // =================== AUTH ===================
 const OWNER_PASSWORD = 'cipher2026'; // Change this to your secret password
 function openOwnerLogin() {
-  const modal = document.getElementById('loginModal');
-  if (modal) {
+  try {
+    const modal = document.getElementById('loginModal');
+    if (!modal) { alert('Login modal not found'); return; }
+    modal.style.display = 'flex';
     modal.classList.add('open');
-    document.body.style.overflow='hidden';
+    document.body.style.overflow = 'hidden';
     setTimeout(() => {
       const passInput = document.getElementById('loginPass');
-      if (passInput) passInput.focus();
-    }, 300);
+      if (passInput) { passInput.focus(); passInput.click(); }
+    }, 400);
+  } catch(e) {
+    console.error('Login error:', e);
   }
 }
 function doLogin() {
   const passEl = document.getElementById('loginPass');
-  if (!passEl) return;
+  if (!passEl) { console.error('Password input not found'); return; }
   const pass = passEl.value.trim();
   if (!pass) { showToast('⚠️ Enter your password'); passEl.focus(); return; }
   if (pass !== OWNER_PASSWORD) {
@@ -3226,15 +3382,105 @@ function updateAdSummary() {
 }
 
 function selectPayMethod(el, method) {
-  document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
+  document.querySelectorAll('#adLaunchModal .pay-method').forEach(m => m.classList.remove('selected'));
   el.classList.add('selected');
   selectedPayMethod = method;
-  const d = paymentDetails[method];
-  document.getElementById('paymentDetails').innerHTML = `
-    <p style="font-size:0.85rem;font-weight:700;color:var(--accent);margin-bottom:8px;">${d.icon} ${d.name}</p>
-    <p style="font-size:0.95rem;font-weight:800;">${d.detail}</p>
-    <p style="font-size:0.75rem;color:var(--muted);margin-top:6px;">${d.note}</p>
-  `;
+
+  const cardBox = document.getElementById('cardPaymentBox');
+  const otherBox = document.getElementById('paymentDetails');
+  const refGroup = document.getElementById('paymentRefGroup');
+  const payBtn = document.getElementById('adPayBtn');
+
+  if (method === 'card') {
+    cardBox.style.display = 'block';
+    otherBox.style.display = 'none';
+    refGroup.style.display = 'none';
+    payBtn.textContent = '💳 Pay & Submit';
+    mountStripeCardElement();
+  } else {
+    cardBox.style.display = 'none';
+    otherBox.style.display = 'block';
+    refGroup.style.display = 'block';
+    payBtn.textContent = '✅ I\'ve Paid → Confirm';
+    const d = paymentDetails[method];
+    otherBox.innerHTML = `
+      <p style="font-size:0.85rem;font-weight:700;color:var(--accent);margin-bottom:8px;">${d.icon} ${d.name}</p>
+      <p style="font-size:0.95rem;font-weight:800;">${d.detail}</p>
+      <p style="font-size:0.75rem;color:var(--muted);margin-top:6px;">${d.note}</p>
+    `;
+  }
+}
+
+// =================== STRIPE CARD ELEMENT ===================
+let stripeElements = null;
+let stripeCardElement = null;
+
+function mountStripeCardElement() {
+  if (!window.stripeInstance) {
+    document.getElementById('ad-card-element').innerHTML = '<p style="color:var(--red);font-size:0.8rem;">Stripe failed to load. Try refreshing.</p>';
+    return;
+  }
+  if (stripeCardElement) return; // already mounted
+
+  stripeElements = window.stripeInstance.elements();
+  const style = {
+    base: {
+      color: getComputedStyle(document.body).getPropertyValue('--text').trim() || '#e2e8f0',
+      fontFamily: 'Sora, sans-serif',
+      fontSize: '15px',
+      '::placeholder': { color: '#7c8fa8' }
+    },
+    invalid: { color: '#f87171' }
+  };
+  stripeCardElement = stripeElements.create('card', { style });
+  stripeCardElement.mount('#ad-card-element');
+
+  stripeCardElement.on('change', (event) => {
+    const errEl = document.getElementById('ad-card-errors');
+    errEl.textContent = event.error ? event.error.message : '';
+  });
+}
+
+function handleAdPayment() {
+  if (selectedPayMethod !== 'card') {
+    // Manual payment methods — require reference ID
+    const ref = document.getElementById('paymentRef').value.trim();
+    if (!ref) { showToast('⚠️ Enter your payment reference ID'); return; }
+    completeAdSubmission();
+    return;
+  }
+
+  // STRIPE CHECKOUT — redirect to Stripe hosted payment page
+  const planKey = 'ad_' + (selectedAdPlan ? selectedAdPlan.name.toLowerCase().replace(/[^a-z]/g,'') : 'starter');
+  const paymentLink = window.STRIPE_PAYMENT_LINKS[planKey];
+
+  if (!paymentLink || paymentLink.includes('test_ad_')) {
+    // Payment link not set up yet — show instructions
+    showSetupStripeModal();
+    return;
+  }
+
+  // Save pending order to localStorage before redirecting
+  const pendingOrder = {
+    type: 'ad',
+    plan: selectedAdPlan,
+    advertiser: document.getElementById('advertiserName').value.trim(),
+    email: document.getElementById('advertiserEmail').value.trim(),
+    campaign: document.getElementById('campName').value.trim(),
+    timestamp: new Date().toISOString()
+  };
+  localStorage.setItem('ciphertech_pending_order', JSON.stringify(pendingOrder));
+
+  // Build return URL with campaign info
+  const returnUrl = window.location.href.split('?')[0] + '?payment=success&type=ad&plan=' + encodeURIComponent(selectedAdPlan.name);
+  const cancelUrl = window.location.href.split('?')[0] + '?payment=cancelled';
+
+  // Open Stripe Checkout
+  window.open(paymentLink + '?success_url=' + encodeURIComponent(returnUrl) + '&cancel_url=' + encodeURIComponent(cancelUrl), '_blank');
+
+  showToast('🔗 Opening Stripe payment page...');
+  // Also complete submission so campaign is saved
+  setTimeout(() => completeAdSubmission(), 1500);
 }
 
 function adNextStep(step) {
@@ -3268,13 +3514,12 @@ function adNextStep(step) {
     document.getElementById('paymentCampName').textContent = camp;
     document.getElementById('paymentExpiry').textContent = fmt(expiry);
     document.getElementById('paymentTotal').textContent = '$' + selectedAdPlan.price;
-    selectPayMethod(document.querySelector('.pay-method.selected') || document.querySelector('.pay-method'), 'paypal');
+    const defaultBtn = document.querySelector('#adLaunchModal .pay-method.selected') || document.querySelector('#adLaunchModal .pay-method');
+    selectPayMethod(defaultBtn, 'card');
   }
 
   if (step === 4) {
-    const ref = document.getElementById('paymentRef').value.trim();
-    if (!ref) { showToast('⚠️ Enter your payment reference ID'); return; }
-    completeAdSubmission();
+    // Payment now handled by handleAdPayment() via the Pay button — this path is for direct nav only
     return;
   }
 
@@ -3527,14 +3772,22 @@ function launchAd() { openAdLaunchModal(); }
 // =================== THEME ===================
 function toggleTheme() {
   document.body.classList.toggle('light');
-  localStorage.setItem('theme', document.body.classList.contains('light')?'light':'dark');
-  document.querySelectorAll('.theme-btn').forEach(b => b.textContent = document.body.classList.contains('light')?'🌙':'☀️');
+  const isLight = document.body.classList.contains('light');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  // Only update the dedicated theme toggle buttons by ID
+  const btn1 = document.getElementById('themeToggleBtn');
+  const btn2 = document.getElementById('themeToggleBtnUser');
+  if (btn1) btn1.textContent = isLight ? '☀️' : '🌙';
+  if (btn2) btn2.textContent = isLight ? '☀️' : '🌙';
 }
 
 window.addEventListener('load', () => {
-  if (localStorage.getItem('theme')==='light') {
+  if (localStorage.getItem('theme') === 'light') {
     document.body.classList.add('light');
-    document.querySelectorAll('.theme-btn').forEach(b=>b.textContent='🌙');
+    const btn1 = document.getElementById('themeToggleBtn');
+    const btn2 = document.getElementById('themeToggleBtnUser');
+    if (btn1) btn1.textContent = '☀️';
+    if (btn2) btn2.textContent = '☀️';
   }
 });
 
@@ -3889,12 +4142,106 @@ function openBoostOrder(planId, tab, platform) {
   }
 
   openModal('boostOrderModal');
+
+  // Default to card payment and mount Stripe element
+  setTimeout(() => {
+    const cardBtn = document.querySelector('#boostOrderModal .pay-method');
+    if (cardBtn) selectBoostPay(cardBtn, 'card');
+  }, 200);
 }
+
+let boostStripeCardElement = null;
 
 function selectBoostPay(el, method) {
   selectedBoostPayMethod = method;
   el.closest('.payment-methods').querySelectorAll('.pay-method').forEach(m=>m.classList.remove('selected'));
   el.classList.add('selected');
+
+  const cardBox = document.getElementById('boostCardPaymentBox');
+  const refGroup = document.getElementById('boostPayRefGroup');
+  const payBtn = document.getElementById('boostPayBtn');
+
+  if (method === 'card') {
+    cardBox.style.display = 'block';
+    refGroup.style.display = 'none';
+    payBtn.textContent = '💳 Pay & Start Boost';
+    mountBoostStripeCardElement();
+  } else {
+    cardBox.style.display = 'none';
+    refGroup.style.display = 'block';
+    payBtn.textContent = '🚀 Confirm Order & Start Boost';
+  }
+}
+
+function mountBoostStripeCardElement() {
+  if (!window.stripeInstance) {
+    document.getElementById('boost-card-element').innerHTML = '<p style="color:var(--red);font-size:0.8rem;">Stripe failed to load. Try refreshing.</p>';
+    return;
+  }
+  if (boostStripeCardElement) return;
+
+  const elements = window.stripeInstance.elements();
+  const style = {
+    base: {
+      color: getComputedStyle(document.body).getPropertyValue('--text').trim() || '#e2e8f0',
+      fontFamily: 'Sora, sans-serif',
+      fontSize: '15px',
+      '::placeholder': { color: '#7c8fa8' }
+    },
+    invalid: { color: '#f87171' }
+  };
+  boostStripeCardElement = elements.create('card', { style });
+  boostStripeCardElement.mount('#boost-card-element');
+
+  boostStripeCardElement.on('change', (event) => {
+    const errEl = document.getElementById('boost-card-errors');
+    errEl.textContent = event.error ? event.error.message : '';
+  });
+}
+
+function handleBoostPayment() {
+  if (selectedBoostPayMethod !== 'card') {
+    const ref = document.getElementById('boostPayRef').value.trim();
+    if (!ref) { showToast('⚠️ Enter your payment reference'); return; }
+    confirmBoostOrder();
+    return;
+  }
+
+  const name = document.getElementById('boostName').value.trim();
+  const email = document.getElementById('boostEmail').value.trim();
+  if (!name) { showToast('⚠️ Enter your name'); return; }
+  if (!email) { showToast('⚠️ Enter your email'); return; }
+
+  // STRIPE CHECKOUT — redirect to Stripe hosted payment page
+  const planId = selectedBoostPlan ? selectedBoostPlan.id : null;
+  const planKey = planId ? 'boost_' + planId : null;
+  const paymentLink = planKey ? window.STRIPE_PAYMENT_LINKS[planKey] : null;
+
+  if (!paymentLink || paymentLink.includes('test_boost_')) {
+    // Payment links not set up yet — show setup instructions
+    showSetupStripeModal();
+    return;
+  }
+
+  // Save pending boost order before redirect
+  const pendingOrder = {
+    type: 'boost',
+    plan: selectedBoostPlan,
+    tab: activeBoostTab,
+    platform: activeBoostPlatform,
+    name, email,
+    username: document.getElementById('boostUsername').value.trim(),
+    timestamp: new Date().toISOString()
+  };
+  localStorage.setItem('ciphertech_pending_order', JSON.stringify(pendingOrder));
+
+  const returnUrl = window.location.href.split('?')[0] + '?payment=success&type=boost&plan=' + encodeURIComponent(selectedBoostPlan.label);
+  const cancelUrl = window.location.href.split('?')[0] + '?payment=cancelled';
+
+  window.open(paymentLink + '?success_url=' + encodeURIComponent(returnUrl) + '&cancel_url=' + encodeURIComponent(cancelUrl), '_blank');
+
+  showToast('🔗 Opening Stripe payment page...');
+  setTimeout(() => confirmBoostOrder(), 1500);
 }
 
 function confirmBoostOrder() {
@@ -3906,7 +4253,7 @@ function confirmBoostOrder() {
   if (!name) { showToast('⚠️ Enter your name'); return; }
   if (!email) { showToast('⚠️ Enter your email'); return; }
   if (!username) { showToast('⚠️ Enter your username/profile URL'); return; }
-  if (!payRef) { showToast('⚠️ Enter your payment reference'); return; }
+  if (!payRef && selectedBoostPayMethod !== 'card') { showToast('⚠️ Enter your payment reference'); return; }
 
   const order = {
     id: 'BOOST-' + Date.now(),
@@ -4243,6 +4590,95 @@ window.addEventListener('load', () => {
   refreshShareOverlay();
 });
 
+
+
+// =================== STRIPE SETUP MODAL ===================
+function showSetupStripeModal() {
+  const existing = document.getElementById('stripeSetupModal');
+  if (existing) { existing.style.display='flex'; return; }
+
+  const modal = document.createElement('div');
+  modal.id = 'stripeSetupModal';
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';
+  modal.innerHTML = `
+    <div style="background:var(--card);border:1.5px solid var(--accent);border-radius:20px;padding:30px;max-width:460px;width:100%;position:relative;">
+      <button onclick="document.getElementById('stripeSetupModal').style.display='none'" style="position:absolute;top:14px;right:14px;background:var(--bg2);border:none;color:var(--text);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;">✕</button>
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="font-size:2.5rem;margin-bottom:10px;">💳</div>
+        <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:6px;">Set Up Stripe Payment Links</h2>
+        <p style="font-size:0.8rem;color:var(--muted);">You need to create Payment Links in your Stripe Dashboard. It takes 5 minutes!</p>
+      </div>
+
+      <div style="background:var(--bg2);border-radius:12px;padding:16px;margin-bottom:16px;">
+        <p style="font-size:0.82rem;font-weight:700;color:var(--accent);margin-bottom:10px;">📋 Steps to create Payment Links:</p>
+        <div style="font-size:0.8rem;line-height:1.8;color:var(--text);">
+          <p>1. Go to <strong>dashboard.stripe.com</strong></p>
+          <p>2. Click <strong>"Payment Links"</strong> in left menu</p>
+          <p>3. Click <strong>"+ New"</strong></p>
+          <p>4. Set the price (e.g. $100 for Starter Ad)</p>
+          <p>5. Copy the link (looks like: buy.stripe.com/...)</p>
+          <p>6. Send all your links to CipherTech support</p>
+        </div>
+      </div>
+
+      <div style="background:var(--bg2);border-radius:12px;padding:14px;margin-bottom:16px;font-size:0.78rem;">
+        <p style="font-weight:700;color:var(--accent2);margin-bottom:8px;">💰 Prices to create links for:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;color:var(--muted);">
+          <span>Ad Starter → $100</span><span>Ad Standard → $300</span>
+          <span>Ad Pro → $750</span><span>Ad Elite → $1,200</span>
+          <span>1K Followers → $100</span><span>10K Followers → $400</span>
+          <span>1M Followers → $1,500</span><span>+ all other boosts</span>
+        </div>
+      </div>
+
+      <a href="https://dashboard.stripe.com/payment-links" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06090f;padding:13px;border-radius:10px;font-weight:800;font-size:0.9rem;text-decoration:none;">
+        🔗 Open Stripe Dashboard →
+      </a>
+      <p style="text-align:center;font-size:0.72rem;color:var(--muted);margin-top:10px;">Once you create them, send the links here and I'll plug them in!</p>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+// =================== HANDLE PAYMENT SUCCESS ON RETURN ===================
+window.addEventListener('load', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const payment = urlParams.get('payment');
+  const type = urlParams.get('type');
+  const plan = urlParams.get('plan');
+
+  if (payment === 'success') {
+    const pending = JSON.parse(localStorage.getItem('ciphertech_pending_order') || 'null');
+    localStorage.removeItem('ciphertech_pending_order');
+
+    // Show success toast
+    setTimeout(() => {
+      showToast('🎉 Payment successful! Your ' + (type === 'ad' ? 'campaign' : 'boost') + ' is now active!');
+
+      // Show success banner
+      const banner = document.createElement('div');
+      banner.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--card);border:2px solid var(--green);border-radius:16px;padding:20px 28px;z-index:9999;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.4);max-width:340px;width:90%;';
+      banner.innerHTML = `
+        <div style="font-size:2.5rem;margin-bottom:8px;">🎉</div>
+        <h3 style="font-size:1rem;font-weight:800;color:var(--green);margin-bottom:6px;">Payment Successful!</h3>
+        <p style="font-size:0.82rem;color:var(--muted);margin-bottom:4px;">${type === 'ad' ? '📣 Your ad campaign' : '📈 Your boost order'} <strong>${plan ? '(' + plan + ')' : ''}</strong> is now active!</p>
+        <p style="font-size:0.75rem;color:var(--muted);">Check your email for confirmation 📧</p>
+        <button onclick="this.parentElement.remove();window.history.replaceState({},'',window.location.pathname);" style="margin-top:12px;background:var(--green);border:none;color:#06090f;padding:8px 20px;border-radius:8px;font-weight:800;cursor:pointer;font-size:0.85rem;">✅ Done</button>
+      `;
+      document.body.appendChild(banner);
+      setTimeout(() => { if (banner.parentElement) banner.remove(); }, 8000);
+    }, 800);
+
+    // Clean URL
+    window.history.replaceState({}, '', window.location.pathname);
+
+  } else if (payment === 'cancelled') {
+    setTimeout(() => {
+      showToast('❌ Payment cancelled — you were not charged.');
+      window.history.replaceState({}, '', window.location.pathname);
+    }, 500);
+  }
+});
 
 // =================== FIREBASE STATUS ===================
 window.addEventListener('load', () => {
