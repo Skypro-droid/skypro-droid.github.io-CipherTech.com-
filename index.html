@@ -69,8 +69,8 @@
     .theme-btn:hover{border-color:var(--accent);}
 
     /* MOBILE MENU */
-    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:5px;cursor:pointer;}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:0.3s;}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:var(--card);border:1.5px solid var(--border);padding:10px;border-radius:10px;cursor:pointer;}
+    .hamburger span{display:block;width:22px;height:2.5px;background:var(--text);border-radius:2px;transition:0.3s;}
     .mobile-menu{display:none;position:fixed;inset:0;background:var(--header);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:20px;}
     .mobile-menu.open{display:flex;}
     .mobile-menu a{font-size:1.5rem;font-weight:700;color:var(--text);}
@@ -211,7 +211,7 @@
     .social-section h2{font-size:2rem;font-weight:800;margin-bottom:10px;}
     .social-section .sub{color:var(--muted);max-width:500px;margin:0 auto 40px;font-size:0.9rem;}
     .social-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:700px;margin:0 auto;}
-    .social-pill{display:flex;align-items:center;gap:10px;padding:14px 22px;border-radius:60px;border:1.5px solid var(--border);background:var(--card);font-weight:700;font-size:0.88rem;transition:0.3s;cursor:pointer;min-width:180px;}
+    .social-pill{display:flex;align-items:center;gap:10px;padding:14px 22px;border-radius:60px;border:1.5px solid var(--border);background:var(--card);font-weight:700;font-size:0.88rem;transition:0.3s;cursor:pointer;min-width:180px;-webkit-tap-highlight-color:rgba(56,189,248,0.2);touch-action:manipulation;}
     .social-pill:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.3);}
     .social-pill svg{width:26px;height:26px;flex-shrink:0;border-radius:6px;}
     .sp-ig:hover{border-color:#e1306c;box-shadow:0 8px 30px rgba(225,48,108,0.2);}
@@ -457,7 +457,7 @@
     .messages-section h2 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
     .messages-section .sub{color:var(--muted);font-size:0.88rem;margin-bottom:24px;}
     .msg-tabs{display:flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:5px;margin-bottom:24px;}
-    .msg-tab{flex:1;padding:10px;border-radius:8px;background:transparent;color:var(--muted);font-size:0.85rem;font-weight:700;border:none;cursor:pointer;transition:0.2s;}
+    .msg-tab{flex:1;padding:10px;border-radius:8px;background:transparent;color:var(--muted);font-size:0.85rem;font-weight:700;border:none;cursor:pointer;transition:0.2s;-webkit-tap-highlight-color:rgba(56,189,248,0.2);touch-action:manipulation;}
     .msg-tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06090f;}
 
     /* PRIVATE CHAT */
@@ -536,7 +536,7 @@
     .blog-section h2{font-size:2rem;font-weight:800;text-align:center;margin-bottom:8px;}
     .blog-section .sub{color:var(--muted);text-align:center;max-width:500px;margin:0 auto 36px;font-size:0.9rem;}
     .blog-filter{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
-    .blog-filter-btn{padding:8px 18px;border-radius:50px;background:var(--card);border:1.5px solid var(--border);color:var(--muted);font-size:0.82rem;font-weight:700;cursor:pointer;transition:0.2s;}
+    .blog-filter-btn{padding:8px 18px;border-radius:50px;background:var(--card);border:1.5px solid var(--border);color:var(--muted);font-size:0.82rem;font-weight:700;cursor:pointer;transition:0.2s;-webkit-tap-highlight-color:rgba(56,189,248,0.2);touch-action:manipulation;}
     .blog-filter-btn.active,.blog-filter-btn:hover{background:var(--accent);color:#06090f;border-color:var(--accent);}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;max-width:1000px;margin:0 auto;}
     .blog-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:0.3s;cursor:pointer;}
@@ -690,6 +690,402 @@
     /* PLATFORM ICON BADGE ON FLOAT AD */
     .plat-badge{display:inline-flex;align-items:center;gap:4px;font-size:0.65rem;font-weight:700;background:var(--bg2);border:1px solid var(--border);padding:3px 8px;border-radius:20px;}
 
+
+    /* STAR RATING */
+    .star-rating{display:flex;flex-direction:row-reverse;justify-content:center;gap:8px;margin:12px 0;}
+    .star-rating input{display:none;}
+    .star-rating label{font-size:2.5rem;cursor:pointer;color:#334155;transition:0.15s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none;-webkit-user-select:none;line-height:1;}
+    .star-rating input:checked ~ label{color:#fbbf24 !important;}
+    .star-rating label:hover,.star-rating label:hover ~ label{color:#fbbf24;}
+    .star-rating label.active{color:#fbbf24 !important;transform:scale(1.2);}
+    .star-rating label:active{transform:scale(1.3);}
+
+    /* REVIEW CARD */
+    .review-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:0.3s;}
+    .review-card:hover{border-color:var(--accent);box-shadow:0 8px 30px rgba(56,189,248,0.1);}
+    .review-stars{color:#fbbf24;font-size:1rem;margin-bottom:10px;}
+    .review-text{font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;}
+    .review-author{display:flex;align-items:center;gap:10px;}
+    .review-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.85rem;flex-shrink:0;}
+
+    /* LEAVE REVIEW FORM */
+    .review-form{background:var(--card);border:2px solid var(--accent);border-radius:18px;padding:26px;margin-bottom:30px;}
+    .review-form h3{font-size:1.1rem;font-weight:800;margin-bottom:6px;}
+    .review-form p{font-size:0.82rem;color:var(--muted);margin-bottom:16px;}
+    .review-form input,.review-form textarea{width:100%;background:var(--bg2);border:1.5px solid var(--border);color:var(--text);padding:10px 14px;border-radius:10px;font-size:0.88rem;outline:none;transition:0.2s;font-family:'Sora',sans-serif;margin-bottom:10px;}
+    .review-form input:focus,.review-form textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--glow);}
+    .review-form textarea{min-height:90px;resize:vertical;}
+    .review-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+
+
+    /* ================= SCROLL ANIMATIONS ================= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .fade-in-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    /* Stagger delays for children */
+    .stagger-1 { transition-delay: 0.1s !important; }
+    .stagger-2 { transition-delay: 0.2s !important; }
+    .stagger-3 { transition-delay: 0.3s !important; }
+    .stagger-4 { transition-delay: 0.4s !important; }
+    .stagger-5 { transition-delay: 0.5s !important; }
+    .stagger-6 { transition-delay: 0.6s !important; }
+
+
+    /* ================= SCROLL ANIMATIONS ================= */
+    .fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+
+    .fade-left{opacity:0;transform:translateX(-50px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .fade-left.visible{opacity:1;transform:translateX(0);}
+
+    .fade-right{opacity:0;transform:translateX(50px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .fade-right.visible{opacity:1;transform:translateX(0);}
+
+    .fade-up-delay-1{transition-delay:0.1s;}
+    .fade-up-delay-2{transition-delay:0.2s;}
+    .fade-up-delay-3{transition-delay:0.3s;}
+    .fade-up-delay-4{transition-delay:0.4s;}
+    .fade-up-delay-5{transition-delay:0.5s;}
+    .fade-up-delay-6{transition-delay:0.6s;}
+
+    .zoom-in{opacity:0;transform:scale(0.85);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .zoom-in.visible{opacity:1;transform:scale(1);}
+
+    .slide-up{opacity:0;transform:translateY(60px);transition:opacity 0.8s cubic-bezier(.34,1.56,.64,1),transform 0.8s cubic-bezier(.34,1.56,.64,1);}
+    .slide-up.visible{opacity:1;transform:translateY(0);}
+
+
+
+    /* ================= LOADING SCREEN ================= */
+    #pageLoader{
+      position:fixed;inset:0;
+      background:#060b18;
+      z-index:99999;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:20px;
+      transition:opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #pageLoader.hidden{
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+    }
+    .loader-logo{
+      width:110px;
+      height:110px;
+      border-radius:22px;
+      object-fit:cover;
+      box-shadow:0 0 40px rgba(56,189,248,0.6), 0 0 80px rgba(129,140,248,0.3);
+      animation:logoPulse 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes logoPulse{
+      0%{box-shadow:0 0 30px rgba(56,189,248,0.5),0 0 60px rgba(129,140,248,0.2);transform:scale(1);}
+      100%{box-shadow:0 0 60px rgba(56,189,248,0.9),0 0 120px rgba(129,140,248,0.5);transform:scale(1.05);}
+    }
+    .loader-brand{
+      font-family:'Space Mono',monospace;
+      font-size:1.6rem;
+      font-weight:700;
+      background:linear-gradient(135deg,#38bdf8,#818cf8);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+    }
+    .loader-text{
+      font-size:0.85rem;
+      color:#7c8fa8;
+      font-family:'Sora',sans-serif;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .loader-dots{
+      display:flex;
+      gap:5px;
+    }
+    .loader-dots span{
+      width:7px;height:7px;
+      border-radius:50%;
+      background:#38bdf8;
+      animation:dotBounce 1.2s ease-in-out infinite;
+      display:inline-block;
+    }
+    .loader-dots span:nth-child(2){animation-delay:0.2s;}
+    .loader-dots span:nth-child(3){animation-delay:0.4s;}
+    @keyframes dotBounce{
+      0%,80%,100%{transform:translateY(0);opacity:0.4;}
+      40%{transform:translateY(-10px);opacity:1;}
+    }
+    .loader-bar{
+      width:200px;height:3px;
+      background:rgba(56,189,248,0.15);
+      border-radius:2px;
+      overflow:hidden;
+      margin-top:6px;
+    }
+    .loader-bar-fill{
+      height:100%;
+      background:linear-gradient(90deg,#38bdf8,#818cf8);
+      border-radius:2px;
+      width:0%;
+      animation:loadBar 2s ease forwards;
+    }
+    @keyframes loadBar{
+      0%{width:0%;}
+      60%{width:75%;}
+      100%{width:100%;}
+    }
+    .loader-tagline{
+      font-size:0.72rem;
+      color:#475569;
+      font-family:'Sora',sans-serif;
+      letter-spacing:0.08em;
+    }
+
+
+    /* ================= AI CHATBOT ================= */
+    #ctChatBtn{
+      position:fixed;bottom:24px;right:24px;z-index:8000;
+      width:58px;height:58px;border-radius:50%;
+      background:linear-gradient(135deg,#38bdf8,#818cf8);
+      border:none;cursor:pointer;
+      box-shadow:0 4px 20px rgba(56,189,248,0.5);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.6rem;transition:0.3s;
+      animation:chatPulse 2.5s ease-in-out infinite;
+    }
+    #ctChatBtn:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(56,189,248,0.7);}
+    @keyframes chatPulse{
+      0%,100%{box-shadow:0 4px 20px rgba(56,189,248,0.5);}
+      50%{box-shadow:0 4px 40px rgba(56,189,248,0.9),0 0 0 8px rgba(56,189,248,0.1);}
+    }
+    #ctChatNotif{
+      position:absolute;top:-4px;right:-4px;
+      background:#ef4444;color:#fff;
+      width:18px;height:18px;border-radius:50%;
+      font-size:0.65rem;font-weight:800;
+      display:flex;align-items:center;justify-content:center;
+      border:2px solid #060b18;
+    }
+    #ctChatWidget{
+      position:fixed;bottom:94px;right:24px;z-index:8000;
+      width:340px;max-width:calc(100vw - 32px);
+      background:var(--card);
+      border:1.5px solid var(--border);
+      border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+      display:none;flex-direction:column;
+      overflow:hidden;
+      animation:chatSlideUp 0.35s cubic-bezier(.34,1.56,.64,1);
+      max-height:520px;
+    }
+    #ctChatWidget.open{display:flex;}
+    @keyframes chatSlideUp{
+      from{opacity:0;transform:translateY(30px) scale(0.95);}
+      to{opacity:1;transform:translateY(0) scale(1);}
+    }
+    .ct-chat-header{
+      background:linear-gradient(135deg,#38bdf8,#818cf8);
+      padding:14px 16px;
+      display:flex;align-items:center;gap:10px;
+    }
+    .ct-chat-header .avatar{
+      width:36px;height:36px;border-radius:50%;
+      background:rgba(255,255,255,0.2);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.2rem;flex-shrink:0;
+    }
+    .ct-chat-header .info strong{
+      display:block;font-size:0.88rem;
+      font-weight:800;color:#fff;
+    }
+    .ct-chat-header .info span{
+      font-size:0.7rem;color:rgba(255,255,255,0.8);
+      display:flex;align-items:center;gap:4px;
+    }
+    .ct-chat-header .info span::before{
+      content:'';width:6px;height:6px;
+      border-radius:50%;background:#4ade80;
+      box-shadow:0 0 6px #4ade80;display:inline-block;
+    }
+    .ct-chat-close{
+      margin-left:auto;background:rgba(255,255,255,0.2);
+      border:none;color:#fff;width:28px;height:28px;
+      border-radius:50%;cursor:pointer;font-size:0.9rem;
+      display:flex;align-items:center;justify-content:center;
+      transition:0.2s;
+    }
+    .ct-chat-close:hover{background:rgba(255,255,255,0.35);}
+    .ct-chat-messages{
+      flex:1;overflow-y:auto;padding:14px;
+      display:flex;flex-direction:column;gap:10px;
+      min-height:280px;max-height:340px;
+    }
+    .ct-chat-messages::-webkit-scrollbar{width:4px;}
+    .ct-chat-messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+    .ct-msg{max-width:82%;padding:10px 14px;border-radius:14px;font-size:0.83rem;line-height:1.55;}
+    .ct-msg.bot{
+      align-self:flex-start;
+      background:var(--bg2);
+      border:1px solid var(--border);
+      border-radius:4px 14px 14px 14px;
+      color:var(--text);
+    }
+    .ct-msg.user{
+      align-self:flex-end;
+      background:linear-gradient(135deg,#38bdf8,#818cf8);
+      color:#06090f;font-weight:600;
+      border-radius:14px 14px 4px 14px;
+    }
+    .ct-msg.typing{
+      align-self:flex-start;
+      background:var(--bg2);border:1px solid var(--border);
+      border-radius:4px 14px 14px 14px;
+      padding:12px 16px;
+    }
+    .ct-typing-dots{display:flex;gap:4px;align-items:center;}
+    .ct-typing-dots span{
+      width:7px;height:7px;border-radius:50%;
+      background:var(--accent);opacity:0.4;
+      animation:ctDot 1.2s ease-in-out infinite;
+    }
+    .ct-typing-dots span:nth-child(2){animation-delay:0.2s;}
+    .ct-typing-dots span:nth-child(3){animation-delay:0.4s;}
+    @keyframes ctDot{
+      0%,80%,100%{opacity:0.4;transform:scale(1);}
+      40%{opacity:1;transform:scale(1.2);}
+    }
+    .ct-quick-btns{
+      display:flex;gap:6px;flex-wrap:wrap;
+      padding:8px 14px;border-top:1px solid var(--border);
+    }
+    .ct-quick-btn{
+      background:var(--bg2);border:1px solid var(--border);
+      color:var(--muted);padding:5px 10px;border-radius:20px;
+      font-size:0.72rem;font-weight:600;cursor:pointer;
+      transition:0.2s;white-space:nowrap;touch-action:manipulation;
+    }
+    .ct-quick-btn:hover{border-color:var(--accent);color:var(--accent);}
+    .ct-chat-input-row{
+      display:flex;gap:8px;padding:12px 14px;
+      border-top:1px solid var(--border);background:var(--bg2);
+    }
+    .ct-chat-input{
+      flex:1;background:var(--card);border:1.5px solid var(--border);
+      color:var(--text);padding:9px 14px;border-radius:50px;
+      font-size:0.83rem;outline:none;transition:0.2s;
+      font-family:'Sora',sans-serif;
+    }
+    .ct-chat-input:focus{border-color:var(--accent);}
+    .ct-chat-send{
+      background:linear-gradient(135deg,#38bdf8,#818cf8);
+      border:none;color:#06090f;width:36px;height:36px;
+      border-radius:50%;cursor:pointer;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+      transition:0.2s;touch-action:manipulation;
+    }
+    .ct-chat-send:hover{transform:scale(1.1);}
+    .ct-msg a{color:var(--accent);font-weight:700;}
+    .ct-powered{
+      text-align:center;font-size:0.62rem;color:var(--muted);
+      padding:6px;border-top:1px solid var(--border);
+    }
+
+
+    /* ================= TRUSTED BY ================= */
+    .trusted-section{
+      padding:40px 20px;
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      background:var(--bg);
+      overflow:hidden;
+    }
+    .trusted-label{
+      text-align:center;
+      font-size:0.75rem;
+      font-weight:700;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      margin-bottom:20px;
+    }
+    .trusted-track-wrap{
+      overflow:hidden;
+      position:relative;
+      mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent);
+      -webkit-mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent);
+    }
+    .trusted-track{
+      display:flex;
+      gap:48px;
+      align-items:center;
+      animation:marquee 22s linear infinite;
+      width:max-content;
+    }
+    .trusted-track:hover{animation-play-state:paused;}
+    @keyframes marquee{
+      0%{transform:translateX(0);}
+      100%{transform:translateX(-50%);}
+    }
+    .trusted-logo{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      opacity:0.45;
+      transition:opacity 0.3s;
+      flex-shrink:0;
+      cursor:default;
+      filter:grayscale(1);
+    }
+    .trusted-logo:hover{opacity:1;filter:grayscale(0);}
+    .trusted-logo svg{width:26px;height:26px;flex-shrink:0;}
+    .trusted-logo span{
+      font-size:1rem;
+      font-weight:800;
+      white-space:nowrap;
+      color:var(--text);
+      font-family:'Sora',sans-serif;
+      letter-spacing:-0.02em;
+    }
+
   </style>
   <!-- Firebase SDKs -->
   <script type="module">
@@ -824,1227 +1220,74 @@
 
   
 
-// =================== STRIPE SETUP MODAL ===================
-function showSetupStripeModal() {
-  const existing = document.getElementById('stripeSetupModal');
-  if (existing) { existing.style.display='flex'; return; }
-
-  const modal = document.createElement('div');
-  modal.id = 'stripeSetupModal';
-  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';
-  modal.innerHTML = `
-    <div style="background:var(--card);border:1.5px solid var(--accent);border-radius:20px;padding:30px;max-width:460px;width:100%;position:relative;">
-      <button onclick="document.getElementById('stripeSetupModal').style.display='none'" style="position:absolute;top:14px;right:14px;background:var(--bg2);border:none;color:var(--text);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;">✕</button>
-      <div style="text-align:center;margin-bottom:20px;">
-        <div style="font-size:2.5rem;margin-bottom:10px;">💳</div>
-        <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:6px;">Set Up Stripe Payment Links</h2>
-        <p style="font-size:0.8rem;color:var(--muted);">You need to create Payment Links in your Stripe Dashboard. It takes 5 minutes!</p>
-      </div>
-
-      <div style="background:var(--bg2);border-radius:12px;padding:16px;margin-bottom:16px;">
-        <p style="font-size:0.82rem;font-weight:700;color:var(--accent);margin-bottom:10px;">📋 Steps to create Payment Links:</p>
-        <div style="font-size:0.8rem;line-height:1.8;color:var(--text);">
-          <p>1. Go to <strong>dashboard.stripe.com</strong></p>
-          <p>2. Click <strong>"Payment Links"</strong> in left menu</p>
-          <p>3. Click <strong>"+ New"</strong></p>
-          <p>4. Set the price (e.g. $100 for Starter Ad)</p>
-          <p>5. Copy the link (looks like: buy.stripe.com/...)</p>
-          <p>6. Send all your links to CipherTech support</p>
-        </div>
-      </div>
-
-      <div style="background:var(--bg2);border-radius:12px;padding:14px;margin-bottom:16px;font-size:0.78rem;">
-        <p style="font-weight:700;color:var(--accent2);margin-bottom:8px;">💰 Prices to create links for:</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;color:var(--muted);">
-          <span>Ad Starter → $100</span><span>Ad Standard → $300</span>
-          <span>Ad Pro → $750</span><span>Ad Elite → $1,200</span>
-          <span>1K Followers → $100</span><span>10K Followers → $400</span>
-          <span>1M Followers → $1,500</span><span>+ all other boosts</span>
-        </div>
-      </div>
-
-      <a href="https://dashboard.stripe.com/payment-links" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06090f;padding:13px;border-radius:10px;font-weight:800;font-size:0.9rem;text-decoration:none;">
-        🔗 Open Stripe Dashboard →
-      </a>
-      <p style="text-align:center;font-size:0.72rem;color:var(--muted);margin-top:10px;">Once you create them, send the links here and I'll plug them in!</p>
-    </div>
-  `;
-  document.body.appendChild(modal);
-}
-
-// =================== HANDLE PAYMENT SUCCESS ON RETURN ===================
-window.addEventListener('load', () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const payment = urlParams.get('payment');
-  const type = urlParams.get('type');
-  const plan = urlParams.get('plan');
-
-  if (payment === 'success') {
-    const pending = JSON.parse(localStorage.getItem('ciphertech_pending_order') || 'null');
-    localStorage.removeItem('ciphertech_pending_order');
-
-    // Show success toast
-    setTimeout(() => {
-      showToast('🎉 Payment successful! Your ' + (type === 'ad' ? 'campaign' : 'boost') + ' is now active!');
-
-      // Show success banner
-      const banner = document.createElement('div');
-      banner.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--card);border:2px solid var(--green);border-radius:16px;padding:20px 28px;z-index:9999;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.4);max-width:340px;width:90%;';
-      banner.innerHTML = `
-        <div style="font-size:2.5rem;margin-bottom:8px;">🎉</div>
-        <h3 style="font-size:1rem;font-weight:800;color:var(--green);margin-bottom:6px;">Payment Successful!</h3>
-        <p style="font-size:0.82rem;color:var(--muted);margin-bottom:4px;">${type === 'ad' ? '📣 Your ad campaign' : '📈 Your boost order'} <strong>${plan ? '(' + plan + ')' : ''}</strong> is now active!</p>
-        <p style="font-size:0.75rem;color:var(--muted);">Check your email for confirmation 📧</p>
-        <button onclick="this.parentElement.remove();window.history.replaceState({},'',window.location.pathname);" style="margin-top:12px;background:var(--green);border:none;color:#06090f;padding:8px 20px;border-radius:8px;font-weight:800;cursor:pointer;font-size:0.85rem;">✅ Done</button>
-      `;
-      document.body.appendChild(banner);
-      setTimeout(() => { if (banner.parentElement) banner.remove(); }, 8000);
-    }, 800);
-
-    // Clean URL
-    window.history.replaceState({}, '', window.location.pathname);
-
-  } else if (payment === 'cancelled') {
-    setTimeout(() => {
-      showToast('❌ Payment cancelled — you were not charged.');
-      window.history.replaceState({}, '', window.location.pathname);
-    }, 500);
-  }
-});
-
-// =================== FIREBASE STATUS ===================
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const dot = document.getElementById('fbDot');
-    const txt = document.getElementById('fbText');
-    if (window._db) {
-      dot.style.background = '#34d399';
-      txt.textContent = '🔥 Firebase Live';
-      setTimeout(() => {
-        document.getElementById('fbStatus').style.opacity = '0';
-        document.getElementById('fbStatus').style.transition = 'opacity 1s';
-      }, 3000);
-    } else {
-      dot.style.background = '#f87171';
-      txt.textContent = 'Offline mode';
-    }
-  }, 2500);
-});
-
-
-// =================== AUTO SHARE TO ALL SOCIALS ===================
-function autoShareToAll(caption, mediaUrl) {
-  const siteUrl = encodeURIComponent('https://ciphertech.com');
-  const fullText = encodeURIComponent(caption + '\n\n🌐 CipherTech.com | Sponsored by CipherTech.com');
-  const shortText = encodeURIComponent('Check out this post from CipherTech.com! 🚀');
-
-  const platforms = [
-    {
-      name: 'Twitter/X',
-      url: `https://twitter.com/intent/tweet?text=${fullText}&url=${siteUrl}&via=CipherTech0z`
-    },
-    {
-      name: 'Facebook',
-      url: `https://www.facebook.com/sharer/sharer.php?u=${siteUrl}&quote=${fullText}`
-    },
-    {
-      name: 'LinkedIn',
-      url: `https://www.linkedin.com/sharing/share-offsite/?url=${siteUrl}&summary=${fullText}`
-    },
-    {
-      name: 'WhatsApp',
-      url: `https://wa.me/2347037604756?text=${fullText}%20${siteUrl}`
-    },
-    {
-      name: 'Telegram',
-      url: `https://t.me/share/url?url=${siteUrl}&text=${fullText}`
-    }
-  ];
-
-  // Show auto-share notification panel
-  showAutoSharePanel(platforms, caption);
-}
-
-function showAutoSharePanel(platforms, caption) {
-  // Remove existing panel if any
-  const existing = document.getElementById('autoSharePanel');
-  if (existing) existing.remove();
-
-  const panel = document.createElement('div');
-  panel.id = 'autoSharePanel';
-  panel.style.cssText = `
-    position:fixed;bottom:0;left:0;right:0;
-    background:var(--card);
-    border-top:2px solid var(--accent);
-    border-radius:20px 20px 0 0;
-    padding:24px 20px;
-    z-index:3000;
-    box-shadow:0 -10px 40px rgba(0,0,0,0.5);
-    transform:translateY(100%);
-    transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);
-  `;
-
-  panel.innerHTML = `
-    <div style="width:40px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 16px;"></div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-      <div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:4px;">🚀 Auto-Sharing to All Platforms</h3>
-        <p style="font-size:0.78rem;color:var(--muted);">Tap each platform to share — Sponsored by CipherTech.com</p>
-      </div>
-      <button onclick="document.getElementById('autoSharePanel').remove()" style="background:var(--bg2);border:1px solid var(--border);color:var(--text);width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;" id="sharePlatformGrid">
-      ${platforms.map((p, i) => `
-        <div id="share-platform-${i}" onclick="doShare('${p.url}', ${i})" style="
-          background:var(--bg2);border:1.5px solid var(--border);
-          border-radius:12px;padding:12px 8px;text-align:center;
-          cursor:pointer;transition:0.2s;font-size:0.78rem;font-weight:700;
-        ">
-          <div style="font-size:1.4rem;margin-bottom:6px;">${getPlatformIcon(p.name)}</div>
-          <div>${p.name}</div>
-          <div id="share-status-${i}" style="font-size:0.65rem;color:var(--muted);margin-top:4px;">Tap to share</div>
-        </div>
-      `).join('')}
-    </div>
-    <button onclick="shareAllAtOnce(${JSON.stringify(platforms).replace(/"/g, '&quot;')})" style="
-      width:100%;padding:13px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      border:none;border-radius:12px;
-      color:#06090f;font-weight:800;font-size:0.92rem;cursor:pointer;
-      box-shadow:0 4px 20px var(--glow);
-    ">⚡ Share to ALL Platforms at Once</button>
-  `;
-
-  document.body.appendChild(panel);
-  setTimeout(() => panel.style.transform = 'translateY(0)', 100);
-}
-
-function getPlatformIcon(name) {
-  const icons = {
-    'Twitter/X': '𝕏',
-    'Facebook': '📘',
-    'LinkedIn': '💼',
-    'WhatsApp': '💬',
-    'Telegram': '✈️',
-    'Instagram': '📸',
-    'TikTok': '🎵'
-  };
-  return icons[name] || '🌐';
-}
-
-function doShare(url, idx) {
-  window.open(url, '_blank');
-  const el = document.getElementById('share-platform-' + idx);
-  const status = document.getElementById('share-status-' + idx);
-  if (el) {
-    el.style.borderColor = 'var(--green)';
-    el.style.background = 'rgba(52,211,153,0.1)';
-  }
-  if (status) {
-    status.textContent = '✅ Shared!';
-    status.style.color = 'var(--green)';
-  }
-  if (window.incrementShareInFirebase && window.activeSharePostId) {
-    window.incrementShareInFirebase(window.activeSharePostId);
-  }
-}
-
-function shareAllAtOnce(platforms) {
-  platforms.forEach((p, i) => {
-    setTimeout(() => {
-      window.open(p.url, '_blank');
-      const el = document.getElementById('share-platform-' + i);
-      const status = document.getElementById('share-status-' + i);
-      if (el) { el.style.borderColor='var(--green)'; el.style.background='rgba(52,211,153,0.1)'; }
-      if (status) { status.textContent='✅ Shared!'; status.style.color='var(--green)'; }
-    }, i * 800);
-  });
-  showToast('🚀 Sharing to all ' + platforms.length + ' platforms!');
-  setTimeout(() => {
-    const panel = document.getElementById('autoSharePanel');
-    if (panel) {
-      const btn = panel.querySelector('button:last-child');
-      if (btn) { btn.textContent = '✅ All Platforms Shared!'; btn.style.background = 'var(--green)'; }
-    }
-  }, platforms.length * 800 + 500);
-}
-
-
-// =================== FLOATING AD WIDGET ===================
-function saveFloatingAd(adRecord) {
-  // Save to localStorage so it persists & shows on all pages
-  localStorage.setItem('ciphertech_floating_ad', JSON.stringify(adRecord));
-  // Save to Firebase too so it's visible to all visitors
-  if (window._db && window._fsLib) {
-    const {collection, addDoc} = window._fsLib;
-    addDoc(collection(window._db, 'floating_ads'), adRecord).catch(console.error);
-  }
-  showFloatingAd(adRecord);
-}
-
-function showFloatingAd(ad) {
-  if (!ad) return;
-  const now = new Date();
-  const expiry = new Date(ad.expiryDate);
-  if (expiry < now) return; // expired
-
-  // Check if dismissed this session
-  if (sessionStorage.getItem('dismissed_ad_' + ad.id)) return;
-
-  const container = document.getElementById('floatingAdContainer');
-
-  let bodyContent = '';
-  let visitUrl = '#';
-  let storesHtml = '';
-
-  if (ad.destinationType === 'app' && ad.destination) {
-    const appName = ad.destination.appName || ad.campaign;
-    const appStoreUrl = ad.destination.appStoreUrl || '';
-    const playStoreUrl = ad.destination.playStoreUrl || '';
-
-    // Detect device and pick the right store
-    const ua = navigator.userAgent || '';
-    const isIOS = /iPhone|iPad|iPod/i.test(ua);
-    const isAndroid = /Android/i.test(ua);
-
-    if (isIOS && appStoreUrl) visitUrl = appStoreUrl;
-    else if (isAndroid && playStoreUrl) visitUrl = playStoreUrl;
-    else visitUrl = appStoreUrl || playStoreUrl || '#';
-
-    storesHtml = '<div class="floating-ad-stores">';
-    if (appStoreUrl) storesHtml += `<a class="store-btn" href="${appStoreUrl}" target="_blank"> Store</a>`;
-    if (playStoreUrl) storesHtml += `<a class="store-btn" href="${playStoreUrl}" target="_blank">▶ Play</a>`;
-    storesHtml += '</div>';
-  } else {
-    visitUrl = (ad.destination && ad.destination.websiteUrl) || 'https://ciphertech.com';
-  }
-
-  bodyContent = `
-    <p><strong>${ad.campaign}</strong><br>by ${ad.advertiser}</p>
-    ${storesHtml}
-    <a class="floating-ad-visit" href="${visitUrl}" target="_blank" onclick="trackAdClick('${ad.id}')">
-      ${ad.destinationType === 'app' ? '📲 Get the App' : '🌐 Visit Now'}
-    </a>
-    <div class="floating-ad-sponsor">⚡ Sponsored by ${ad.advertiser || 'CipherTech.com'} via CipherTech.com</div>
-  `;
-
-  container.innerHTML = `
-    <div class="floating-ad" id="floatingAdWidget">
-      <div class="floating-ad-header">
-        <span>⚡ Sponsored</span>
-        <button class="floating-ad-close" onclick="dismissFloatingAd('${ad.id}')">✕</button>
-      </div>
-      <div class="floating-ad-body">${bodyContent}</div>
-    </div>
-  `;
-}
-
-function dismissFloatingAd(adId) {
-  sessionStorage.setItem('dismissed_ad_' + adId, 'true');
-  const widget = document.getElementById('floatingAdWidget');
-  if (widget) {
-    widget.style.transition = 'all 0.3s';
-    widget.style.opacity = '0';
-    widget.style.transform = 'translateY(30px)';
-    setTimeout(() => widget.remove(), 300);
-  }
-}
-
-function trackAdClick(adId) {
-  showToast('🔗 Redirecting...');
-  // Track clicks in Firebase
-  if (window._db && window._fsLib) {
-    const {collection, addDoc} = window._fsLib;
-    addDoc(collection(window._db, 'ad_clicks'), {adId, timestamp: new Date().toISOString()}).catch(console.error);
-  }
-}
-
-// Load floating ad on page load
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const savedAd = JSON.parse(localStorage.getItem('ciphertech_floating_ad') || 'null');
-    if (savedAd) showFloatingAd(savedAd);
-
-    // Also try loading from Firebase (latest active ad)
-    if (window._db && window._fsLib) {
-      const {collection, getDocs, query, orderBy} = window._fsLib;
-      getDocs(query(collection(window._db, 'floating_ads'), orderBy('startDate', 'desc')))
-        .then(snapshot => {
-          snapshot.forEach(doc => {
-            const ad = doc.data();
-            const expiry = new Date(ad.expiryDate);
-            if (expiry > new Date() && !sessionStorage.getItem('dismissed_ad_' + ad.id)) {
-              showFloatingAd(ad);
-            }
-          });
-        }).catch(()=>{});
-    }
-  }, 3000);
-});
-
-// =================== MESSAGES: PRIVATE CHAT ===================
-function switchMsgTab(btn, tab) {
-  document.querySelectorAll('.msg-tab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('msgTabChat').style.display = tab==='chat' ? 'block' : 'none';
-  document.getElementById('msgTabFeedback').style.display = tab==='feedback' ? 'block' : 'none';
-  if (tab === 'feedback') renderFeedback();
-  if (tab === 'chat') renderChat();
-}
-
-function getChatKey() {
-  if (!currentUser) return null;
-  return 'chat_' + (currentUser.email || currentUser.name || 'guest').replace(/[^a-zA-Z0-9]/g,'_');
-}
-
-function renderChat() {
-  const container = document.getElementById('chatMessages');
-  if (!currentUser) {
-    container.innerHTML = '<div class="chat-empty">🔒 Please log in to chat privately with CipherTech.</div>';
-    return;
-  }
-  const key = getChatKey();
-  const messages = JSON.parse(localStorage.getItem(key) || '[]');
-  if (messages.length === 0) {
-    container.innerHTML = '<div class="chat-empty">💬 Start a private conversation with CipherTech. Your messages are only visible to you and CipherTech.</div>';
-    return;
-  }
-  container.innerHTML = messages.map(m => `
-    <div class="chat-msg ${m.from==='me'?'mine':'theirs'}">
-      ${m.text}
-      <span class="msg-time">${m.time}</span>
-    </div>
-  `).join('');
-  container.scrollTop = container.scrollHeight;
-}
-
-function sendChatMessage() {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const input = document.getElementById('chatInput');
-  const text = input.value.trim();
-  if (!text) return;
-
-  const key = getChatKey();
-  const messages = JSON.parse(localStorage.getItem(key) || '[]');
-  const time = new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-  messages.push({from:'me', text, time, sender: currentUser.email || currentUser.name});
-  localStorage.setItem(key, JSON.stringify(messages));
-
-  // Save to Firebase for CipherTech to see
-  if (window._db && window._fsLib) {
-    const {collection, addDoc, serverTimestamp} = window._fsLib;
-    addDoc(collection(window._db, 'private_messages'), {
-      sender: currentUser.email || currentUser.name,
-      text,
-      createdAt: serverTimestamp()
-    }).catch(console.error);
-  }
-
-  input.value='';
-  renderChat();
-
-  // Auto-reply simulation
-  setTimeout(() => {
-    const messages2 = JSON.parse(localStorage.getItem(key) || '[]');
-    messages2.push({from:'them', text:'Thanks for your message! The CipherTech team will respond shortly. 🚀', time: new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})});
-    localStorage.setItem(key, JSON.stringify(messages2));
-    renderChat();
-  }, 1200);
-}
-
-// =================== PUBLIC FEEDBACK ===================
-function renderFeedback() {
-  const list = document.getElementById('feedbackList');
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-
-  if (feedbacks.length === 0) {
-    list.innerHTML = '<div class="chat-empty">⭐ No feedback yet. Be the first to share your thoughts!</div>';
-    return;
-  }
-
-  list.innerHTML = feedbacks.slice().reverse().map((fb, idx) => {
-    const realIdx = feedbacks.length - 1 - idx;
-    const repliesHtml = (fb.replies||[]).map(r => `
-      <div class="fb-reply">
-        <div class="fb-reply-avatar">${r.avatar}</div>
-        <div class="fb-reply-bubble"><strong>${r.name}</strong><p>${r.text}</p></div>
-      </div>`).join('');
-
-    return `
-    <div class="feedback-card">
-      <div class="feedback-header">
-        <div class="feedback-avatar">${fb.avatar}</div>
-        <div class="feedback-meta">
-          <strong>${fb.name}</strong>
-          <span>${fb.email} • ${fb.time}</span>
-        </div>
-      </div>
-      <div class="feedback-text">${fb.text}</div>
-      <div class="feedback-actions">
-        <button class="fb-action ${fb.liked?'liked':''}" onclick="toggleFeedbackLike(${realIdx})">
-          <svg viewBox="0 0 24 24" fill="${fb.liked?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          ${fb.likes||0}
-        </button>
-        <button class="fb-action" onclick="toggleFeedbackReply(${realIdx})">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Reply (${(fb.replies||[]).length})
-        </button>
-      </div>
-      <div class="fb-replies" id="fb-replies-${realIdx}">
-        ${repliesHtml}
-        <div class="fb-reply-input-row">
-          <input type="text" id="fb-reply-input-${realIdx}" placeholder="Write a reply..." onkeydown="if(event.key==='Enter')addFeedbackReply(${realIdx})">
-          <button class="comment-send" onclick="addFeedbackReply(${realIdx})" style="background:var(--accent);border:none;color:#06090f;width:32px;height:32px;border-radius:50%;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function postFeedback() {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const input = document.getElementById('feedbackInput');
-  const text = input.value.trim();
-  if (!text) { showToast('⚠️ Write your feedback first'); return; }
-
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-  const newFb = {
-    name: currentUser.name,
-    email: currentUser.email || 'guest@ciphertech.com',
-    avatar: currentUser.avatar,
-    text,
-    time: 'Just now',
-    likes: 0,
-    liked: false,
-    replies: []
-  };
-  feedbacks.push(newFb);
-  localStorage.setItem('ciphertech_feedback', JSON.stringify(feedbacks));
-
-  // Save to Firebase
-  if (window._db && window._fsLib) {
-    const {collection, addDoc, serverTimestamp} = window._fsLib;
-    addDoc(collection(window._db, 'feedback'), {...newFb, createdAt: serverTimestamp()}).catch(console.error);
-  }
-
-  input.value='';
-  renderFeedback();
-  showToast('⭐ Feedback posted publicly!');
-}
-
-function toggleFeedbackLike(idx) {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-  const fb = feedbacks[idx];
-  fb.liked = !fb.liked;
-  fb.likes = (fb.likes||0) + (fb.liked ? 1 : -1);
-  localStorage.setItem('ciphertech_feedback', JSON.stringify(feedbacks));
-  renderFeedback();
-}
-
-function toggleFeedbackReply(idx) {
-  const el = document.getElementById('fb-replies-'+idx);
-  el.classList.toggle('open');
-}
-
-function addFeedbackReply(idx) {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const input = document.getElementById('fb-reply-input-'+idx);
-  const text = input.value.trim();
-  if (!text) return;
-
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-  feedbacks[idx].replies = feedbacks[idx].replies || [];
-  feedbacks[idx].replies.push({name: currentUser.name, avatar: currentUser.avatar, text});
-  localStorage.setItem('ciphertech_feedback', JSON.stringify(feedbacks));
-  input.value='';
-  renderFeedback();
-  document.getElementById('fb-replies-'+idx).classList.add('open');
-  showToast('💬 Reply posted!');
-}
-
-// Init feedback/chat on load
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    if (document.getElementById('feedbackList')) renderFeedback();
-    if (document.getElementById('chatMessages')) renderChat();
-  }, 500);
-});
-
 </script>
 
   <!-- EmailJS for real email notifications -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-// =================== FLOATING AD WIDGET ===================
-function saveFloatingAd(adRecord) {
-  // Save to localStorage so it persists & shows on all pages
-  localStorage.setItem('ciphertech_floating_ad', JSON.stringify(adRecord));
-  // Save to Firebase too so it's visible to all visitors
-  if (window._db && window._fsLib) {
-    const {collection, addDoc} = window._fsLib;
-    addDoc(collection(window._db, 'floating_ads'), adRecord).catch(console.error);
-  }
-  showFloatingAd(adRecord);
-}
-
-function showFloatingAd(ad) {
-  if (!ad) return;
-  const now = new Date();
-  const expiry = new Date(ad.expiryDate);
-  if (expiry < now) return; // expired
-
-  // Check if dismissed this session
-  if (sessionStorage.getItem('dismissed_ad_' + ad.id)) return;
-
-  const container = document.getElementById('floatingAdContainer');
-
-  let bodyContent = '';
-  let visitUrl = '#';
-  let storesHtml = '';
-
-  if (ad.destinationType === 'app' && ad.destination) {
-    const appName = ad.destination.appName || ad.campaign;
-    const appStoreUrl = ad.destination.appStoreUrl || '';
-    const playStoreUrl = ad.destination.playStoreUrl || '';
-
-    // Detect device and pick the right store
-    const ua = navigator.userAgent || '';
-    const isIOS = /iPhone|iPad|iPod/i.test(ua);
-    const isAndroid = /Android/i.test(ua);
-
-    if (isIOS && appStoreUrl) visitUrl = appStoreUrl;
-    else if (isAndroid && playStoreUrl) visitUrl = playStoreUrl;
-    else visitUrl = appStoreUrl || playStoreUrl || '#';
-
-    storesHtml = '<div class="floating-ad-stores">';
-    if (appStoreUrl) storesHtml += `<a class="store-btn" href="${appStoreUrl}" target="_blank"> Store</a>`;
-    if (playStoreUrl) storesHtml += `<a class="store-btn" href="${playStoreUrl}" target="_blank">▶ Play</a>`;
-    storesHtml += '</div>';
-  } else {
-    visitUrl = (ad.destination && ad.destination.websiteUrl) || 'https://ciphertech.com';
-  }
-
-  bodyContent = `
-    <p><strong>${ad.campaign}</strong><br>by ${ad.advertiser}</p>
-    ${storesHtml}
-    <a class="floating-ad-visit" href="${visitUrl}" target="_blank" onclick="trackAdClick('${ad.id}')">
-      ${ad.destinationType === 'app' ? '📲 Get the App' : '🌐 Visit Now'}
-    </a>
-    <div class="floating-ad-sponsor">⚡ Sponsored by ${ad.advertiser || 'CipherTech.com'} via CipherTech.com</div>
-  `;
-
-  container.innerHTML = `
-    <div class="floating-ad" id="floatingAdWidget">
-      <div class="floating-ad-header">
-        <span>⚡ Sponsored</span>
-        <button class="floating-ad-close" onclick="dismissFloatingAd('${ad.id}')">✕</button>
-      </div>
-      <div class="floating-ad-body">${bodyContent}</div>
-    </div>
-  `;
-}
-
-function dismissFloatingAd(adId) {
-  sessionStorage.setItem('dismissed_ad_' + adId, 'true');
-  const widget = document.getElementById('floatingAdWidget');
-  if (widget) {
-    widget.style.transition = 'all 0.3s';
-    widget.style.opacity = '0';
-    widget.style.transform = 'translateY(30px)';
-    setTimeout(() => widget.remove(), 300);
-  }
-}
-
-function trackAdClick(adId) {
-  showToast('🔗 Redirecting...');
-  // Track clicks in Firebase
-  if (window._db && window._fsLib) {
-    const {collection, addDoc} = window._fsLib;
-    addDoc(collection(window._db, 'ad_clicks'), {adId, timestamp: new Date().toISOString()}).catch(console.error);
-  }
-}
-
-// Load floating ad on page load
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const savedAd = JSON.parse(localStorage.getItem('ciphertech_floating_ad') || 'null');
-    if (savedAd) showFloatingAd(savedAd);
-
-    // Also try loading from Firebase (latest active ad)
-    if (window._db && window._fsLib) {
-      const {collection, getDocs, query, orderBy} = window._fsLib;
-      getDocs(query(collection(window._db, 'floating_ads'), orderBy('startDate', 'desc')))
-        .then(snapshot => {
-          snapshot.forEach(doc => {
-            const ad = doc.data();
-            const expiry = new Date(ad.expiryDate);
-            if (expiry > new Date() && !sessionStorage.getItem('dismissed_ad_' + ad.id)) {
-              showFloatingAd(ad);
-            }
-          });
-        }).catch(()=>{});
-    }
-  }, 3000);
-});
-
-// =================== MESSAGES: PRIVATE CHAT ===================
-function switchMsgTab(btn, tab) {
-  document.querySelectorAll('.msg-tab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('msgTabChat').style.display = tab==='chat' ? 'block' : 'none';
-  document.getElementById('msgTabFeedback').style.display = tab==='feedback' ? 'block' : 'none';
-  if (tab === 'feedback') renderFeedback();
-  if (tab === 'chat') renderChat();
-}
-
-function getChatKey() {
-  if (!currentUser) return null;
-  return 'chat_' + (currentUser.email || currentUser.name || 'guest').replace(/[^a-zA-Z0-9]/g,'_');
-}
-
-function renderChat() {
-  const container = document.getElementById('chatMessages');
-  if (!currentUser) {
-    container.innerHTML = '<div class="chat-empty">🔒 Please log in to chat privately with CipherTech.</div>';
-    return;
-  }
-  const key = getChatKey();
-  const messages = JSON.parse(localStorage.getItem(key) || '[]');
-  if (messages.length === 0) {
-    container.innerHTML = '<div class="chat-empty">💬 Start a private conversation with CipherTech. Your messages are only visible to you and CipherTech.</div>';
-    return;
-  }
-  container.innerHTML = messages.map(m => `
-    <div class="chat-msg ${m.from==='me'?'mine':'theirs'}">
-      ${m.text}
-      <span class="msg-time">${m.time}</span>
-    </div>
-  `).join('');
-  container.scrollTop = container.scrollHeight;
-}
-
-function sendChatMessage() {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const input = document.getElementById('chatInput');
-  const text = input.value.trim();
-  if (!text) return;
-
-  const key = getChatKey();
-  const messages = JSON.parse(localStorage.getItem(key) || '[]');
-  const time = new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-  messages.push({from:'me', text, time, sender: currentUser.email || currentUser.name});
-  localStorage.setItem(key, JSON.stringify(messages));
-
-  // Save to Firebase for CipherTech to see
-  if (window._db && window._fsLib) {
-    const {collection, addDoc, serverTimestamp} = window._fsLib;
-    addDoc(collection(window._db, 'private_messages'), {
-      sender: currentUser.email || currentUser.name,
-      text,
-      createdAt: serverTimestamp()
-    }).catch(console.error);
-  }
-
-  input.value='';
-  renderChat();
-
-  // Auto-reply simulation
-  setTimeout(() => {
-    const messages2 = JSON.parse(localStorage.getItem(key) || '[]');
-    messages2.push({from:'them', text:'Thanks for your message! The CipherTech team will respond shortly. 🚀', time: new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})});
-    localStorage.setItem(key, JSON.stringify(messages2));
-    renderChat();
-  }, 1200);
-}
-
-// =================== PUBLIC FEEDBACK ===================
-function renderFeedback() {
-  const list = document.getElementById('feedbackList');
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-
-  if (feedbacks.length === 0) {
-    list.innerHTML = '<div class="chat-empty">⭐ No feedback yet. Be the first to share your thoughts!</div>';
-    return;
-  }
-
-  list.innerHTML = feedbacks.slice().reverse().map((fb, idx) => {
-    const realIdx = feedbacks.length - 1 - idx;
-    const repliesHtml = (fb.replies||[]).map(r => `
-      <div class="fb-reply">
-        <div class="fb-reply-avatar">${r.avatar}</div>
-        <div class="fb-reply-bubble"><strong>${r.name}</strong><p>${r.text}</p></div>
-      </div>`).join('');
-
-    return `
-    <div class="feedback-card">
-      <div class="feedback-header">
-        <div class="feedback-avatar">${fb.avatar}</div>
-        <div class="feedback-meta">
-          <strong>${fb.name}</strong>
-          <span>${fb.email} • ${fb.time}</span>
-        </div>
-      </div>
-      <div class="feedback-text">${fb.text}</div>
-      <div class="feedback-actions">
-        <button class="fb-action ${fb.liked?'liked':''}" onclick="toggleFeedbackLike(${realIdx})">
-          <svg viewBox="0 0 24 24" fill="${fb.liked?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          ${fb.likes||0}
-        </button>
-        <button class="fb-action" onclick="toggleFeedbackReply(${realIdx})">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Reply (${(fb.replies||[]).length})
-        </button>
-      </div>
-      <div class="fb-replies" id="fb-replies-${realIdx}">
-        ${repliesHtml}
-        <div class="fb-reply-input-row">
-          <input type="text" id="fb-reply-input-${realIdx}" placeholder="Write a reply..." onkeydown="if(event.key==='Enter')addFeedbackReply(${realIdx})">
-          <button class="comment-send" onclick="addFeedbackReply(${realIdx})" style="background:var(--accent);border:none;color:#06090f;width:32px;height:32px;border-radius:50%;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function postFeedback() {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const input = document.getElementById('feedbackInput');
-  const text = input.value.trim();
-  if (!text) { showToast('⚠️ Write your feedback first'); return; }
-
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-  const newFb = {
-    name: currentUser.name,
-    email: currentUser.email || 'guest@ciphertech.com',
-    avatar: currentUser.avatar,
-    text,
-    time: 'Just now',
-    likes: 0,
-    liked: false,
-    replies: []
-  };
-  feedbacks.push(newFb);
-  localStorage.setItem('ciphertech_feedback', JSON.stringify(feedbacks));
-
-  // Save to Firebase
-  if (window._db && window._fsLib) {
-    const {collection, addDoc, serverTimestamp} = window._fsLib;
-    addDoc(collection(window._db, 'feedback'), {...newFb, createdAt: serverTimestamp()}).catch(console.error);
-  }
-
-  input.value='';
-  renderFeedback();
-  showToast('⭐ Feedback posted publicly!');
-}
-
-function toggleFeedbackLike(idx) {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-  const fb = feedbacks[idx];
-  fb.liked = !fb.liked;
-  fb.likes = (fb.likes||0) + (fb.liked ? 1 : -1);
-  localStorage.setItem('ciphertech_feedback', JSON.stringify(feedbacks));
-  renderFeedback();
-}
-
-function toggleFeedbackReply(idx) {
-  const el = document.getElementById('fb-replies-'+idx);
-  el.classList.toggle('open');
-}
-
-function addFeedbackReply(idx) {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const input = document.getElementById('fb-reply-input-'+idx);
-  const text = input.value.trim();
-  if (!text) return;
-
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-  feedbacks[idx].replies = feedbacks[idx].replies || [];
-  feedbacks[idx].replies.push({name: currentUser.name, avatar: currentUser.avatar, text});
-  localStorage.setItem('ciphertech_feedback', JSON.stringify(feedbacks));
-  input.value='';
-  renderFeedback();
-  document.getElementById('fb-replies-'+idx).classList.add('open');
-  showToast('💬 Reply posted!');
-}
-
-// Init feedback/chat on load
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    if (document.getElementById('feedbackList')) renderFeedback();
-    if (document.getElementById('chatMessages')) renderChat();
-  }, 500);
-});
-
-</script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
     // Initialize EmailJS - Sign up free at emailjs.com and replace these
     // For now uses a demo template that logs to console
-    window.EMAILJS_SERVICE = 'service_ciphertech';
-    window.EMAILJS_TEMPLATE_AD = 'template_ad_confirm';
-    window.EMAILJS_PUBLIC_KEY = 'YOUR_EMAILJS_PUBLIC_KEY';
-  
-// =================== FLOATING AD WIDGET ===================
-function saveFloatingAd(adRecord) {
-  // Save to localStorage so it persists & shows on all pages
-  localStorage.setItem('ciphertech_floating_ad', JSON.stringify(adRecord));
-  // Save to Firebase too so it's visible to all visitors
-  if (window._db && window._fsLib) {
-    const {collection, addDoc} = window._fsLib;
-    addDoc(collection(window._db, 'floating_ads'), adRecord).catch(console.error);
-  }
-  showFloatingAd(adRecord);
-}
-
-function showFloatingAd(ad) {
-  if (!ad) return;
-  const now = new Date();
-  const expiry = new Date(ad.expiryDate);
-  if (expiry < now) return; // expired
-
-  // Check if dismissed this session
-  if (sessionStorage.getItem('dismissed_ad_' + ad.id)) return;
-
-  const container = document.getElementById('floatingAdContainer');
-
-  let bodyContent = '';
-  let visitUrl = '#';
-  let storesHtml = '';
-
-  if (ad.destinationType === 'app' && ad.destination) {
-    const appName = ad.destination.appName || ad.campaign;
-    const appStoreUrl = ad.destination.appStoreUrl || '';
-    const playStoreUrl = ad.destination.playStoreUrl || '';
-
-    // Detect device and pick the right store
-    const ua = navigator.userAgent || '';
-    const isIOS = /iPhone|iPad|iPod/i.test(ua);
-    const isAndroid = /Android/i.test(ua);
-
-    if (isIOS && appStoreUrl) visitUrl = appStoreUrl;
-    else if (isAndroid && playStoreUrl) visitUrl = playStoreUrl;
-    else visitUrl = appStoreUrl || playStoreUrl || '#';
-
-    storesHtml = '<div class="floating-ad-stores">';
-    if (appStoreUrl) storesHtml += `<a class="store-btn" href="${appStoreUrl}" target="_blank"> Store</a>`;
-    if (playStoreUrl) storesHtml += `<a class="store-btn" href="${playStoreUrl}" target="_blank">▶ Play</a>`;
-    storesHtml += '</div>';
-  } else {
-    visitUrl = (ad.destination && ad.destination.websiteUrl) || 'https://ciphertech.com';
-  }
-
-  bodyContent = `
-    <p><strong>${ad.campaign}</strong><br>by ${ad.advertiser}</p>
-    ${storesHtml}
-    <a class="floating-ad-visit" href="${visitUrl}" target="_blank" onclick="trackAdClick('${ad.id}')">
-      ${ad.destinationType === 'app' ? '📲 Get the App' : '🌐 Visit Now'}
-    </a>
-    <div class="floating-ad-sponsor">⚡ Sponsored by ${ad.advertiser || 'CipherTech.com'} via CipherTech.com</div>
-  `;
-
-  container.innerHTML = `
-    <div class="floating-ad" id="floatingAdWidget">
-      <div class="floating-ad-header">
-        <span>⚡ Sponsored</span>
-        <button class="floating-ad-close" onclick="dismissFloatingAd('${ad.id}')">✕</button>
-      </div>
-      <div class="floating-ad-body">${bodyContent}</div>
-    </div>
-  `;
-}
-
-function dismissFloatingAd(adId) {
-  sessionStorage.setItem('dismissed_ad_' + adId, 'true');
-  const widget = document.getElementById('floatingAdWidget');
-  if (widget) {
-    widget.style.transition = 'all 0.3s';
-    widget.style.opacity = '0';
-    widget.style.transform = 'translateY(30px)';
-    setTimeout(() => widget.remove(), 300);
-  }
-}
-
-function trackAdClick(adId) {
-  showToast('🔗 Redirecting...');
-  // Track clicks in Firebase
-  if (window._db && window._fsLib) {
-    const {collection, addDoc} = window._fsLib;
-    addDoc(collection(window._db, 'ad_clicks'), {adId, timestamp: new Date().toISOString()}).catch(console.error);
-  }
-}
-
-// Load floating ad on page load
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const savedAd = JSON.parse(localStorage.getItem('ciphertech_floating_ad') || 'null');
-    if (savedAd) showFloatingAd(savedAd);
-
-    // Also try loading from Firebase (latest active ad)
-    if (window._db && window._fsLib) {
-      const {collection, getDocs, query, orderBy} = window._fsLib;
-      getDocs(query(collection(window._db, 'floating_ads'), orderBy('startDate', 'desc')))
-        .then(snapshot => {
-          snapshot.forEach(doc => {
-            const ad = doc.data();
-            const expiry = new Date(ad.expiryDate);
-            if (expiry > new Date() && !sessionStorage.getItem('dismissed_ad_' + ad.id)) {
-              showFloatingAd(ad);
-            }
-          });
-        }).catch(()=>{});
+    window.EMAILJS_SERVICE = 'service_2lmq12e';
+    window.EMAILJS_TEMPLATE_AD = 'template_mghygma';
+    window.EMAILJS_PUBLIC_KEY = 'edX4sBO6oEAkLmlSV';
+    // Initialize EmailJS
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init('edX4sBO6oEAkLmlSV');
     }
-  }, 3000);
-});
-
-// =================== MESSAGES: PRIVATE CHAT ===================
-function switchMsgTab(btn, tab) {
-  document.querySelectorAll('.msg-tab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('msgTabChat').style.display = tab==='chat' ? 'block' : 'none';
-  document.getElementById('msgTabFeedback').style.display = tab==='feedback' ? 'block' : 'none';
-  if (tab === 'feedback') renderFeedback();
-  if (tab === 'chat') renderChat();
-}
-
-function getChatKey() {
-  if (!currentUser) return null;
-  return 'chat_' + (currentUser.email || currentUser.name || 'guest').replace(/[^a-zA-Z0-9]/g,'_');
-}
-
-function renderChat() {
-  const container = document.getElementById('chatMessages');
-  if (!currentUser) {
-    container.innerHTML = '<div class="chat-empty">🔒 Please log in to chat privately with CipherTech.</div>';
-    return;
-  }
-  const key = getChatKey();
-  const messages = JSON.parse(localStorage.getItem(key) || '[]');
-  if (messages.length === 0) {
-    container.innerHTML = '<div class="chat-empty">💬 Start a private conversation with CipherTech. Your messages are only visible to you and CipherTech.</div>';
-    return;
-  }
-  container.innerHTML = messages.map(m => `
-    <div class="chat-msg ${m.from==='me'?'mine':'theirs'}">
-      ${m.text}
-      <span class="msg-time">${m.time}</span>
-    </div>
-  `).join('');
-  container.scrollTop = container.scrollHeight;
-}
-
-function sendChatMessage() {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const input = document.getElementById('chatInput');
-  const text = input.value.trim();
-  if (!text) return;
-
-  const key = getChatKey();
-  const messages = JSON.parse(localStorage.getItem(key) || '[]');
-  const time = new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-  messages.push({from:'me', text, time, sender: currentUser.email || currentUser.name});
-  localStorage.setItem(key, JSON.stringify(messages));
-
-  // Save to Firebase for CipherTech to see
-  if (window._db && window._fsLib) {
-    const {collection, addDoc, serverTimestamp} = window._fsLib;
-    addDoc(collection(window._db, 'private_messages'), {
-      sender: currentUser.email || currentUser.name,
-      text,
-      createdAt: serverTimestamp()
-    }).catch(console.error);
-  }
-
-  input.value='';
-  renderChat();
-
-  // Auto-reply simulation
-  setTimeout(() => {
-    const messages2 = JSON.parse(localStorage.getItem(key) || '[]');
-    messages2.push({from:'them', text:'Thanks for your message! The CipherTech team will respond shortly. 🚀', time: new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})});
-    localStorage.setItem(key, JSON.stringify(messages2));
-    renderChat();
-  }, 1200);
-}
-
-// =================== PUBLIC FEEDBACK ===================
-function renderFeedback() {
-  const list = document.getElementById('feedbackList');
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-
-  if (feedbacks.length === 0) {
-    list.innerHTML = '<div class="chat-empty">⭐ No feedback yet. Be the first to share your thoughts!</div>';
-    return;
-  }
-
-  list.innerHTML = feedbacks.slice().reverse().map((fb, idx) => {
-    const realIdx = feedbacks.length - 1 - idx;
-    const repliesHtml = (fb.replies||[]).map(r => `
-      <div class="fb-reply">
-        <div class="fb-reply-avatar">${r.avatar}</div>
-        <div class="fb-reply-bubble"><strong>${r.name}</strong><p>${r.text}</p></div>
-      </div>`).join('');
-
-    return `
-    <div class="feedback-card">
-      <div class="feedback-header">
-        <div class="feedback-avatar">${fb.avatar}</div>
-        <div class="feedback-meta">
-          <strong>${fb.name}</strong>
-          <span>${fb.email} • ${fb.time}</span>
-        </div>
-      </div>
-      <div class="feedback-text">${fb.text}</div>
-      <div class="feedback-actions">
-        <button class="fb-action ${fb.liked?'liked':''}" onclick="toggleFeedbackLike(${realIdx})">
-          <svg viewBox="0 0 24 24" fill="${fb.liked?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          ${fb.likes||0}
-        </button>
-        <button class="fb-action" onclick="toggleFeedbackReply(${realIdx})">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Reply (${(fb.replies||[]).length})
-        </button>
-      </div>
-      <div class="fb-replies" id="fb-replies-${realIdx}">
-        ${repliesHtml}
-        <div class="fb-reply-input-row">
-          <input type="text" id="fb-reply-input-${realIdx}" placeholder="Write a reply..." onkeydown="if(event.key==='Enter')addFeedbackReply(${realIdx})">
-          <button class="comment-send" onclick="addFeedbackReply(${realIdx})" style="background:var(--accent);border:none;color:#06090f;width:32px;height:32px;border-radius:50%;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function postFeedback() {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const input = document.getElementById('feedbackInput');
-  const text = input.value.trim();
-  if (!text) { showToast('⚠️ Write your feedback first'); return; }
-
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-  const newFb = {
-    name: currentUser.name,
-    email: currentUser.email || 'guest@ciphertech.com',
-    avatar: currentUser.avatar,
-    text,
-    time: 'Just now',
-    likes: 0,
-    liked: false,
-    replies: []
-  };
-  feedbacks.push(newFb);
-  localStorage.setItem('ciphertech_feedback', JSON.stringify(feedbacks));
-
-  // Save to Firebase
-  if (window._db && window._fsLib) {
-    const {collection, addDoc, serverTimestamp} = window._fsLib;
-    addDoc(collection(window._db, 'feedback'), {...newFb, createdAt: serverTimestamp()}).catch(console.error);
-  }
-
-  input.value='';
-  renderFeedback();
-  showToast('⭐ Feedback posted publicly!');
-}
-
-function toggleFeedbackLike(idx) {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-  const fb = feedbacks[idx];
-  fb.liked = !fb.liked;
-  fb.likes = (fb.likes||0) + (fb.liked ? 1 : -1);
-  localStorage.setItem('ciphertech_feedback', JSON.stringify(feedbacks));
-  renderFeedback();
-}
-
-function toggleFeedbackReply(idx) {
-  const el = document.getElementById('fb-replies-'+idx);
-  el.classList.toggle('open');
-}
-
-function addFeedbackReply(idx) {
-  if (!currentUser) { openModal('loginModal'); return; }
-  const input = document.getElementById('fb-reply-input-'+idx);
-  const text = input.value.trim();
-  if (!text) return;
-
-  const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
-  feedbacks[idx].replies = feedbacks[idx].replies || [];
-  feedbacks[idx].replies.push({name: currentUser.name, avatar: currentUser.avatar, text});
-  localStorage.setItem('ciphertech_feedback', JSON.stringify(feedbacks));
-  input.value='';
-  renderFeedback();
-  document.getElementById('fb-replies-'+idx).classList.add('open');
-  showToast('💬 Reply posted!');
-}
-
-// Init feedback/chat on load
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    if (document.getElementById('feedbackList')) renderFeedback();
-    if (document.getElementById('chatMessages')) renderChat();
-  }, 500);
-});
-
+  
 </script>
 
-  <!-- Stripe.js for real payments -->
-  <script src="https://js.stripe.com/v3/"></script>
+  <!-- Flutterwave Payment SDK -->
+  <script src="https://checkout.flutterwave.com/v3.js"></script>
   <script>
-    window.STRIPE_PUBLISHABLE_KEY = 'pk_test_51Tk3L8IToZwk5G5xMsh6bIF99an1JB3mQBnQjndTdEqQS5cAZGfCbH0UAqB4elmIWry3thJfbsViJD7d5KVMwUYH00QgOXHgFy';
-    window.stripeInstance = Stripe(window.STRIPE_PUBLISHABLE_KEY);
+    window.FLW_PUBLIC_KEY = 'FLWPUBK_TEST-1a236ba90da6e5d02b48f3ce9e6d8510-X';
 
-    // ===== STRIPE PAYMENT LINKS =====
-    // These are pre-built Stripe Checkout pages for each price point
-    // Create these in your Stripe Dashboard → Payment Links → Create Link
-    // Then replace the URLs below with your real payment links
-    window.STRIPE_PAYMENT_LINKS = {
-      // AD PLANS
-      ad_starter:   'https://buy.stripe.com/test_ad_starter',    // $100/week
-      ad_standard:  'https://buy.stripe.com/test_ad_standard',   // $300/month
-      ad_pro:       'https://buy.stripe.com/test_ad_pro',        // $750/3months
-      ad_elite:     'https://buy.stripe.com/test_ad_elite',      // $1200/6months
-
-      // BOOST - FOLLOWERS
-      boost_f1:     'https://buy.stripe.com/test_boost_f1',      // $100 - 1K
-      boost_f2:     'https://buy.stripe.com/test_boost_f2',      // $250 - 5K
-      boost_f3:     'https://buy.stripe.com/test_boost_f3',      // $400 - 10K
-      boost_f4:     'https://buy.stripe.com/test_boost_f4',      // $700 - 50K
-      boost_f5:     'https://buy.stripe.com/test_boost_f5',      // $900 - 100K
-      boost_f6:     'https://buy.stripe.com/test_boost_f6',      // $1200 - 500K
-      boost_f7:     'https://buy.stripe.com/test_boost_f7',      // $1500 - 1M
-
-      // BOOST - LIKES
-      boost_l1:     'https://buy.stripe.com/test_boost_l1',      // $20
-      boost_l2:     'https://buy.stripe.com/test_boost_l2',      // $35
-      boost_l3:     'https://buy.stripe.com/test_boost_l3',      // $100
-      boost_l4:     'https://buy.stripe.com/test_boost_l4',      // $180
-      boost_l5:     'https://buy.stripe.com/test_boost_l5',      // $500
-      boost_l6:     'https://buy.stripe.com/test_boost_l6',      // $900
-
-      // BOOST - VIEWS
-      boost_v1:     'https://buy.stripe.com/test_boost_v1',      // $30
-      boost_v2:     'https://buy.stripe.com/test_boost_v2',      // $80
-      boost_v3:     'https://buy.stripe.com/test_boost_v3',      // $150
-      boost_v4:     'https://buy.stripe.com/test_boost_v4',      // $400
-      boost_v5:     'https://buy.stripe.com/test_boost_v5',      // $700
-
-      // BOOST - COMMENTS
-      boost_c1:     'https://buy.stripe.com/test_boost_c1',      // $30
-      boost_c2:     'https://buy.stripe.com/test_boost_c2',      // $60
-      boost_c3:     'https://buy.stripe.com/test_boost_c3',      // $100
-      boost_c4:     'https://buy.stripe.com/test_boost_c4',      // $180
-      boost_c5:     'https://buy.stripe.com/test_boost_c5',      // $600
-    };
   </script>
 
 </head>
 <body>
+
+<!-- ================= PAGE LOADER ================= -->
+<div id="pageLoader">
+  <img src="logo.jpg" alt="CipherTech Logo" class="loader-logo">
+  <div class="loader-brand">CipherTech</div>
+  <div class="loader-text">
+    Loading
+    <div class="loader-dots">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="loader-bar">
+    <div class="loader-bar-fill"></div>
+  </div>
+  <div class="loader-tagline">Built in Lagos 🇳🇬 • Made for the World 🌍</div>
+</div>
+
+
+<!-- ================= PAGE LOADER ================= -->
+  <!-- Logo + Brand -->
+  <div class="loader-logo-wrap">
+    <img src="logo.jpg" alt="CipherTech" class="loader-logo-img">
+    <div class="loader-brand">CipherTech</div>
+  </div>
+
+  <!-- Loading text + dots -->
+  <div class="loader-text">
+    Loading
+    <div class="loader-dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="loader-bar-wrap">
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+
 
 
 <!-- FLOATING AD WIDGET -->
@@ -2056,7 +1299,6 @@ window.addEventListener('load', () => {
 <div class="upload-status" id="uploadStatus">⏳ Uploading...</div>
 
 <div id="toast">✓ Done</div>
-<div class="upload-progress" id="uploadProgress"><div class="upload-progress-bar" id="uploadBar"></div></div>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
@@ -2065,10 +1307,10 @@ window.addEventListener('load', () => {
   <a href="#feed" onclick="closeMobile()">Feed</a>
   <a href="#blog" onclick="closeMobile()">Apps</a>
   <a href="#messages" onclick="closeMobile()">Messages</a>
-  <a href="#apps" onclick="closeMobile()">Apps</a>
   <a href="#ads" onclick="closeMobile()">Launch Ads</a>
   <a href="#boost" onclick="closeMobile()">📈 Boost</a>
   <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#reviews" onclick="closeMobile()">Reviews</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
   <div style="margin-top:10px;display:flex;gap:12px;">
 
@@ -2089,15 +1331,15 @@ window.addEventListener('load', () => {
     <a href="#feed">Feed</a>
     <a href="#blog">Apps</a>
     <a href="#messages">Messages</a>
-    <a href="#apps">Apps</a>
     <a href="#ads">Ads</a>
     <a href="#boost">Boost</a>
     <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
     <a href="#contact">Contact</a>
   </nav>
   <div class="nav-btns" id="authBtns">
-    <button class="theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
-    <button class="theme-btn" onclick="openOwnerLogin()" title="Owner Access" style="font-size:0.9rem;opacity:0.35;transition:0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.35'">🔑</button>
+    <button id="themeToggleBtn" onclick="toggleTheme()" title="Toggle theme" style="background:var(--card);border:1.5px solid var(--border);color:var(--text);padding:8px 12px;border-radius:9px;font-size:1rem;cursor:pointer;transition:0.2s;">🌙</button>
+    <button onclick="openOwnerLogin()" title="Owner Access" style="background:var(--card);border:1.5px solid var(--border);color:var(--text);padding:8px 12px;border-radius:9px;font-size:1rem;cursor:pointer;transition:0.2s;opacity:0.4;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">🔑</button>
   </div>
   <div id="userBar" class="user-bar" style="display:none;">
     <button class="btn btn-primary" onclick="openModal('createPostModal')" style="display:flex;align-items:center;gap:6px;font-size:0.82rem;padding:8px 14px;">
@@ -2108,8 +1350,10 @@ window.addEventListener('load', () => {
     <div class="avatar" id="userAvatar" onclick="toggleDropdown()">S</div>
     <button class="theme-btn" onclick="toggleTheme()">🌙</button>
   </div>
-  <button class="hamburger" onclick="openMobile()">
-    <span></span><span></span><span></span>
+  <button class="hamburger" onclick="openMobile()" style="display:flex;flex-direction:column;gap:5px;background:var(--card);border:1.5px solid var(--border);padding:10px;border-radius:10px;cursor:pointer;">
+    <span style="display:block;width:22px;height:2.5px;background:var(--text);border-radius:2px;"></span>
+    <span style="display:block;width:22px;height:2.5px;background:var(--text);border-radius:2px;"></span>
+    <span style="display:block;width:22px;height:2.5px;background:var(--text);border-radius:2px;"></span>
   </button>
   <div id="fbStatus" style="position:fixed;bottom:80px;right:20px;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:6px 14px;font-size:0.72rem;font-weight:700;display:flex;align-items:center;gap:6px;z-index:500;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
     <span id="fbDot" style="width:7px;height:7px;border-radius:50%;background:#fbbf24;display:inline-block;"></span>
@@ -2383,7 +1627,7 @@ window.addEventListener('load', () => {
           <img src="https://js.stripe.com/v3/fingerprinted/img/mastercard-4d8844094130711885b5e41b28c9848f.svg" height="24" alt="Mastercard">
           <img src="https://js.stripe.com/v3/fingerprinted/img/amex-a49b82f46c5cd6a96a6e418a6ca1717c.svg" height="24" alt="Amex">
         </div>
-        <p style="font-size:0.68rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:4px;">🔒 256-bit SSL encryption • Powered by Stripe</p>
+        <p style="font-size:0.68rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:4px;">🔒 256-bit SSL • Powered by Flutterwave 🇳🇬</p>
       </div>
 
       <!-- OTHER PAYMENT DETAILS (changes per method) -->
@@ -2475,22 +1719,165 @@ window.addEventListener('load', () => {
 
 <!-- ===================== HERO ===================== -->
 <section class="hero" id="home">
-  <div class="hero-badge"><span></span> Live Platform — Post Everywhere</div>
-  <div class="typing-wrap">
+  <div class="hero-badge fade-in visible"><span></span> Live Platform — Post Everywhere</div>
+  <div class="typing-wrap fade-in visible" style="transition-delay:0.2s;">
     <span id="typing-text"></span><span class="cursor">|</span>
   </div>
-  <h1>Build. <span class="gradient-text">Share.</span> Dominate.</h1>
-  <p>One platform to post videos & photos, engage your audience, and launch ads across every social network simultaneously.</p>
-  <div class="hero-btns">
+  <h1 class="fade-in visible" style="transition-delay:0.3s;">Build. <span class="gradient-text">Share.</span> Dominate.</h1>
+  <p class="fade-in visible" style="transition-delay:0.4s;">One platform to post videos & photos, engage your audience, and launch ads across every social network simultaneously.</p>
+  <div class="hero-btns fade-in fade-up-delay-4">
     <button class="btn btn-primary" onclick="scrollTo('#feed')" style="padding:13px 28px;font-size:0.95rem;">View Live Feed →</button>
-    <button class="btn btn-outline" onclick="scrollTo('#feed')" style="padding:13px 28px;font-size:0.95rem;">View Feed</button>
+    
   </div>
 </section>
 
+
+<!-- ===================== TRUSTED BY ===================== -->
+<div class="trusted-section fade-in">
+  <p class="trusted-label">⭐ Trusted & Powered by the World's Best Technology</p>
+  <div class="trusted-track-wrap">
+    <div class="trusted-track" id="trustedTrack">
+
+      <!-- Google -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <span>Google</span>
+      </div>
+
+      <!-- Microsoft -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.4 2H2v9.4h9.4V2z" fill="#F25022"/>
+          <path d="M22 2h-9.4v9.4H22V2z" fill="#7FBA00"/>
+          <path d="M11.4 12.6H2V22h9.4v-9.4z" fill="#00A4EF"/>
+          <path d="M22 12.6h-9.4V22H22v-9.4z" fill="#FFB900"/>
+        </svg>
+        <span>Microsoft</span>
+      </div>
+
+      <!-- Meta -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" fill="#1877F2"/>
+        </svg>
+        <span>Meta</span>
+      </div>
+
+      <!-- OpenAI -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+          <path d="M22.28 9.27a5.81 5.81 0 0 0-.5-4.77 5.87 5.87 0 0 0-6.32-2.82A5.87 5.87 0 0 0 11 .28a5.86 5.86 0 0 0-5.59 4.06 5.86 5.86 0 0 0-3.91 2.84 5.9 5.9 0 0 0 .72 6.9 5.83 5.83 0 0 0 .5 4.78 5.88 5.88 0 0 0 6.32 2.81 5.86 5.86 0 0 0 4.42 1.97 5.87 5.87 0 0 0 5.6-4.07 5.85 5.85 0 0 0 3.9-2.83 5.9 5.9 0 0 0-.73-6.87zM13 20.55a4.35 4.35 0 0 1-2.79-1l.14-.08 4.63-2.67a.76.76 0 0 0 .38-.67v-6.52l1.96 1.13a.07.07 0 0 1 .04.05v5.4A4.37 4.37 0 0 1 13 20.55zm-9.38-4a4.34 4.34 0 0 1-.52-2.93l.14.08 4.63 2.67a.77.77 0 0 0 .76 0l5.66-3.27v2.27a.07.07 0 0 1-.03.06L9.6 18.08a4.38 4.38 0 0 1-5.98-1.53zM3.1 8.2a4.34 4.34 0 0 1 2.26-1.91l-.01.16V12a.76.76 0 0 0 .38.66l5.65 3.26-1.96 1.13a.07.07 0 0 1-.07 0L4.68 14.3A4.38 4.38 0 0 1 3.1 8.2zm16.1 3.75-5.65-3.27 1.95-1.13a.07.07 0 0 1 .07 0l4.68 2.7a4.37 4.37 0 0 1-.68 7.87v-.16V12a.77.77 0 0 0-.37-.66zm1.95-2.94-.14-.08-4.63-2.67a.77.77 0 0 0-.77 0L10 9.53V7.26a.07.07 0 0 1 .03-.06l4.65-2.68a4.37 4.37 0 0 1 6.47 4.49zm-12.27 4-1.95-1.13a.07.07 0 0 1-.04-.06V6.44a4.37 4.37 0 0 1 7.17-3.35L14 3.17 9.38 5.84a.76.76 0 0 0-.38.66zm1.06-2.29 2.52-1.46 2.52 1.45v2.9l-2.52 1.45-2.52-1.45z"/>
+        </svg>
+        <span>OpenAI</span>
+      </div>
+
+      <!-- Flutter -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.37zm.159 11.871l-4.156 4.159 4.156 4.16 4.159-4.16z" fill="#54C5F8"/>
+          <path d="M10.317 16.03L6.16 20.188 9.861 23.9l4.157-4.155z" fill="#01579B"/>
+          <path d="M6.159 20.188l3.697 3.697h7.371l-7.368-7.368z" fill="#29B6F6"/>
+        </svg>
+        <span>Flutter</span>
+      </div>
+
+      <!-- GitHub -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+        <span>GitHub</span>
+      </div>
+
+      <!-- Firebase -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.89 15.672L6.255.461A.542.542 0 0 1 7.27.288l2.543 4.771zm16.794 3.692l-2.25-14a.54.54 0 0 0-.919-.295L3.316 19.365l7.856 4.427a1.621 1.621 0 0 0 1.588 0zM14.3 7.147l-1.82-3.482a.542.542 0 0 0-.96 0L3.53 17.984z" fill="#FFA000"/>
+          <path d="M3.89 15.672l2.365-15.21a.542.542 0 0 1 .927-.248l14.61 14.57z" fill="#F57F17"/>
+        </svg>
+        <span>Firebase</span>
+      </div>
+
+      <!-- Stripe -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z" fill="#635BFF"/>
+        </svg>
+        <span>Stripe</span>
+      </div>
+
+      <!-- Cloudinary -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#3448C5">
+          <path d="M23.382 13.601c-.171-.981-.6-1.855-1.262-2.574a5.36 5.36 0 0 0-.054-1.453c-.415-2.385-2.128-4.362-4.4-5.14-1.133-.39-2.323-.453-3.462-.197C13.24 2.823 11.338 1.5 9.2 1.5c-2.814 0-5.175 2.04-5.617 4.82-.038.238-.06.48-.066.723C1.52 8.12.097 10.258.097 12.71c0 3.162 2.424 5.794 5.48 5.794h11.866c2.57 0 4.675-2.077 4.675-4.612 0-.098-.003-.196-.008-.29a3.45 3.45 0 0 0 1.272-2.001z"/>
+        </svg>
+        <span>Cloudinary</span>
+      </div>
+
+      <!-- Flutterwave -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" rx="6" fill="#F5A623"/>
+          <path d="M12 4C7.58 4 4 7.58 4 12s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.54 11.54L12 14l-3.54 1.54 1.54-3.54L6 8.46 9.54 10 12 6l2.46 4 3.54-1.54-3.54 3.54 1.54 3.54z" fill="white"/>
+        </svg>
+        <span>Flutterwave</span>
+      </div>
+
+      <!-- DUPLICATE SET for seamless loop -->
+      <!-- Google -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span>Google</span>
+      </div>
+      <!-- Microsoft -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24"><path d="M11.4 2H2v9.4h9.4V2z" fill="#F25022"/><path d="M22 2h-9.4v9.4H22V2z" fill="#7FBA00"/><path d="M11.4 12.6H2V22h9.4v-9.4z" fill="#00A4EF"/><path d="M22 12.6h-9.4V22H22v-9.4z" fill="#FFB900"/></svg>
+        <span>Microsoft</span>
+      </div>
+      <!-- Meta -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" fill="#1877F2"/></svg>
+        <span>Meta</span>
+      </div>
+      <!-- Flutter -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24"><path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.37zm.159 11.871l-4.156 4.159 4.156 4.16 4.159-4.16z" fill="#54C5F8"/><path d="M10.317 16.03L6.16 20.188 9.861 23.9l4.157-4.155z" fill="#01579B"/><path d="M6.159 20.188l3.697 3.697h7.371l-7.368-7.368z" fill="#29B6F6"/></svg>
+        <span>Flutter</span>
+      </div>
+      <!-- GitHub -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        <span>GitHub</span>
+      </div>
+      <!-- Firebase dup -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24"><path d="M3.89 15.672L6.255.461A.542.542 0 0 1 7.27.288l2.543 4.771zm16.794 3.692l-2.25-14a.54.54 0 0 0-.919-.295L3.316 19.365l7.856 4.427a1.621 1.621 0 0 0 1.588 0zM14.3 7.147l-1.82-3.482a.542.542 0 0 0-.96 0L3.53 17.984z" fill="#FFA000"/><path d="M3.89 15.672l2.365-15.21a.542.542 0 0 1 .927-.248l14.61 14.57z" fill="#F57F17"/></svg>
+        <span>Firebase</span>
+      </div>
+      <!-- Stripe dup -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z" fill="#635BFF"/></svg>
+        <span>Stripe</span>
+      </div>
+      <!-- OpenAI dup -->
+      <div class="trusted-logo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.28 9.27a5.81 5.81 0 0 0-.5-4.77 5.87 5.87 0 0 0-6.32-2.82A5.87 5.87 0 0 0 11 .28a5.86 5.86 0 0 0-5.59 4.06 5.86 5.86 0 0 0-3.91 2.84 5.9 5.9 0 0 0 .72 6.9 5.83 5.83 0 0 0 .5 4.78 5.88 5.88 0 0 0 6.32 2.81 5.86 5.86 0 0 0 4.42 1.97 5.87 5.87 0 0 0 5.6-4.07 5.85 5.85 0 0 0 3.9-2.83 5.9 5.9 0 0 0-.73-6.87z"/></svg>
+        <span>OpenAI</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- ===================== FEED ===================== -->
 <div id="feed" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-<section class="feed-section">
-  <h2>🔥 <span>Live Feed</span></h2>
+<section class="feed-section fade-in">
+  <h2 class="fade-in">🔥 <span>Live Feed</span></h2>
   <div id="postsContainer"></div>
   <div class="post-loader" id="feedLoader">
     <div class="spinner"></div>
@@ -2526,40 +1913,53 @@ window.addEventListener('load', () => {
 </section>
 
 <!-- ===================== ADS ===================== -->
-<div class="ads-section" id="ads">
-  <h2>Launch Ads <span style="background:linear-gradient(135deg,var(--accent2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Everywhere 📣</span></h2>
+<div class="ads-section fade-in" id="ads">
+  <h2 class="fade-in">Launch Ads <span style="background:linear-gradient(135deg,var(--accent2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Everywhere 📣</span></h2>
   <p class="sub">Push your ad campaign to Instagram, TikTok, Twitter, YouTube, LinkedIn and Facebook in one click.</p>
   <!-- PRICING PLANS -->
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:900px;margin:0 auto 30px;">
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;transition:0.3s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+  <div class="fade-in" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:900px;margin:0 auto 30px;">
+
+    <!-- STARTER -->
+    <div onclick="openAdLaunchModalWithPlan('starter',100,7)" ontouchend="openAdLaunchModalWithPlan('starter',100,7);event.preventDefault();" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;transition:0.3s;cursor:pointer;-webkit-tap-highlight-color:rgba(56,189,248,0.2);" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.8rem;margin-bottom:8px;">⚡</div>
       <h3 style="font-size:0.9rem;font-weight:800;margin-bottom:6px;">Starter</h3>
       <div style="font-size:1.8rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent);">$100</div>
       <div style="font-size:0.75rem;color:var(--muted);margin-bottom:8px;">per week</div>
-      <p style="font-size:0.78rem;color:var(--muted);">7 days across all platforms + CipherTech logo watermark</p>
+      <p style="font-size:0.78rem;color:var(--muted);margin-bottom:14px;">7 days across all platforms + CipherTech logo watermark</p>
+      <div style="background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06090f;padding:8px;border-radius:8px;font-size:0.8rem;font-weight:800;">Tap to Start →</div>
     </div>
-    <div style="background:var(--card);border:2px solid var(--accent);border-radius:16px;padding:22px;text-align:center;position:relative;box-shadow:0 8px 30px var(--glow);">
+
+    <!-- STANDARD -->
+    <div onclick="openAdLaunchModalWithPlan('standard',300,30)" ontouchend="openAdLaunchModalWithPlan('standard',300,30);event.preventDefault();" style="background:var(--card);border:2px solid var(--accent);border-radius:16px;padding:22px;text-align:center;position:relative;box-shadow:0 8px 30px var(--glow);cursor:pointer;transition:0.3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
       <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06090f;font-size:0.65rem;font-weight:800;padding:4px 12px;border-radius:20px;white-space:nowrap;">⭐ MOST POPULAR</div>
       <div style="font-size:1.8rem;margin-bottom:8px;">🚀</div>
       <h3 style="font-size:0.9rem;font-weight:800;margin-bottom:6px;">Standard</h3>
       <div style="font-size:1.8rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent);">$300</div>
       <div style="font-size:0.75rem;color:var(--muted);margin-bottom:8px;">per month</div>
-      <p style="font-size:0.78rem;color:var(--muted);">30 days • Best value for growth • Logo on every ad</p>
+      <p style="font-size:0.78rem;color:var(--muted);margin-bottom:14px;">30 days • Best value for growth • Logo on every ad</p>
+      <div style="background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06090f;padding:8px;border-radius:8px;font-size:0.8rem;font-weight:800;">Tap to Start →</div>
     </div>
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;transition:0.3s;" onmouseover="this.style.borderColor='var(--accent2)'" onmouseout="this.style.borderColor='var(--border)'">
+
+    <!-- PRO -->
+    <div onclick="openAdLaunchModalWithPlan('pro',750,90)" ontouchend="openAdLaunchModalWithPlan('pro',750,90);event.preventDefault();" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;transition:0.3s;cursor:pointer;" onmouseover="this.style.borderColor='var(--accent2)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.8rem;margin-bottom:8px;">👑</div>
       <h3 style="font-size:0.9rem;font-weight:800;margin-bottom:6px;">Pro</h3>
       <div style="font-size:1.8rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent2);">$750</div>
       <div style="font-size:0.75rem;color:var(--muted);margin-bottom:8px;">3 months</div>
-      <p style="font-size:0.78rem;color:var(--muted);">90 days • Maximum exposure • Priority placement</p>
+      <p style="font-size:0.78rem;color:var(--muted);margin-bottom:14px;">90 days • Maximum exposure • Priority placement</p>
+      <div style="background:linear-gradient(135deg,var(--accent2),var(--accent));color:#06090f;padding:8px;border-radius:8px;font-size:0.8rem;font-weight:800;">Tap to Start →</div>
     </div>
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;transition:0.3s;" onmouseover="this.style.borderColor='#fbbf24'" onmouseout="this.style.borderColor='var(--border)'">
+
+    <!-- ELITE -->
+    <div onclick="openAdLaunchModalWithPlan('elite',1200,180)" ontouchend="openAdLaunchModalWithPlan('elite',1200,180);event.preventDefault();" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;transition:0.3s;cursor:pointer;" onmouseover="this.style.borderColor='#fbbf24';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.8rem;margin-bottom:8px;">💎</div>
       <h3 style="font-size:0.9rem;font-weight:800;margin-bottom:6px;">Elite</h3>
       <div style="font-size:1.8rem;font-weight:800;font-family:'Space Mono',monospace;color:#fbbf24;">$1200</div>
       <div style="font-size:0.75rem;color:var(--muted);margin-bottom:8px;">6 months</div>
-      <p style="font-size:0.78rem;color:var(--muted);">180 days • Dominate your market • All features</p>
+      <p style="font-size:0.78rem;color:var(--muted);margin-bottom:14px;">180 days • Dominate your market • All features</p>
+      <div style="background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#06090f;padding:8px;border-radius:8px;font-size:0.8rem;font-weight:800;">Tap to Start →</div>
     </div>
+
   </div>
   <div style="max-width:700px;margin:0 auto 20px;background:rgba(56,189,248,0.06);border:1.5px solid var(--accent);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;">
     <div style="font-size:1.5rem;">⚡</div>
@@ -2570,46 +1970,46 @@ window.addEventListener('load', () => {
       <strong style="color:var(--accent);">📅 Expiry countdown</strong> included
     </div>
   </div>
-  <button class="launch-ad-btn" onclick="openAdLaunchModal()">📣 Launch My Campaign</button>
+  <button onclick="openAdLaunchModal()" ontouchend="openAdLaunchModal();event.preventDefault();" style="display:block;width:90%;max-width:400px;margin:0 auto;padding:18px 40px;background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;border-radius:14px;color:#fff;font-weight:800;font-size:1rem;cursor:pointer;transition:0.3s;box-shadow:0 6px 30px rgba(129,140,248,0.4);-webkit-tap-highlight-color:transparent;touch-action:manipulation;">📣 Launch My Campaign</button>
 </div>
 
 
 <!-- ===================== BOOST ===================== -->
-<section class="boost-section" id="boost">
+<section class="boost-section fade-in" id="boost">
   <h2>📈 <span style="background:linear-gradient(135deg,#a855f7,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Social Media Boost</span></h2>
   <p class="sub">Grow your followers, likes & engagement across all platforms. Real results, fast delivery, guaranteed.</p>
 
   <!-- TABS: Followers / Likes / Views -->
   <div class="boost-tabs">
-    <button class="boost-tab active" onclick="switchBoostTab(this,'followers')">👥 Followers</button>
-    <button class="boost-tab" onclick="switchBoostTab(this,'likes')">❤️ Likes</button>
-    <button class="boost-tab" onclick="switchBoostTab(this,'views')">👁 Views</button>
+    <button class="boost-tab active" onclick="switchBoostTab(this,'followers')" ontouchend="this.click()">👥 Followers</button>
+    <button class="boost-tab" onclick="switchBoostTab(this,'likes')" ontouchend="this.click()">❤️ Likes</button>
+    <button class="boost-tab" onclick="switchBoostTab(this,'views')" ontouchend="this.click()">👁 Views</button>
   </div>
 
   <!-- PLATFORM FILTER -->
   <div class="boost-platforms">
-    <button class="boost-plat-btn active" onclick="filterBoost(this,'all')">🌍 All Platforms</button>
-    <button class="boost-plat-btn" onclick="filterBoost(this,'instagram')">
+    <button class="boost-plat-btn active" onclick="filterBoost(this,'all')" ontouchend="this.click()">🌍 All Platforms</button>
+    <button class="boost-plat-btn" onclick="filterBoost(this,'instagram')" ontouchend="this.click()">
       <svg viewBox="0 0 24 24" fill="none"><defs><radialGradient id="igb" cx="30%" cy="110%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="50%" stop-color="#fd5949"/><stop offset="100%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igb)"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.8" fill="none"/></svg>
       Instagram
     </button>
-    <button class="boost-plat-btn" onclick="filterBoost(this,'tiktok')">
+    <button class="boost-plat-btn" onclick="filterBoost(this,'tiktok')" ontouchend="this.click()">
       <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#010101"/><path d="M16.07 3h2.83a4.5 4.5 0 0 0 3.52 3.97v2.76a7.33 7.33 0 0 1-4.28-1.37v6.06a5.06 5.06 0 0 1-5.05 5.06 5.06 5.06 0 0 1-5.06-5.06 5.06 5.06 0 0 1 5.06-5.06c.21 0 .42.01.61.04v2.91a2.22 2.22 0 0 0-.61-.08 2.22 2.22 0 0 0-2.22 2.22 2.22 2.22 0 0 0 2.22 2.22 2.22 2.22 0 0 0 2.22-1.92V3h-.24z" fill="white"/></svg>
       TikTok
     </button>
-    <button class="boost-plat-btn" onclick="filterBoost(this,'twitter')">
+    <button class="boost-plat-btn" onclick="filterBoost(this,'twitter')" ontouchend="this.click()">
       <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#000"/><path d="M17.5 4h2.5l-5.8 6.6 6.8 9.4h-5.3l-3.7-4.9-4.3 4.9H5l6.2-7.1L4.8 4h5.5l3.4 4.5z" fill="white"/></svg>
       Twitter/X
     </button>
-    <button class="boost-plat-btn" onclick="filterBoost(this,'facebook')">
+    <button class="boost-plat-btn" onclick="filterBoost(this,'facebook')" ontouchend="this.click()">
       <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#1877F2"/><path d="M16 8h-2c-.6 0-1 .4-1 1v2h3l-.4 3H13v7h-3v-7H8v-3h2V9c0-2.2 1.8-4 4-4h2v3z" fill="white"/></svg>
       Facebook
     </button>
-    <button class="boost-plat-btn" onclick="filterBoost(this,'youtube')">
+    <button class="boost-plat-btn" onclick="filterBoost(this,'youtube')" ontouchend="this.click()">
       <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#FF0000"/><path d="M19.6 7.8a2 2 0 0 0-1.4-1.4C16.8 6 12 6 12 6s-4.8 0-6.2.4a2 2 0 0 0-1.4 1.4C4 9.2 4 12 4 12s0 2.8.4 4.2a2 2 0 0 0 1.4 1.4C7.2 18 12 18 12 18s4.8 0 6.2-.4a2 2 0 0 0 1.4-1.4C20 14.8 20 12 20 12s0-2.8-.4-4.2zM10 14.5v-5l5 2.5-5 2.5z" fill="white"/></svg>
       YouTube
     </button>
-    <button class="boost-plat-btn" onclick="filterBoost(this,'linkedin')">
+    <button class="boost-plat-btn" onclick="filterBoost(this,'linkedin')" ontouchend="this.click()">
       <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#0077B5"/><path d="M7.2 9.4H4.8v7.8h2.4V9.4zm-1.2-3.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zm9.6 3.6c-1.3 0-2.1.7-2.4 1.3V9.4h-2.4v7.8h2.4v-4.1c0-1.1.6-1.8 1.6-1.8s1.4.7 1.4 1.8v4.1H18v-4.4c0-2.4-1.4-3.6-2.4-3.6z" fill="white"/></svg>
       LinkedIn
     </button>
@@ -2671,10 +2071,10 @@ window.addEventListener('load', () => {
 </div>
 
 <!-- ===================== SOCIAL ===================== -->
-<section class="social-section" id="social">
-  <h2>Connect Your <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Socials</span></h2>
+<section class="social-section fade-in" id="social">
+  <h2 class="fade-in">Connect Your <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Socials</span></h2>
   <p class="sub">Link your accounts once — post everywhere, every time.</p>
-      <div class="social-grid">
+      <div class="social-grid fade-in">
 
     <!-- INSTAGRAM -->
     <a class="social-pill" href="https://www.instagram.com/offi.cialciphertech?igsh=MTA0aWV5ZGFkaXV5OA==" target="_blank" style="border-color:rgba(225,48,108,0.3);">
@@ -2771,15 +2171,15 @@ window.addEventListener('load', () => {
   </div>
 </section>
 <!-- ===================== BLOG / APPS ===================== -->
-<section class="blog-section" id="blog" style="background:var(--bg2);border-top:1px solid var(--border);">
+<section class="blog-section fade-in" id="blog" style="background:var(--bg2);border-top:1px solid var(--border);">
   <h2>🚀 <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Our Apps</span></h2>
-  <p class="sub">CipherTech-built apps — live on stores, in beta, and coming soon. Tap to download.</p>
+  <p class="sub fade-in">CipherTech-built apps — live on stores, in beta, and coming soon. Tap to download.</p>
 
   <div class="blog-filter">
-    <button class="blog-filter-btn active" onclick="filterBlog(this,'all')">All</button>
-    <button class="blog-filter-btn" onclick="filterBlog(this,'live')">🟢 Live</button>
-    <button class="blog-filter-btn" onclick="filterBlog(this,'beta')">🔵 Beta</button>
-    <button class="blog-filter-btn" onclick="filterBlog(this,'upcoming')">🟡 Coming Soon</button>
+    <button class="blog-filter-btn active" onclick="filterBlog(this,'all')" ontouchend="this.click()">All</button>
+    <button class="blog-filter-btn" onclick="filterBlog(this,'live')" ontouchend="this.click()">🟢 Live</button>
+    <button class="blog-filter-btn" onclick="filterBlog(this,'beta')" ontouchend="this.click()">🔵 Beta</button>
+    <button class="blog-filter-btn" onclick="filterBlog(this,'upcoming')" ontouchend="this.click()">🟡 Coming Soon</button>
   </div>
 
   <div class="blog-grid" id="blogGrid"></div>
@@ -2850,13 +2250,13 @@ window.addEventListener('load', () => {
 </div>
 
 <!-- ===================== MESSAGES ===================== -->
-<section class="messages-section" id="messages">
-  <h2>💬 <span>Messages & Feedback</span></h2>
+<section class="messages-section fade-in" id="messages">
+  <h2 class="fade-in">💬 <span>Messages & Feedback</span></h2>
   <p class="sub">Chat privately with CipherTech or leave public feedback for everyone to see</p>
 
   <div class="msg-tabs">
-    <button class="msg-tab active" onclick="switchMsgTab(this,'chat')">💬 Private Chat</button>
-    <button class="msg-tab" onclick="switchMsgTab(this,'feedback')">⭐ Public Feedback</button>
+    <button class="msg-tab active" onclick="switchMsgTab(this,'chat')" ontouchend="this.click()">💬 Private Chat</button>
+    <button class="msg-tab" onclick="switchMsgTab(this,'feedback')" ontouchend="this.click()">⭐ Public Feedback</button>
   </div>
 
   <!-- PRIVATE CHAT -->
@@ -2895,11 +2295,11 @@ window.addEventListener('load', () => {
 
 <!-- ===== ABOUT========== ABOUT ===================== -->
 <div style="background:var(--bg2);border-top:1px solid var(--border);">
-<section class="about-section" id="about">
-  <h2>About <span style="color:var(--accent);">CipherTech</span></h2>
+<section class="about-section fade-in" id="about">
+  <h2 class="fade-in">About <span style="color:var(--accent);">CipherTech</span></h2>
   <p>CipherTech is a modern software company focused on building high-quality, scalable digital products that solve real-world problems — from social media management to AI-powered development tools.</p>
   <p>Our mission is to give creators, developers, and brands the ultimate toolkit to build, share, and grow across all digital platforms from a single hub.</p>
-  <div class="stat-row">
+  <div class="stat-row fade-in">
     <div class="stat"><strong>3</strong><span>Apps Built</span></div>
     <div class="stat"><strong>6+</strong><span>Platforms Supported</span></div>
     <div class="stat"><strong>∞</strong><span>Posts Published</span></div>
@@ -2909,10 +2309,10 @@ window.addEventListener('load', () => {
 </div>
 
 <!-- ===================== CONTACT ===================== -->
-<section class="contact-section" id="contact">
-  <h2>Contact <span style="color:var(--accent);">Us</span></h2>
+<section class="contact-section fade-in" id="contact">
+  <h2 class="fade-in">Contact <span style="color:var(--accent);">Us</span></h2>
   <p class="sub">Reach out anytime — we reply fast 🚀</p>
-  <div class="contact-card">
+  <div class="contact-card fade-in">
     <div class="contact-row"><div class="icon">📧</div><div><strong>Email</strong><a href="mailto:ciphertech65@gmail.com">ciphertech65@gmail.com</a></div></div>
     
     <div class="contact-row"><div class="icon">📍</div><div><strong>Location</strong><p>Lagos, Nigeria 🇳🇬</p></div></div>
@@ -2920,6 +2320,172 @@ window.addEventListener('load', () => {
 </section>
 
 <!-- ===================== FOOTER ===================== -->
+
+<!-- ===================== CUSTOMER REVIEWS ===================== -->
+<section class="fade-in" style="padding:70px 20px;background:var(--bg2);border-top:1px solid var(--border);" id="reviews">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <h2 style="font-size:2rem;font-weight:800;margin-bottom:10px;">What Our <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Customers Say</span></h2>
+    <p class="fade-in" style="color:var(--muted);font-size:0.9rem;margin-bottom:30px;">Real results from real people who trust CipherTech 🌍</p>
+
+    <!-- LEAVE A REVIEW FORM -->
+    <div class="review-form fade-in" style="text-align:left;max-width:560px;margin:0 auto 40px;">
+      <h3>⭐ Leave Your Review</h3>
+      <p>Tap the stars to rate your experience with CipherTech</p>
+
+      <!-- Star Rating Input -->
+      <div style="text-align:center;margin-bottom:6px;">
+        <p style="font-size:0.78rem;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em;font-weight:700;">Your Rating</p>
+        <!-- INTERACTIVE STAR RATING - works on mobile -->
+        <div id="starRatingWidget" style="display:flex;gap:8px;justify-content:center;margin:12px 0;">
+          <span class="star-btn" data-val="1" onclick="setStarRating(1)" ontouchend="setStarRating(1);event.preventDefault();" style="font-size:2.5rem;cursor:pointer;color:#334155;transition:0.2s;touch-action:manipulation;user-select:none;">★</span>
+          <span class="star-btn" data-val="2" onclick="setStarRating(2)" ontouchend="setStarRating(2);event.preventDefault();" style="font-size:2.5rem;cursor:pointer;color:#334155;transition:0.2s;touch-action:manipulation;user-select:none;">★</span>
+          <span class="star-btn" data-val="3" onclick="setStarRating(3)" ontouchend="setStarRating(3);event.preventDefault();" style="font-size:2.5rem;cursor:pointer;color:#334155;transition:0.2s;touch-action:manipulation;user-select:none;">★</span>
+          <span class="star-btn" data-val="4" onclick="setStarRating(4)" ontouchend="setStarRating(4);event.preventDefault();" style="font-size:2.5rem;cursor:pointer;color:#334155;transition:0.2s;touch-action:manipulation;user-select:none;">★</span>
+          <span class="star-btn" data-val="5" onclick="setStarRating(5)" ontouchend="setStarRating(5);event.preventDefault();" style="font-size:2.5rem;cursor:pointer;color:#334155;transition:0.2s;touch-action:manipulation;user-select:none;">★</span>
+        </div>
+        <div id="starDisplay" style="font-size:0.88rem;color:var(--accent);font-weight:700;margin-top:4px;min-height:24px;text-align:center;"></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <input type="text" id="reviewName" placeholder="Your name (e.g. Sarah M.)">
+        <input type="text" id="reviewLocation" placeholder="Location (e.g. Lagos)">
+      </div>
+      <input type="text" id="reviewService" placeholder="Which service did you use? (e.g. 10K Followers)">
+      <textarea id="reviewText" placeholder="Share your experience with CipherTech... 🚀"></textarea>
+      <button onclick="submitReview()" ontouchend="submitReview();event.preventDefault();" style="width:100%;padding:13px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:10px;color:#06090f;font-weight:800;font-size:0.92rem;cursor:pointer;touch-action:manipulation;">
+        ⭐ Submit My Review
+      </button>
+    </div>
+
+    <!-- DYNAMIC + STATIC REVIEWS GRID -->
+    <div class="review-grid" id="reviewsGrid" style="text-align:left;">
+
+      <!-- Review 1 -->
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;">"CipherTech helped my business reach more customers in just a few days. The results were incredible and beyond my expectations!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f97316,#ef4444);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.85rem;">S</div>
+          <div><strong style="display:block;font-size:0.85rem;">Sarah M.</strong><span style="font-size:0.72rem;color:var(--muted);">Business Owner • Lagos, Nigeria</span></div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;">"Fast delivery and excellent support. I gained 10,000 Instagram followers in less than a week. Highly professional service!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.85rem;">J</div>
+          <div><strong style="display:block;font-size:0.85rem;">James K.</strong><span style="font-size:0.72rem;color:var(--muted);">Content Creator • Abuja, Nigeria</span></div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;">"Highly recommended! My TikTok views went from 500 to over 100,000 after using CipherTech. Amazing platform!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.85rem;">D</div>
+          <div><strong style="display:block;font-size:0.85rem;">Daniel O.</strong><span style="font-size:0.72rem;color:var(--muted);">Influencer • Port Harcourt</span></div>
+        </div>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;">"I launched an ad campaign and saw a 300% increase in website traffic within 48 hours. CipherTech is a game changer!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#6d28d9);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.85rem;">A</div>
+          <div><strong style="display:block;font-size:0.85rem;">Amina T.</strong><span style="font-size:0.72rem;color:var(--muted);">E-commerce Store • Kano</span></div>
+        </div>
+      </div>
+
+      <!-- Review 5 -->
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;">"The best investment I made for my brand! CipherTech's boost service is legit — real followers, real engagement. No bots!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.85rem;">C</div>
+          <div><strong style="display:block;font-size:0.85rem;">Chidi N.</strong><span style="font-size:0.72rem;color:var(--muted);">Musician • Lagos, Nigeria</span></div>
+        </div>
+      </div>
+
+      <!-- Review 6 -->
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;">"CipherTech's platform is super easy to use. I posted once and it went to all my social media automatically. Saved me hours!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#be185d);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.85rem;">F</div>
+          <div><strong style="display:block;font-size:0.85rem;">Fatima B.</strong><span style="font-size:0.72rem;color:var(--muted);">Fashion Designer • Ibadan</span></div>
+        </div>
+      </div>
+
+      <!-- Review 7 -->
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;">"Got 50K Facebook likes for my page in 2 weeks! My online store is now thriving thanks to CipherTech. 100% recommended!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#0f766e);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.85rem;">E</div>
+          <div><strong style="display:block;font-size:0.85rem;">Emmanuel R.</strong><span style="font-size:0.72rem;color:var(--muted);">Online Retailer • Enugu</span></div>
+        </div>
+      </div>
+
+      <!-- Review 8 -->
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;">"Their ad campaign service is next level. I reached customers across Nigeria, Ghana and Kenya all from one place!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#4f46e5);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.85rem;">K</div>
+          <div><strong style="display:block;font-size:0.85rem;">Kemi A.</strong><span style="font-size:0.72rem;color:var(--muted);">Marketing Manager • Lagos</span></div>
+        </div>
+      </div>
+
+      <!-- Review 9 -->
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;">"I was skeptical at first but CipherTech delivered exactly what they promised. My YouTube channel grew by 25,000 subscribers!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f43f5e,#e11d48);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:0.85rem;">T</div>
+          <div><strong style="display:block;font-size:0.85rem;">Tunde S.</strong><span style="font-size:0.72rem;color:var(--muted);">YouTuber • Ibadan, Nigeria</span></div>
+        </div>
+      </div>
+
+      <!-- Review 10 -->
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p style="font-size:0.88rem;color:var(--text);line-height:1.7;margin-bottom:14px;">"CipherTech is the future of social media marketing in Africa. Professional, fast, affordable and 100% real results!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#06090f;font-size:0.85rem;">O</div>
+          <div><strong style="display:block;font-size:0.85rem;">Obioma P.</strong><span style="font-size:0.72rem;color:var(--muted);">Startup Founder • Owerri</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Dynamic user reviews will appear here -->
+    <div class="review-grid" id="userReviewsGrid" style="text-align:left;margin-top:18px;"></div>
+
+    <!-- Overall Rating -->
+    <div style="margin-top:40px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;display:inline-flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;">
+      <div style="text-align:center;">
+        <div style="font-size:3rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent);">4.9</div>
+        <div style="color:#fbbf24;font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:4px;">Overall Rating</div>
+      </div>
+      <div style="width:1px;height:60px;background:var(--border);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:2rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--green);">500+</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:4px;">Happy Customers</div>
+      </div>
+      <div style="width:1px;height:60px;background:var(--border);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:2rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent2);">98%</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:4px;">Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <p>© 2026 CipherTech. All rights reserved. Built in Lagos 🇳🇬</p>
   <div class="foot-links">
@@ -2927,7 +2493,6 @@ window.addEventListener('load', () => {
     <a href="#feed">Feed</a>
     <a href="#blog">Apps</a>
     <a href="#messages">Messages</a>
-    <a href="#apps">Apps</a>
     <a href="#ads">Ads</a>
     <a href="mailto:ciphertech65@gmail.com">Contact</a>
   </div>
@@ -3136,28 +2701,68 @@ document.addEventListener('click', e => {
 
 // =================== MODALS ===================
 function openModal(id) {
-  document.getElementById(id).classList.add('open');
-  document.body.style.overflow='hidden';
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.style.display = 'flex';
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 function closeModal(id) {
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow='';
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.classList.remove('open');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
 }
 function overlayClick(e, id) {
   if (e.target.id === id) closeModal(id);
 }
 
 function openAdLaunchModal() {
-  openModal('adLaunchModal');
-  // Reset to step 1
-  setTimeout(() => {
+  try {
+    const modal = document.getElementById('adLaunchModal');
+    if (!modal) { showToast('❌ Please refresh the page'); return; }
+    modal.removeAttribute('style');
+    modal.style.display = 'flex';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Reset steps
     for (let i = 1; i <= 4; i++) {
-      const el = document.getElementById('adModalStep'+i);
-      if (el) el.style.display = i===1 ? 'block' : 'none';
-      const stepEl = document.getElementById('adStep'+i);
-      if (stepEl) stepEl.className = 'step' + (i===1 ? ' active' : '');
+      const el = document.getElementById('adModalStep' + i);
+      if (el) el.style.display = i === 1 ? 'block' : 'none';
+      const stepEl = document.getElementById('adStep' + i);
+      if (stepEl) stepEl.className = 'step' + (i === 1 ? ' active' : '');
     }
-  }, 100);
+    const box = document.getElementById('adLaunchModalBox');
+    if (box) box.scrollTop = 0;
+  } catch(e) {
+    console.error('openAdLaunchModal error:', e);
+    alert('Please tap again or refresh the page');
+  }
+}
+
+function openAdLaunchModalWithPlan(planName, price, duration) {
+  // Set the selected plan before opening modal
+  selectedAdPlan = {
+    name: planName.charAt(0).toUpperCase() + planName.slice(1),
+    price: price,
+    duration: duration
+  };
+  // Open the modal
+  openAdLaunchModal();
+  // Pre-select the matching plan card after modal opens
+  setTimeout(() => {
+    const planCards = document.querySelectorAll('#adLaunchModal .pricing-card');
+    planCards.forEach(card => {
+      card.classList.remove('selected');
+      if (card.dataset.plan && card.dataset.plan.includes(planName.substring(0,3))) {
+        card.classList.add('selected');
+      }
+    });
+    // Update summary if visible
+    if (typeof updateAdSummary === 'function') updateAdSummary();
+    showToast('✅ ' + planName.charAt(0).toUpperCase() + planName.slice(1) + ' plan selected - $' + price);
+  }, 300);
 }
 
 // =================== AUTH ===================
@@ -3357,8 +2962,8 @@ const paymentDetails = {
 function selectPlan(el, key, price) {
   document.querySelectorAll('.pricing-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
-  const durations = {1week:7, '1month':30, '3months':90, '6months':180};
-  const names = {1week:'Starter — 1 Week', '1month':'Standard — 1 Month', '3months':'Pro — 3 Months', '6months':'Elite — 6 Months'};
+  const durations = {'1week':7, '1month':30, '3months':90, '6months':180};
+  const names = {'1week':'Starter — 1 Week', '1month':'Standard — 1 Month', '3months':'Pro — 3 Months', '6months':'Elite — 6 Months'};
   const days = durations[key];
   selectedAdPlan = {name: names[key], duration: days, price, key};
   updateAdSummary();
@@ -3395,7 +3000,7 @@ function selectPayMethod(el, method) {
     cardBox.style.display = 'block';
     otherBox.style.display = 'none';
     refGroup.style.display = 'none';
-    payBtn.textContent = '💳 Pay & Submit';
+    payBtn.textContent = '💳 Pay with Flutterwave';
     mountStripeCardElement();
   } else {
     cardBox.style.display = 'none';
@@ -3443,44 +3048,72 @@ function mountStripeCardElement() {
 
 function handleAdPayment() {
   if (selectedPayMethod !== 'card') {
-    // Manual payment methods — require reference ID
     const ref = document.getElementById('paymentRef').value.trim();
     if (!ref) { showToast('⚠️ Enter your payment reference ID'); return; }
     completeAdSubmission();
     return;
   }
 
-  // STRIPE CHECKOUT — redirect to Stripe hosted payment page
-  const planKey = 'ad_' + (selectedAdPlan ? selectedAdPlan.name.toLowerCase().replace(/[^a-z]/g,'') : 'starter');
-  const paymentLink = window.STRIPE_PAYMENT_LINKS[planKey];
+  // FLUTTERWAVE INLINE PAYMENT
+  const name = document.getElementById('advertiserName').value.trim();
+  const email = document.getElementById('advertiserEmail').value.trim();
+  const campaign = document.getElementById('campName').value.trim();
 
-  if (!paymentLink || paymentLink.includes('test_ad_')) {
-    // Payment link not set up yet — show instructions
-    showSetupStripeModal();
-    return;
-  }
+  if (!name) { showToast('⚠️ Enter your name'); return; }
+  if (!email) { showToast('⚠️ Enter your email'); return; }
+  if (!selectedAdPlan) { showToast('⚠️ Select a plan first'); return; }
 
-  // Save pending order to localStorage before redirecting
-  const pendingOrder = {
-    type: 'ad',
-    plan: selectedAdPlan,
-    advertiser: document.getElementById('advertiserName').value.trim(),
-    email: document.getElementById('advertiserEmail').value.trim(),
-    campaign: document.getElementById('campName').value.trim(),
-    timestamp: new Date().toISOString()
-  };
-  localStorage.setItem('ciphertech_pending_order', JSON.stringify(pendingOrder));
+  const amount = selectedAdPlan.price;
+  const txRef = 'CT-AD-' + Date.now();
 
-  // Build return URL with campaign info
-  const returnUrl = window.location.href.split('?')[0] + '?payment=success&type=ad&plan=' + encodeURIComponent(selectedAdPlan.name);
-  const cancelUrl = window.location.href.split('?')[0] + '?payment=cancelled';
+  FlutterwaveCheckout({
+    public_key: window.FLW_PUBLIC_KEY,
+    tx_ref: txRef,
+    amount: amount,
+    currency: 'USD',
+    payment_options: 'card, ussd, bank_transfer',
+    customer: {
+      email: email,
+      name: name,
+    },
+    meta: {
+      campaign: campaign,
+      plan: selectedAdPlan.name,
+      type: 'ad_campaign'
+    },
+    customizations: {
+      title: 'CipherTech Ad Campaign',
+      description: selectedAdPlan.name + ' - ' + campaign,
+      logo: 'https://skypro-droid.github.io/CipherTech/logo.jpg',
+    },
+    callback: function(response) {
+      if (response.status === 'successful' || response.status === 'completed') {
+        showToast('✅ Payment successful! Campaign activated!');
+        const refEl = document.getElementById('paymentRef');
+        if (refEl) refEl.value = response.transaction_id || txRef;
 
-  // Open Stripe Checkout
-  window.open(paymentLink + '?success_url=' + encodeURIComponent(returnUrl) + '&cancel_url=' + encodeURIComponent(cancelUrl), '_blank');
+        // Send email confirmation via EmailJS
+        sendEmailConfirmation({
+          to_name: name,
+          email: email,
+          order_type: 'Ad Campaign',
+          plan_name: selectedAdPlan.name,
+          amount: amount,
+          transaction_id: response.transaction_id || txRef,
+          date: new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}),
+          delivery_time: selectedAdPlan.duration + ' days'
+        });
 
-  showToast('🔗 Opening Stripe payment page...');
-  // Also complete submission so campaign is saved
-  setTimeout(() => completeAdSubmission(), 1500);
+        completeAdSubmission();
+        showPaymentSuccessBanner('ad', selectedAdPlan.name, response.transaction_id);
+      } else {
+        showToast('❌ Payment failed. Please try again.');
+      }
+    },
+    onclose: function() {
+      showToast('Payment window closed.');
+    }
+  });
 }
 
 function adNextStep(step) {
@@ -3782,6 +3415,12 @@ function toggleTheme() {
 }
 
 window.addEventListener('load', () => {
+  // Initialize EmailJS
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init('edX4sBO6oEAkLmlSV');
+    console.log('✅ EmailJS initialized');
+  }
+
   if (localStorage.getItem('theme') === 'light') {
     document.body.classList.add('light');
     const btn1 = document.getElementById('themeToggleBtn');
@@ -3876,7 +3515,7 @@ function getAllApps() {
 function filterBlog(btn, filter) {
   appFilter = filter;
   document.querySelectorAll('.blog-filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
   renderBlog();
 }
 
@@ -4209,39 +3848,66 @@ function handleBoostPayment() {
 
   const name = document.getElementById('boostName').value.trim();
   const email = document.getElementById('boostEmail').value.trim();
+  const username = document.getElementById('boostUsername').value.trim();
+
   if (!name) { showToast('⚠️ Enter your name'); return; }
   if (!email) { showToast('⚠️ Enter your email'); return; }
+  if (!username) { showToast('⚠️ Enter your username/profile URL'); return; }
+  if (!selectedBoostPlan) { showToast('⚠️ Select a boost plan'); return; }
 
-  // STRIPE CHECKOUT — redirect to Stripe hosted payment page
-  const planId = selectedBoostPlan ? selectedBoostPlan.id : null;
-  const planKey = planId ? 'boost_' + planId : null;
-  const paymentLink = planKey ? window.STRIPE_PAYMENT_LINKS[planKey] : null;
+  const amount = selectedBoostPlan.price;
+  const txRef = 'CT-BOOST-' + Date.now();
 
-  if (!paymentLink || paymentLink.includes('test_boost_')) {
-    // Payment links not set up yet — show setup instructions
-    showSetupStripeModal();
-    return;
-  }
+  FlutterwaveCheckout({
+    public_key: window.FLW_PUBLIC_KEY,
+    tx_ref: txRef,
+    amount: amount,
+    currency: 'USD',
+    payment_options: 'card, ussd, bank_transfer',
+    customer: {
+      email: email,
+      name: name,
+    },
+    meta: {
+      username: username,
+      platform: activeBoostPlatform,
+      boost_type: activeBoostTab,
+      plan: selectedBoostPlan.label,
+      type: 'social_boost'
+    },
+    customizations: {
+      title: 'CipherTech Social Boost',
+      description: selectedBoostPlan.label + ' ' + activeBoostTab + ' on ' + activeBoostPlatform,
+      logo: 'https://skypro-droid.github.io/CipherTech/logo.jpg',
+    },
+    callback: function(response) {
+      if (response.status === 'successful' || response.status === 'completed') {
+        showToast('✅ Payment confirmed! Boost order activated!');
+        const refEl = document.getElementById('boostPayRef');
+        if (refEl) refEl.value = response.transaction_id || txRef;
 
-  // Save pending boost order before redirect
-  const pendingOrder = {
-    type: 'boost',
-    plan: selectedBoostPlan,
-    tab: activeBoostTab,
-    platform: activeBoostPlatform,
-    name, email,
-    username: document.getElementById('boostUsername').value.trim(),
-    timestamp: new Date().toISOString()
-  };
-  localStorage.setItem('ciphertech_pending_order', JSON.stringify(pendingOrder));
+        // Send email confirmation via EmailJS
+        sendEmailConfirmation({
+          to_name: name,
+          email: email,
+          order_type: 'Social Media Boost',
+          plan_name: selectedBoostPlan.label + ' ' + activeBoostTab + ' on ' + activeBoostPlatform,
+          amount: amount,
+          transaction_id: response.transaction_id || txRef,
+          date: new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}),
+          delivery_time: selectedBoostPlan.delivery
+        });
 
-  const returnUrl = window.location.href.split('?')[0] + '?payment=success&type=boost&plan=' + encodeURIComponent(selectedBoostPlan.label);
-  const cancelUrl = window.location.href.split('?')[0] + '?payment=cancelled';
-
-  window.open(paymentLink + '?success_url=' + encodeURIComponent(returnUrl) + '&cancel_url=' + encodeURIComponent(cancelUrl), '_blank');
-
-  showToast('🔗 Opening Stripe payment page...');
-  setTimeout(() => confirmBoostOrder(), 1500);
+        confirmBoostOrder();
+        showPaymentSuccessBanner('boost', selectedBoostPlan.label, response.transaction_id);
+      } else {
+        showToast('❌ Payment failed. Please try again.');
+      }
+    },
+    onclose: function() {
+      showToast('Payment window closed.');
+    }
+  });
 }
 
 function confirmBoostOrder() {
@@ -4453,8 +4119,475 @@ window.addEventListener('load', () => {
 
 // Render on load
 window.addEventListener('load', () => {
-  setTimeout(renderBoostCards, 700);
+  // Initialize boost section
+  setTimeout(() => {
+    if (typeof renderBoostCards === 'function') {
+      renderBoostCards();
+      console.log('✅ Boost cards rendered');
+    }
+  }, 500);
+  // Initialize blog
+  setTimeout(() => {
+    if (typeof renderBlog === 'function') {
+      renderBlog();
+      console.log('✅ Blog rendered');
+    }
+  }, 600);
 });
+
+
+function shareAllAtOnce_panel() {
+  const panel = document.getElementById('autoSharePanel');
+  if (!panel) return;
+  const platformDivs = panel.querySelectorAll('[id^="share-platform-"]');
+  platformDivs.forEach((el, i) => {
+    setTimeout(() => { el.click(); }, i * 800);
+  });
+}
+
+
+// =================== STAR RATING & REVIEWS ===================
+// Track selected rating
+let selectedRating = 0;
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupStarRating();
+  loadUserReviews();
+});
+
+// Also run on load in case DOMContentLoaded already fired
+window.addEventListener('load', () => {
+  setupStarRating();
+  loadUserReviews();
+});
+
+
+const starLabels = ['', 'Poor 😕', 'Fair 😐', 'Good 😊', 'Great 😄', 'Excellent! 🤩'];
+
+function setStarRating(val) {
+  selectedRating = val;
+  // Update star colors
+  document.querySelectorAll('.star-btn').forEach(s => {
+    const starVal = parseInt(s.dataset.val);
+    s.style.color = starVal <= val ? '#fbbf24' : '#334155';
+    s.style.transform = starVal <= val ? 'scale(1.1)' : 'scale(1)';
+  });
+  // Update display text
+  const display = document.getElementById('starDisplay');
+  if (display) display.textContent = starLabels[val] || '';
+  showToast('You selected ' + val + ' star' + (val > 1 ? 's' : '') + '!');
+}
+
+function setupStarRating() {
+  // Now handled by setStarRating - just reset
+  selectedRating = 0;
+}
+
+function submitReview() {
+  const name = document.getElementById('reviewName').value.trim();
+  const location = document.getElementById('reviewLocation').value.trim();
+  const service = document.getElementById('reviewService').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+
+  if (selectedRating === 0) { showToast('⭐ Please select a star rating first!'); return; }
+  if (!name) { showToast('⚠️ Enter your name'); return; }
+  if (!text) { showToast('⚠️ Write your review'); return; }
+
+  const stars = '⭐'.repeat(selectedRating);
+  const review = {
+    id: 'rev_' + Date.now(),
+    name,
+    location: location || 'Nigeria',
+    service: service || 'CipherTech Services',
+    text,
+    rating: selectedRating,
+    stars,
+    date: new Date().toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}),
+    avatar: name.charAt(0).toUpperCase(),
+    color: ['#f97316','#3b82f6','#10b981','#8b5cf6','#f59e0b','#ec4899','#14b8a6','#6366f1'][Math.floor(Math.random()*8)]
+  };
+
+  // Save to localStorage
+  const reviews = JSON.parse(localStorage.getItem('ciphertech_reviews') || '[]');
+  reviews.unshift(review);
+  localStorage.setItem('ciphertech_reviews', JSON.stringify(reviews));
+
+  // Save to Firebase
+  if (window._db && window._fsLib) {
+    const {collection, addDoc, serverTimestamp} = window._fsLib;
+    addDoc(collection(window._db, 'reviews'), {
+      ...review,
+      createdAt: serverTimestamp()
+    }).catch(console.error);
+  }
+
+  // Clear form
+  document.getElementById('reviewName').value = '';
+  document.getElementById('reviewLocation').value = '';
+  document.getElementById('reviewService').value = '';
+  document.getElementById('reviewText').value = '';
+  document.querySelectorAll('.star-rating input').forEach(s => s.checked = false);
+  selectedRating = 0;
+  const display = document.getElementById('starDisplay');
+  if (display) display.textContent = '';
+
+  // Re-render
+  loadUserReviews();
+  showToast('🎉 Thank you for your review, ' + name + '!');
+
+  // Scroll to their review
+  setTimeout(() => {
+    document.getElementById('userReviewsGrid').scrollIntoView({behavior:'smooth'});
+  }, 500);
+}
+
+function loadUserReviews() {
+  const grid = document.getElementById('userReviewsGrid');
+  if (!grid) return;
+
+  const reviews = JSON.parse(localStorage.getItem('ciphertech_reviews') || '[]');
+
+  // Also try to load from Firebase
+  if (window._db && window._fsLib) {
+    const {collection, getDocs, query, orderBy} = window._fsLib;
+    getDocs(query(collection(window._db, 'reviews'), orderBy('createdAt', 'desc')))
+      .then(snapshot => {
+        const fbReviews = [];
+        snapshot.forEach(doc => fbReviews.push({id: doc.id, ...doc.data()}));
+        if (fbReviews.length > 0) renderUserReviews(fbReviews);
+      }).catch(() => renderUserReviews(reviews));
+  } else {
+    renderUserReviews(reviews);
+  }
+}
+
+function renderUserReviews(reviews) {
+  const grid = document.getElementById('userReviewsGrid');
+  if (!grid) return;
+
+  if (reviews.length === 0) {
+    grid.innerHTML = '';
+    return;
+  }
+
+  // Update the overall stats
+  const totalRating = reviews.reduce((sum, r) => sum + (r.rating || 5), 0);
+  const avgRating = (totalRating / reviews.length).toFixed(1);
+  const totalCount = reviews.length + 10; // include static reviews
+
+  const ratingEl = document.querySelector('#reviews .review-overall-rating');
+  if (ratingEl) ratingEl.textContent = avgRating;
+
+  grid.innerHTML = reviews.map(r => `
+    <div class="review-card">
+      <div class="review-stars">${r.stars || '⭐⭐⭐⭐⭐'}</div>
+      <p class="review-text">"${r.text}"</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:${r.color || 'linear-gradient(135deg,var(--accent),var(--accent2))'};">${r.avatar || r.name.charAt(0)}</div>
+        <div>
+          <strong style="display:block;font-size:0.85rem;">${r.name}</strong>
+          <span style="font-size:0.72rem;color:var(--muted);">${r.service} • ${r.location} • ${r.date}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+
+// =================== SCROLL ANIMATIONS ===================
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Don't unobserve so animation stays
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  // Observe all animatable elements
+  document.querySelectorAll('.fade-in, .fade-left, .fade-right, .zoom-in, .slide-up').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Stagger cards
+  function staggerCards(selector, animClass, delayStep) {
+    document.querySelectorAll(selector).forEach((card, i) => {
+      if (!card.classList.contains('fade-in')) {
+        card.classList.add(animClass);
+        card.style.transitionDelay = (i * delayStep) + 's';
+        observer.observe(card);
+      }
+    });
+  }
+
+  staggerCards('.review-card', 'fade-in', 0.1);
+  staggerCards('.post-card', 'slide-up', 0.08);
+  staggerCards('.boost-card', 'zoom-in', 0.07);
+  staggerCards('.blog-card', 'fade-in', 0.1);
+  staggerCards('.ad-card', 'fade-in', 0.1);
+  staggerCards('.social-pill', 'fade-in', 0.08);
+  staggerCards('.stat', 'zoom-in', 0.12);
+  staggerCards('.card', 'fade-in', 0.1);
+}
+
+// Run on load and after dynamic content renders
+window.addEventListener('load', () => {
+  setTimeout(initScrollAnimations, 800);
+});
+
+// Re-init after posts/reviews load
+const _origRenderPost = window.renderPost;
+window.renderPost = function(post, append) {
+  if (typeof _origRenderPost === 'function') _origRenderPost(post, append);
+  setTimeout(initScrollAnimations, 100);
+};
+
+
+// =================== PAGE LOADER ===================
+(function() {
+  function hideLoader() {
+    const loader = document.getElementById('pageLoader');
+    if (!loader) return;
+    // Wait a tiny bit so user sees the animation complete
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      // Remove from DOM after animation
+      setTimeout(() => {
+        if (loader.parentElement) loader.remove();
+      }, 700);
+    }, 400);
+  }
+
+  // Hide when page fully loads
+  if (document.readyState === 'complete') {
+    hideLoader();
+  } else {
+    window.addEventListener('load', hideLoader);
+    // Fallback: hide after 3.5s max no matter what
+    setTimeout(hideLoader, 3500);
+  }
+})();
+
+
+// =================== PAGE LOADER ===================
+(function() {
+  // Hide loader when page is ready
+  function hideLoader() {
+    const loader = document.getElementById('pageLoader');
+    if (!loader) return;
+    // Minimum display time = 1.8s so logo is always seen
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      // Remove from DOM after fade completes
+      setTimeout(() => {
+        if (loader.parentElement) loader.remove();
+      }, 700);
+    }, 1800);
+  }
+
+  // Hide on window load
+  if (document.readyState === 'complete') {
+    hideLoader();
+  } else {
+    window.addEventListener('load', hideLoader);
+  }
+
+  // Failsafe — always hide after 4 seconds max
+  setTimeout(() => {
+    const loader = document.getElementById('pageLoader');
+    if (loader) loader.classList.add('hidden');
+  }, 4000);
+})();
+
+
+// =================== CIPHERTECH AI CHATBOT ===================
+let ctChatOpen = false;
+let ctChatHistory = [];
+
+const CT_SYSTEM_PROMPT = `You are CipherTech AI, a friendly and helpful assistant for CipherTech.com — a Nigerian tech platform built by Sky Pro (Sunday John Orji) in Lagos, Nigeria 🇳🇬.
+
+CipherTech offers these services:
+1. 📣 AD CAMPAIGNS — Launch ads across Instagram, TikTok, Twitter/X, YouTube, Facebook, LinkedIn simultaneously
+   - Starter: $100/week (7 days)
+   - Standard: $300/month (30 days) ⭐ Most Popular
+   - Pro: $750 for 3 months (90 days)
+   - Elite: $1,200 for 6 months (180 days)
+
+2. 📈 SOCIAL MEDIA BOOST — Real followers, likes, views, comments
+   - Followers: 1K=$100, 5K=$250, 10K=$400, 50K=$700, 100K=$900, 500K=$1,200, 1M=$1,500
+   - Likes: from $20 (500 likes) to $900 (100K likes)
+   - Views: from $30 (10K views) to $700 (1M views)
+   - $400+ boost orders get a FREE floating sponsored ad feature
+
+3. 📸 POST EVERYWHERE — Post photos/videos once and share to all connected social media automatically, labeled "Sponsored by CipherTech.com"
+
+4. 💬 MESSAGES & FEEDBACK — Private chat with CipherTech support or leave public reviews
+
+5. 🚀 APPS BLOG — CipherTech-built apps including CipherChat, SkyNotes, AI Toolkit, and upcoming CipherPay
+
+Contact info:
+- Email: ciphertech65@gmail.com
+- WhatsApp: +2347037604756
+- Telegram: @CipherTech89 (t.me/CipherTech89)
+- Instagram: @offi.cialciphertech
+- Twitter/X: @CipherTech0z
+- TikTok: @officialcipher.te
+- LinkedIn: cipher-tech-069459263
+- Facebook: facebook.com/share/1Kr4Zfh26p/
+
+Payment: Powered by Flutterwave. Accepts cards, USSD, bank transfer.
+Email confirmations sent via EmailJS after payment.
+
+Be friendly, concise, helpful and professional. Use emojis occasionally. Always encourage users to try CipherTech services. If asked about something unrelated, gently redirect to CipherTech services. Answer in the same language the user writes in.`;
+
+function toggleCTChat() {
+  ctChatOpen = !ctChatOpen;
+  const widget = document.getElementById('ctChatWidget');
+  const notif = document.getElementById('ctChatNotif');
+  
+  if (ctChatOpen) {
+    widget.classList.add('open');
+    if (notif) notif.style.display = 'none';
+    if (ctChatHistory.length === 0) {
+      // Show welcome message
+      setTimeout(() => {
+        ctAddMessage('bot', '👋 Hi! I\'m <strong>CipherTech AI</strong>!<br><br>I can help you with:<br>• 📣 Ad campaigns & pricing<br>• 📈 Social media boost packages<br>• 📸 Posting to all platforms<br>• 💰 Payment & billing<br>• 📞 Contacting CipherTech<br><br>What can I help you with today? 🚀');
+      }, 300);
+    }
+    // Scroll to bottom
+    setTimeout(() => {
+      const msgs = document.getElementById('ctChatMessages');
+      if (msgs) msgs.scrollTop = msgs.scrollHeight;
+    }, 400);
+  } else {
+    widget.classList.remove('open');
+  }
+}
+
+function ctAddMessage(type, text) {
+  const container = document.getElementById('ctChatMessages');
+  if (!container) return;
+  
+  const msg = document.createElement('div');
+  msg.className = 'ct-msg ' + type;
+  msg.innerHTML = text;
+  container.appendChild(msg);
+  container.scrollTop = container.scrollHeight;
+  return msg;
+}
+
+function ctShowTyping() {
+  const container = document.getElementById('ctChatMessages');
+  if (!container) return null;
+  
+  const typing = document.createElement('div');
+  typing.className = 'ct-msg typing';
+  typing.id = 'ctTypingIndicator';
+  typing.innerHTML = '<div class="ct-typing-dots"><span></span><span></span><span></span></div>';
+  container.appendChild(typing);
+  container.scrollTop = container.scrollHeight;
+  return typing;
+}
+
+function ctHideTyping() {
+  const typing = document.getElementById('ctTypingIndicator');
+  if (typing) typing.remove();
+}
+
+async function ctSendMessage() {
+  const input = document.getElementById('ctChatInput');
+  if (!input) return;
+  const text = input.value.trim();
+  if (!text) return;
+  
+  input.value = '';
+  ctAddMessage('user', text);
+  
+  // Hide quick buttons after first message
+  const quickBtns = document.getElementById('ctQuickBtns');
+  if (quickBtns) quickBtns.style.display = 'none';
+  
+  // Add to history
+  ctChatHistory.push({role:'user', content: text});
+  
+  // Show typing indicator
+  ctShowTyping();
+  
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 1000,
+        system: CT_SYSTEM_PROMPT,
+        messages: ctChatHistory
+      })
+    });
+    
+    const data = await response.json();
+    ctHideTyping();
+    
+    if (data.content && data.content[0]) {
+      const reply = data.content[0].text;
+      ctChatHistory.push({role:'assistant', content: reply});
+      
+      // Format reply (convert newlines to <br>, bold **text**)
+      const formatted = reply
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n/g, '<br>');
+      
+      ctAddMessage('bot', formatted);
+    } else {
+      ctAddMessage('bot', ctFallbackAnswer(text));
+    }
+  } catch(e) {
+    ctHideTyping();
+    ctAddMessage('bot', ctFallbackAnswer(text));
+  }
+}
+
+function ctSendQuick(text) {
+  const input = document.getElementById('ctChatInput');
+  if (input) input.value = text;
+  ctSendMessage();
+}
+
+// Fallback answers if API not available
+function ctFallbackAnswer(question) {
+  const q = question.toLowerCase();
+  
+  if (q.includes('price') || q.includes('cost') || q.includes('how much')) {
+    return '💰 <strong>Our Pricing:</strong><br><br>📣 <strong>Ad Campaigns:</strong><br>• Starter — $100/week<br>• Standard — $300/month ⭐<br>• Pro — $750 / 3 months<br>• Elite — $1,200 / 6 months<br><br>📈 <strong>Social Boost:</strong><br>• 1K Followers — $100<br>• 10K Followers — $400<br>• 1M Followers — $1,500<br><br>Tap "Launch My Campaign" or "Boost" to get started! 🚀';
+  }
+  if (q.includes('boost') || q.includes('follower') || q.includes('likes') || q.includes('views')) {
+    return '📈 <strong>Social Media Boost:</strong><br><br>We offer real followers, likes, views & comments for:<br>• Instagram 📸<br>• TikTok 🎵<br>• Twitter/X 𝕏<br>• Facebook 📘<br>• YouTube ▶️<br>• LinkedIn 💼<br><br><strong>Prices start from $100</strong> for 1,000 followers!<br><br>Scroll to the "Social Media Boost" section to order! 🚀';
+  }
+  if (q.includes('contact') || q.includes('support') || q.includes('help')) {
+    return '📞 <strong>Contact CipherTech:</strong><br><br>📧 ciphertech65@gmail.com<br>💬 WhatsApp: +2347037604756<br>✈️ Telegram: @CipherTech89<br>📸 Instagram: @offi.cialciphertech<br><br>Or use the <strong>Messages section</strong> on this page to chat with us directly! We reply fast 🚀';
+  }
+  if (q.includes('ad') || q.includes('campaign') || q.includes('advertis')) {
+    return '📣 <strong>Launch Ads Everywhere!</strong><br><br>Post your ad to ALL platforms at once:<br>Instagram • TikTok • Twitter/X • YouTube • Facebook • LinkedIn<br><br>💰 Starting from <strong>$100/week</strong><br>Every ad includes the CipherTech.com watermark + auto-share!<br><br>Scroll to "Launch Ads Everywhere" to get started! 🚀';
+  }
+  if (q.includes('pay') || q.includes('payment') || q.includes('flutterwave') || q.includes('card')) {
+    return '💳 <strong>Payment Methods:</strong><br><br>We accept:<br>• Credit/Debit Cards 💳<br>• Bank Transfer 🏦<br>• USSD<br><br>Powered by <strong>Flutterwave</strong> 🇳🇬<br>100% secure • Email confirmation sent instantly! 📧';
+  }
+  if (q.includes('post') || q.includes('share') || q.includes('social')) {
+    return '📸 <strong>Post Everywhere at Once!</strong><br><br>Log in as owner → tap <strong>"+ Post"</strong> → upload photo/video → select platforms → publish!<br><br>Your post automatically shares to:<br>Instagram • Twitter/X • TikTok • Facebook • LinkedIn<br><br>Every post is labeled <strong>"Sponsored by CipherTech.com"</strong> with a link back to us! 🌍';
+  }
+  
+  return '👋 Hi! I\'m CipherTech AI. I can help you with:<br><br>• 📣 Ad campaign pricing & setup<br>• 📈 Social media boost packages<br>• 📞 Contacting our support team<br>• 💳 Payment information<br><br>What would you like to know? Or email us at <a href="mailto:ciphertech65@gmail.com">ciphertech65@gmail.com</a> 🚀';
+}
+
+// Show chat notification after 3 seconds
+setTimeout(() => {
+  const notif = document.getElementById('ctChatNotif');
+  if (notif) notif.style.display = 'flex';
+}, 3000);
 
 // =================== TIME AGO ===================
 function timeAgo(date) {
@@ -4680,6 +4813,85 @@ window.addEventListener('load', () => {
   }
 });
 
+
+
+// =================== EMAILJS SEND CONFIRMATION ===================
+function sendEmailConfirmation(params) {
+  try {
+    if (typeof emailjs === 'undefined') {
+      console.log('EmailJS not loaded yet');
+      return;
+    }
+
+    // Initialize EmailJS with public key
+    emailjs.init(window.EMAILJS_PUBLIC_KEY);
+
+    const templateParams = {
+      to_name: params.to_name || 'Customer',
+      email: params.email,
+      order_type: params.order_type,
+      plan_name: params.plan_name,
+      amount: params.amount,
+      transaction_id: params.transaction_id,
+      date: params.date,
+      delivery_time: params.delivery_time || 'As scheduled',
+      order_id: params.transaction_id
+    };
+
+    // Send to customer
+    emailjs.send(
+      window.EMAILJS_SERVICE,
+      window.EMAILJS_TEMPLATE_AD,
+      templateParams
+    ).then(function(response) {
+      console.log('✅ Email sent to customer:', response.status);
+      showToast('📧 Confirmation email sent to ' + params.email);
+    }).catch(function(error) {
+      console.error('EmailJS error:', error);
+    });
+
+    // Send copy to owner (CipherTech)
+    emailjs.send(
+      window.EMAILJS_SERVICE,
+      window.EMAILJS_TEMPLATE_AD,
+      {
+        ...templateParams,
+        email: 'ciphertech65@gmail.com',
+        to_name: 'CipherTech Owner',
+      }
+    ).then(function() {
+      console.log('✅ Owner notification sent');
+    }).catch(function(error) {
+      console.error('Owner email error:', error);
+    });
+
+  } catch(e) {
+    console.error('Email send error:', e);
+  }
+}
+
+// =================== PAYMENT SUCCESS BANNER ===================
+function showPaymentSuccessBanner(type, planName, txId) {
+  const banner = document.createElement('div');
+  banner.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--card);border:2px solid var(--green);border-radius:16px;padding:24px 28px;z-index:9999;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.5);max-width:340px;width:90%;animation:floatIn 0.5s ease;';
+  banner.innerHTML = `
+    <div style="font-size:3rem;margin-bottom:10px;">🎉</div>
+    <h3 style="font-size:1.1rem;font-weight:800;color:var(--green);margin-bottom:8px;">Payment Successful!</h3>
+    <p style="font-size:0.85rem;color:var(--text);margin-bottom:4px;">
+      ${type === 'ad' ? '📣 Ad Campaign' : '📈 Boost Order'}: <strong>${planName}</strong>
+    </p>
+    <p style="font-size:0.75rem;color:var(--muted);margin-bottom:4px;">Transaction ID: ${txId || 'N/A'}</p>
+    <p style="font-size:0.75rem;color:var(--muted);margin-bottom:14px;">📧 Confirmation sent to your email</p>
+    <div style="background:rgba(52,211,153,0.1);border:1px solid var(--green);border-radius:10px;padding:10px;margin-bottom:14px;font-size:0.78rem;color:var(--green);">
+      ✅ Payment received by CipherTech<br>
+      💰 Funds will be in your Flutterwave account
+    </div>
+    <button onclick="this.parentElement.remove()" style="background:var(--green);border:none;color:#06090f;padding:10px 24px;border-radius:8px;font-weight:800;cursor:pointer;font-size:0.88rem;">✅ Done</button>
+  `;
+  document.body.appendChild(banner);
+  setTimeout(() => { if (banner.parentElement) banner.remove(); }, 10000);
+}
+
 // =================== FIREBASE STATUS ===================
 window.addEventListener('load', () => {
   setTimeout(() => {
@@ -4774,7 +4986,7 @@ function showAutoSharePanel(platforms, caption) {
         </div>
       `).join('')}
     </div>
-    <button onclick="shareAllAtOnce(${JSON.stringify(platforms).replace(/"/g, '&quot;')})" style="
+    <button onclick="shareAllAtOnce(${JSON.stringify(platforms).replace(/"/g, '\"')})" style="
       width:100%;padding:13px;
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       border:none;border-radius:12px;
@@ -4817,7 +5029,11 @@ function doShare(url, idx) {
   }
 }
 
-function shareAllAtOnce(platforms) {
+function shareAllAtOnce(platformsParam) {
+  let platforms;
+  try {
+    platforms = typeof platformsParam === 'string' ? JSON.parse(decodeURIComponent(platformsParam)) : platformsParam;
+  } catch(e) { platforms = []; }
   platforms.forEach((p, i) => {
     setTimeout(() => {
       window.open(p.url, '_blank');
@@ -4953,11 +5169,13 @@ window.addEventListener('load', () => {
 // =================== MESSAGES: PRIVATE CHAT ===================
 function switchMsgTab(btn, tab) {
   document.querySelectorAll('.msg-tab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('msgTabChat').style.display = tab==='chat' ? 'block' : 'none';
-  document.getElementById('msgTabFeedback').style.display = tab==='feedback' ? 'block' : 'none';
-  if (tab === 'feedback') renderFeedback();
-  if (tab === 'chat') renderChat();
+  if (btn) btn.classList.add('active');
+  const chatTab = document.getElementById('msgTabChat');
+  const feedTab = document.getElementById('msgTabFeedback');
+  if (chatTab) chatTab.style.display = tab==='chat' ? 'block' : 'none';
+  if (feedTab) feedTab.style.display = tab==='feedback' ? 'block' : 'none';
+  if (tab === 'feedback') { if(typeof renderFeedback==='function') renderFeedback(); }
+  if (tab === 'chat') { if(typeof renderChat==='function') renderChat(); }
 }
 
 function getChatKey() {
@@ -5138,6 +5356,11 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     if (document.getElementById('feedbackList')) renderFeedback();
     if (document.getElementById('chatMessages')) renderChat();
+    // Make sure chat is visible by default
+    const chatTab = document.getElementById('msgTabChat');
+    const feedbackTab = document.getElementById('msgTabFeedback');
+    if (chatTab) chatTab.style.display = 'block';
+    if (feedbackTab) feedbackTab.style.display = 'none';
   }, 500);
 });
 
@@ -5164,6 +5387,41 @@ window.addEventListener('load', () => {
       </button>
     </div>
   </div>
+</div>
+
+
+<!-- ================= AI CHATBOT ================= -->
+<button id="ctChatBtn" onclick="toggleCTChat()" title="Chat with CipherTech AI">
+  <span id="ctChatNotif">1</span>
+  ⚡
+</button>
+
+<div id="ctChatWidget">
+  <div class="ct-chat-header">
+    <div class="avatar">⚡</div>
+    <div class="info">
+      <strong>CipherTech AI</strong>
+      <span>Online — replies instantly</span>
+    </div>
+    <button class="ct-chat-close" onclick="toggleCTChat()">✕</button>
+  </div>
+
+  <div class="ct-chat-messages" id="ctChatMessages"></div>
+
+  <div class="ct-quick-btns" id="ctQuickBtns">
+    <button class="ct-quick-btn" onclick="ctSendQuick('What services do you offer?')">🛠 Services</button>
+    <button class="ct-quick-btn" onclick="ctSendQuick('How much does an ad campaign cost?')">💰 Pricing</button>
+    <button class="ct-quick-btn" onclick="ctSendQuick('How do I boost my followers?')">📈 Boost</button>
+    <button class="ct-quick-btn" onclick="ctSendQuick('How do I contact CipherTech?')">📞 Contact</button>
+  </div>
+
+  <div class="ct-chat-input-row">
+    <input class="ct-chat-input" id="ctChatInput" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter')ctSendMessage()">
+    <button class="ct-chat-send" onclick="ctSendMessage()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+  <div class="ct-powered">⚡ Powered by CipherTech AI • ciphertech.com</div>
 </div>
 
 </body>
