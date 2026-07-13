@@ -3,7 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CipherTech</title>
+  <title>CipherTech — Build. Share. Dominate.</title>
+
+  <!-- SEO -->
+  <meta name="description" content="CipherTech — Nigeria's premier digital marketing platform. Launch ads everywhere, boost social media followers, post to all platforms at once. Built in Lagos 🇳🇬">
+  <meta name="keywords" content="CipherTech, social media boost, Instagram followers, TikTok views, ad campaigns, Nigeria, digital marketing, Lagos">
+  <meta name="author" content="CipherTech — Sunday John Orji">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#060b18">
+  <link rel="canonical" href="https://skypro-droid.github.io/CipherTech/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skypro-droid.github.io/CipherTech/">
+  <meta property="og:title" content="CipherTech — Build. Share. Dominate.">
+  <meta property="og:description" content="Launch ads everywhere, boost social media followers, post to all platforms at once. Nigeria's #1 digital marketing platform.">
+  <meta property="og:image" content="https://skypro-droid.github.io/CipherTech/logo.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="CipherTech">
+  <meta property="og:locale" content="en_NG">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@CipherTech0z">
+  <meta name="twitter:creator" content="@CipherTech0z">
+  <meta name="twitter:title" content="CipherTech — Build. Share. Dominate.">
+  <meta name="twitter:description" content="Nigeria's #1 digital marketing platform. Launch ads, boost followers, post everywhere at once.">
+  <meta name="twitter:image" content="https://skypro-droid.github.io/CipherTech/logo.jpg">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="logo.jpg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CipherTech">
+  <meta name="mobile-web-app-capable" content="yes">
+
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -274,45 +310,23 @@
 
     /* ===== MONETIZATION / AD PRICING ===== */
     .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:16px 0;}
-    .pricing-card{background:var(--bg2);border:2px solid var(--border);border-radius:14px;padding:18px;text-align:center;cursor:pointer;transition:0.3s;position:relative;overflow:hidden;}
     .pricing-card:hover,.pricing-card.selected{border-color:var(--accent);background:rgba(56,189,248,0.08);transform:translateY(-3px);}
-    .pricing-card.popular{border-color:var(--accent2);}
-    .pricing-card.popular::before{content:'⭐ POPULAR';position:absolute;top:0;right:0;background:var(--accent2);color:#fff;font-size:0.6rem;font-weight:800;padding:4px 10px;border-radius:0 14px 0 10px;}
-    .pricing-card .price{font-size:2rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent);margin:8px 0 4px;}
-    .pricing-card .price span{font-size:0.8rem;color:var(--muted);font-family:'Sora',sans-serif;}
-    .pricing-card h4{font-size:0.9rem;font-weight:700;margin-bottom:6px;}
-    .pricing-card p{font-size:0.75rem;color:var(--muted);}
-    .pricing-card .savings{font-size:0.7rem;background:rgba(52,211,153,0.15);color:var(--green);padding:3px 8px;border-radius:20px;font-weight:700;margin-top:6px;display:inline-block;}
     .payment-methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;}
-    .pay-method{background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:12px;text-align:center;cursor:pointer;transition:0.2s;font-size:0.82rem;font-weight:700;}
-    .pay-method:hover,.pay-method.selected{border-color:var(--accent);background:rgba(56,189,248,0.08);}
     .pay-method .pay-icon{font-size:1.5rem;display:block;margin-bottom:5px;}
     .ad-summary-box{background:linear-gradient(135deg,rgba(56,189,248,0.08),rgba(129,140,248,0.08));border:1px solid var(--border);border-radius:12px;padding:16px;margin:14px 0;}
-    .ad-summary-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:0.85rem;border-bottom:1px solid var(--border);}
-    .ad-summary-row:last-child{border-bottom:none;font-weight:800;font-size:0.95rem;color:var(--accent);}
-    .ad-summary-row span:last-child{font-weight:700;}
     .expiry-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.78rem;font-weight:700;}
     .watermark-preview{position:relative;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:20px;text-align:center;margin:10px 0;overflow:hidden;}
     .watermark-preview .wm-img{width:60px;height:60px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 8px;}
     .watermark-preview p{font-size:0.75rem;color:var(--muted);}
     .step-indicator{display:flex;align-items:center;gap:0;margin-bottom:24px;}
-    .step{flex:1;text-align:center;position:relative;}
     .step::after{content:'';position:absolute;top:14px;left:50%;width:100%;height:2px;background:var(--border);z-index:0;}
     .step:last-child::after{display:none;}
-    .step-dot{width:28px;height:28px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;margin:0 auto 6px;position:relative;z-index:1;transition:0.3s;}
-    .step.active .step-dot{background:var(--accent);color:#06090f;}
-    .step.done .step-dot{background:var(--green);color:#fff;}
-    .step-label{font-size:0.65rem;color:var(--muted);font-weight:600;}
-    .step.active .step-label{color:var(--accent);}
     /* Active ads dashboard */
     .active-ads-grid{display:flex;flex-direction:column;gap:12px;margin-top:16px;}
-    .active-ad-item{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;}
     .active-ad-item .ad-thumb{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent2),var(--accent));display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
     .active-ad-item .ad-info{flex:1;}
     .active-ad-item .ad-info strong{display:block;font-size:0.88rem;margin-bottom:2px;}
     .active-ad-item .ad-info span{font-size:0.75rem;color:var(--muted);}
-    .ad-status-live{background:rgba(52,211,153,0.15);color:var(--green);padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:700;}
-    .ad-status-expired{background:rgba(248,113,113,0.15);color:var(--red);padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:700;}
     .earnings-card{background:linear-gradient(135deg,rgba(52,211,153,0.1),rgba(56,189,248,0.1));border:1px solid rgba(52,211,153,0.3);border-radius:16px;padding:20px;text-align:center;margin-bottom:20px;}
     .earnings-card .earn-amount{font-size:2.5rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--green);}
     .earnings-card p{font-size:0.8rem;color:var(--muted);}
@@ -342,7 +356,6 @@
 
 /* already added */
     .upload-progress{position:fixed;top:0;left:0;right:0;height:4px;background:var(--border);z-index:9999;display:none;}
-    .upload-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;transition:width 0.3s;width:0%;}
 
 
     /* UPLOAD PROGRESS */
@@ -573,42 +586,15 @@
     .platform-selector{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;}
     .plat-opt{padding:7px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--bg2);cursor:pointer;font-size:0.78rem;font-weight:700;transition:0.2s;}
     .plat-opt.selected{border-color:var(--accent);background:rgba(56,189,248,0.1);color:var(--accent);}
-
-
-    /* BOOST SECTION */
-    .boost-section{padding:70px 20px;background:linear-gradient(135deg,rgba(129,140,248,0.05),rgba(56,189,248,0.05));border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-    .boost-section h2{font-size:2rem;font-weight:800;text-align:center;margin-bottom:10px;}
-    .boost-section .sub{color:var(--muted);text-align:center;max-width:560px;margin:0 auto 36px;font-size:0.9rem;}
-    .boost-tabs{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;}
-    .boost-tab{padding:9px 20px;border-radius:50px;background:var(--card);border:1.5px solid var(--border);color:var(--muted);font-size:0.82rem;font-weight:700;cursor:pointer;transition:0.2s;display:flex;align-items:center;gap:6px;}
-    .boost-tab.active{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#06090f;border-color:transparent;}
     .boost-tab svg{width:16px;height:16px;}
-    .boost-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;max-width:1000px;margin:0 auto 30px;}
-    .boost-card{background:var(--card);border:1.5px solid var(--border);border-radius:18px;padding:22px;text-align:center;transition:0.3s;position:relative;overflow:hidden;}
-    .boost-card:hover{transform:translateY(-6px);border-color:var(--accent2);box-shadow:0 16px 50px rgba(129,140,248,0.15);}
-    .boost-card.popular{border-color:var(--accent);box-shadow:0 8px 30px var(--glow);}
-    .boost-card.popular::before{content:'🔥 BEST SELLER';position:absolute;top:0;left:0;right:0;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06090f;font-size:0.62rem;font-weight:800;padding:5px;text-align:center;letter-spacing:0.08em;}
-    .boost-card.popular .boost-card-inner{margin-top:10px;}
-    .boost-followers{font-size:1.5rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent2);margin:8px 0 4px;}
-    .boost-price{font-size:2rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent);margin:4px 0;}
     .boost-price span{font-size:0.8rem;color:var(--muted);font-family:'Sora',sans-serif;font-weight:400;}
-    .boost-platforms{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin:10px 0;}
     .boost-ptag{font-size:0.65rem;background:rgba(129,140,248,0.12);color:var(--accent2);padding:3px 8px;border-radius:20px;font-weight:700;}
-    .boost-features{list-style:none;text-align:left;margin:12px 0 16px;}
-    .boost-features li{font-size:0.78rem;color:var(--muted);padding:4px 0;display:flex;align-items:center;gap:6px;}
-    .boost-features li::before{content:'✓';color:var(--green);font-weight:800;font-size:0.8rem;}
     .boost-btn{width:100%;padding:11px;border-radius:10px;background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#06090f;font-weight:800;font-size:0.85rem;cursor:pointer;transition:0.2s;}
     .boost-btn:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(129,140,248,0.3);}
     .boost-stats-row{display:flex;justify-content:center;gap:30px;margin-bottom:30px;flex-wrap:wrap;}
     .boost-stat{text-align:center;}
     .boost-stat strong{display:block;font-size:1.6rem;font-weight:800;font-family:'Space Mono',monospace;color:var(--accent2);}
     .boost-stat span{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
-
-    /* BOOST ORDER MODAL */
-    .boost-order-summary{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px;margin:14px 0;}
-    .boost-order-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:0.83rem;}
-    .boost-order-row:last-child{border-bottom:none;font-weight:800;font-size:0.95rem;}
-    .boost-order-row span:last-child{color:var(--accent);font-weight:700;}
     .boost-platform-selector{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;}
     .boost-plat-opt{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:50px;border:1.5px solid var(--border);background:var(--bg2);cursor:pointer;font-size:0.8rem;font-weight:700;transition:0.2s;}
     .boost-plat-opt.selected{border-color:var(--accent2);background:rgba(129,140,248,0.1);color:var(--accent2);}
@@ -716,18 +702,6 @@
     .review-form input:focus,.review-form textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--glow);}
     .review-form textarea{min-height:90px;resize:vertical;}
     .review-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
-
-
-    /* ================= SCROLL ANIMATIONS ================= */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
     .fade-in-left {
       opacity: 0;
       transform: translateX(-40px);
@@ -1090,7 +1064,8 @@
   <!-- Firebase SDKs -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, increment, arrayUnion, orderBy, query, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, increment, arrayUnion, orderBy, query, where, limit, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signInAnonymously, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAqbPldqGYlTNNbEnfUc0WlUMFgYsdek5k",
@@ -1104,10 +1079,53 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider();
+
+    // ===== REAL FIREBASE AUTHENTICATION (Google Sign-In for Owner) =====
+    // Owner is recognized by verified Google email — Google itself verifies
+    // this on every sign-in (it's the `email_verified` claim on the token),
+    // so it can't be spoofed by editing client code or dev tools, same as
+    // a UID check would be. Firestore rules check the identical email.
+    const OWNER_EMAIL = "skypromax6@gmail.com";
+
+    // ===== ANONYMOUS AUTH (for regular visitors) =====
+    // Every visitor — not just the Owner — needs a real, stable Firebase UID
+    // so their private messages can be isolated to just them + the Owner via
+    // Firestore Rules (see private_messages rule). Anonymous Auth requires
+    // no sign-up/login screen for visitors; Firebase just silently issues a
+    // UID tied to that browser. Note this is per-BROWSER, not per-person —
+    // clearing site data or switching devices starts a new anonymous
+    // identity and a fresh (empty) message thread, same as most "chat
+    // without an account" widgets work.
+    let anonSignInInFlight = false;
+
+    window._auth = auth;
+    window.firebaseSignInWithGoogle = () => signInWithPopup(auth, googleProvider);
+    window.firebaseSignOut = () => signOut(auth);
+    window.getMyUid = () => (auth.currentUser ? auth.currentUser.uid : null);
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user && !anonSignInInFlight) {
+        anonSignInInFlight = true;
+        signInAnonymously(auth)
+          .catch((err) => console.error('Anonymous sign-in failed:', err))
+          .finally(() => { anonSignInInFlight = false; });
+        return; // onAuthStateChanged will fire again once anon sign-in resolves
+      }
+
+      const isOwner = !!user && user.email === OWNER_EMAIL && user.emailVerified;
+      if (typeof window.onOwnerAuthChanged === 'function') {
+        window.onOwnerAuthChanged(isOwner, user);
+      }
+      if (typeof window.onAuthReady === 'function') {
+        window.onAuthReady(user ? user.uid : null, isOwner);
+      }
+    });
 
     // Expose to global scope for use in inline scripts
     window._db = db;
-    window._fsLib = { collection, addDoc, getDocs, doc, updateDoc, increment, arrayUnion, orderBy, query, onSnapshot, serverTimestamp };
+    window._fsLib = { collection, addDoc, getDocs, doc, updateDoc, increment, arrayUnion, orderBy, query, where, limit, onSnapshot, serverTimestamp };
 
     // ===== LOAD POSTS FROM FIRESTORE IN REAL TIME =====
     window.addEventListener('load', () => {
@@ -1141,10 +1159,19 @@
       formData.append('upload_preset', CLOUDINARY_PRESET);
       formData.append('folder', 'ciphertech_posts');
 
-      // Show upload progress
-      showToast('⏳ Uploading ' + (file.type.startsWith('image') ? 'image' : 'video') + '...');
+      // Cloudinary has only two upload resource types: 'image' and 'video'.
+      // Audio files (mp3/wav/etc.) must go through the 'video' endpoint —
+      // Cloudinary handles audio as part of its video pipeline, and
+      // uploading audio to the 'image' endpoint fails. This matters now
+      // that this shared function is also used for Music Boost's audio
+      // uploads, not just images/video for posts.
+      const isAudioOrVideo = file.type.startsWith('video') || file.type.startsWith('audio');
+      const resourceType = isAudioOrVideo ? 'video' : 'image';
 
-      const resourceType = file.type.startsWith('video') ? 'video' : 'image';
+      // Show upload progress
+      const kindLabel = file.type.startsWith('image') ? 'image' : (file.type.startsWith('audio') ? 'audio' : 'video');
+      showToast('⏳ Uploading ' + kindLabel + '...');
+
       const res = await fetch(
         `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/${resourceType}/upload`,
         { method: 'POST', body: formData }
@@ -1240,8 +1267,18 @@
   <!-- Flutterwave Payment SDK -->
   <script src="https://checkout.flutterwave.com/v3.js"></script>
   <script>
-    window.FLW_PUBLIC_KEY = 'FLWPUBK_TEST-1a236ba90da6e5d02b48f3ce9e6d8510-X';
-
+    // ⚠️ LIVE PAYMENTS SETUP — this is still the TEST key, so no real money
+    // moves yet. To go live:
+    //   1. Log in to dashboard.flutterwave.com
+    //   2. Complete Flutterwave's business/KYC verification if you haven't
+    //      already — LIVE keys are only issued after this is approved
+    //   3. Settings → API → copy your LIVE Public Key (starts with
+    //      "FLWPUBK-" — no "_TEST" in it)
+    //   4. Replace the line below with that real key
+    // Do NOT put your Secret Key here or anywhere in this file — the
+    // Secret Key must never appear in client-side code; the Public Key
+    // below is the only one meant to be exposed in the browser.
+    window.FLW_PUBLIC_KEY = 'FLWPUBK_TEST-1a236ba90da6e5d02b48f3ce9e6d8510-X'; // <-- swap this string for your live key when ready
   </script>
 
 </head>
@@ -1287,6 +1324,7 @@
   <a href="#messages" onclick="closeMobile()">Messages</a>
   <a href="#ads" onclick="closeMobile()">Launch Ads</a>
   <a href="#boost" onclick="closeMobile()">📈 Boost</a>
+  <a href="#musicboost" onclick="closeMobile()">🎵 Music</a>
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#reviews" onclick="closeMobile()">Reviews</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
@@ -1311,6 +1349,7 @@
     <a href="#messages">Messages</a>
     <a href="#ads">Ads</a>
     <a href="#boost">Boost</a>
+    <a href="#musicboost">Music</a>
     <a href="#about">About</a>
     <a href="#reviews">Reviews</a>
     <a href="#contact">Contact</a>
@@ -1344,8 +1383,9 @@
   <div class="pd-item">👤 My Profile</div>
   <div class="pd-item" onclick="openModal('createPostModal');closeDropdown()">✏️ Create Post</div>
   <div class="pd-item" onclick="openAdLaunchModal();closeDropdown()">📣 Launch Ad</div>
-  <div class="pd-item" onclick="openModal('adsOwnerModal');loadOwnerDashboard();closeDropdown()">💰 Ad Earnings</div>
   <div class="pd-item" onclick="openModal('adsOwnerModal');loadOwnerDashboard();closeDropdown()">💰 Ads Dashboard & Earnings</div>
+  <div class="pd-item" onclick="openModal('visitorAnalyticsModal');loadVisitorAnalytics();closeDropdown()">📍 Visitor Analytics</div>
+  <div class="pd-item" onclick="openModal('privateMessagesModal');loadPrivateMessagesInbox();closeDropdown()">📨 Private Messages</div>
   <div class="pd-item" onclick="openModal('addSocialModal');closeDropdown()">➕ Manage Socials</div>
   <div class="pd-item" onclick="openModal('addAppModal');closeDropdown()">📱 Add App to Blog</div>
   <div class="pd-sep"></div>
@@ -1360,13 +1400,18 @@
     <div style="text-align:center;margin-bottom:20px;">
       <div style="font-size:2.5rem;margin-bottom:8px;">🔐</div>
       <h2 style="font-size:1.3rem;">Owner Access</h2>
-      <p class="sub" style="margin-bottom:0;">CipherTech Admin Panel</p>
+      <p class="sub" style="margin-bottom:0;">Sign in with the Google account that owns this site</p>
     </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" id="loginPass" placeholder="Enter your secret password" onkeydown="if(event.key==='Enter')doLogin()">
-    </div>
-    <button class="btn btn-primary" style="width:100%;padding:13px;font-size:0.92rem;border-radius:10px;" onclick="doLogin()">🔓 Unlock</button>
+    <button class="social-login-btn" style="width:100%;justify-content:center;" onclick="doLogin()">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+      Sign in with Google
+    </button>
+    <p style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:14px;">Only the Google account configured as Owner in the code will be granted access — signing in with any other account will just sign in as a regular visitor.</p>
   </div>
 </div>
 
@@ -1656,7 +1701,7 @@
 </div>
 
 <!-- OWNER MODAL ALREADY EXISTS -->
-<div class="overlay" id="adsOwnerModalDUPE" onclick="overlayClick(event,'adsOwnerModal')">
+<div class="overlay" id="adsOwnerModal" onclick="overlayClick(event,'adsOwnerModal')">
   <div class="modal" style="max-width:540px;max-height:90vh;overflow-y:auto;">
     <button class="modal-close" onclick="closeModal('adsOwnerModal')">✕</button>
     <h2>💰 Ads Dashboard</h2>
@@ -1674,6 +1719,77 @@
 
     <div class="active-ads-grid" id="ownerAdsList">
       <p style="text-align:center;color:var(--muted);font-size:0.85rem;">No campaigns yet</p>
+    </div>
+
+    <h2 style="margin-top:26px;">📈 Boost Orders</h2>
+    <p class="sub">Every follower/likes/views order submitted by visitors</p>
+    <div class="active-ads-grid" id="ownerBoostOrdersList">
+      <p style="text-align:center;color:var(--muted);font-size:0.85rem;">No boost orders yet</p>
+    </div>
+
+    <h2 style="margin-top:26px;">🎵 Music Boost Orders</h2>
+    <p class="sub">Every song/artist boost submitted by visitors</p>
+    <div class="active-ads-grid" id="ownerMusicBoostOrdersList">
+      <p style="text-align:center;color:var(--muted);font-size:0.85rem;">No music boost orders yet</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VISITOR ANALYTICS (OWNER ONLY) ===================== -->
+<div class="overlay" id="visitorAnalyticsModal" onclick="overlayClick(event,'visitorAnalyticsModal')">
+  <div class="modal" style="max-width:640px;max-height:90vh;overflow-y:auto;">
+    <button class="modal-close" onclick="closeModal('visitorAnalyticsModal')">✕</button>
+    <h2>📍 Visitor Analytics</h2>
+    <p class="sub">Recent visits — page viewed & approximate location (city-level, from IP)</p>
+
+    <div class="owner-stats" style="margin-bottom:16px;">
+      <div class="owner-stat">
+        <strong id="vaTotalVisits">0</strong>
+        <span>Logged Visits</span>
+      </div>
+      <div class="owner-stat">
+        <strong id="vaUniqueCountries">0</strong>
+        <span>Countries</span>
+      </div>
+    </div>
+
+    <div id="vaList">
+      <div class="post-loader"><div class="spinner"></div>Loading visits...</div>
+    </div>
+
+    <p style="font-size:0.7rem;color:var(--muted);text-align:center;margin-top:16px;line-height:1.6;">
+      📌 Location is approximate (city/region from the visitor's IP address via a public geolocation service) —
+      not GPS-precise, and not tied to any personal identity. Only you (Owner) can see this list; it's blocked
+      from public read access by Firestore Security Rules.
+    </p>
+  </div>
+</div>
+
+<!-- ===================== PRIVATE MESSAGES INBOX (OWNER ONLY) ===================== -->
+<div class="overlay" id="privateMessagesModal" onclick="overlayClick(event,'privateMessagesModal')">
+  <div class="modal" style="max-width:520px;max-height:90vh;overflow-y:auto;">
+    <button class="modal-close" onclick="closeModal('privateMessagesModal')">✕</button>
+
+    <div id="pmInboxView">
+      <h2>📨 Private Messages</h2>
+      <p class="sub">Every visitor conversation — tap one to read & reply</p>
+      <div id="pmInboxList">
+        <div class="post-loader"><div class="spinner"></div>Loading conversations...</div>
+      </div>
+    </div>
+
+    <div id="pmThreadView" style="display:none;">
+      <button class="btn btn-outline" style="padding:7px 14px;font-size:0.78rem;margin-bottom:14px;" onclick="closePmThread()">← Back to all conversations</button>
+      <h2 id="pmThreadTitle">Conversation</h2>
+      <div class="chat-box" style="margin-top:10px;">
+        <div class="chat-messages" id="pmThreadMessages" style="height:280px;"></div>
+        <div class="chat-input-row">
+          <input type="text" id="pmReplyInput" placeholder="Type your reply..." onkeydown="if(event.key==='Enter')sendOwnerReply()">
+          <button class="chat-send-btn" onclick="sendOwnerReply()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -2024,6 +2140,13 @@
       <label>Your <span id="boostPlatformLabel">Instagram</span> Username / Profile URL</label>
       <input type="text" id="boostUsername" placeholder="@yourusername or profile link">
     </div>
+
+    <div id="popularPostSection" class="popular-post-section" style="display:none;">
+      <div class="badge">⭐ Included with this plan</div>
+      <h4>📣 Feature Your Top Posts as Sponsored Ads</h4>
+      <p>CipherTech will run these as floating sponsored widgets across the site — each shows the <strong id="popularPostPlatformName">platform</strong> logo and "Sponsored by CipherTech.com." Anyone who clicks is taken straight to the real post on your page to watch/read the full thing. Add at least 1 (up to 3).</p>
+      <div id="popularPostSlots"></div>
+    </div>
     <div class="form-group">
       <label>Payment Method</label>
       <div class="payment-methods">
@@ -2038,12 +2161,117 @@
       <input type="text" id="boostPayRef" placeholder="Enter your payment reference">
     </div>
 
-    <button class="boost-buy-btn" style="margin-top:4px;font-size:0.92rem;padding:14px;" onclick="confirmBoostOrder()">
+    <button class="boost-buy-btn" style="margin-top:4px;font-size:0.92rem;padding:14px;" onclick="handleBoostPayment()">
       🚀 Confirm Order & Start Boost
     </button>
 
     <p style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:12px;">
       🛡️ 30-day guarantee • Delivery starts within 24hrs • ciphertech65@gmail.com for support
+    </p>
+  </div>
+</div>
+
+<!-- ===================== MUSIC BOOST ===================== -->
+<section class="boost-section fade-in" id="musicboost">
+  <h2>🎵 <span style="background:linear-gradient(135deg,#f472b6,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Music Boost</span></h2>
+  <p class="sub">Boost a single song or your whole artist profile across Spotify, Apple Music, Audiomack, Boomplay, SoundCloud & more. Real listeners, real streams.</p>
+
+  <div class="boost-platforms" id="musicPlatformPreview">
+    <span class="boost-plat-btn" style="cursor:default;">🎧 Spotify</span>
+    <span class="boost-plat-btn" style="cursor:default;">🍎 Apple Music</span>
+    <span class="boost-plat-btn" style="cursor:default;">▶️ YouTube Music</span>
+    <span class="boost-plat-btn" style="cursor:default;">☁️ SoundCloud</span>
+    <span class="boost-plat-btn" style="cursor:default;">🔊 Audiomack</span>
+    <span class="boost-plat-btn" style="cursor:default;">🎶 Boomplay</span>
+  </div>
+
+  <div class="pricing-grid" id="musicPricingGridPage" style="max-width:900px;margin:0 auto 30px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));"></div>
+
+  <button class="launch-ad-btn" onclick="openMusicBoostModal()" ontouchend="openMusicBoostModal();event.preventDefault();">
+    🎵 Boost My Music
+  </button>
+</section>
+
+<!-- ===================== MUSIC BOOST MODAL ===================== -->
+<div class="overlay" id="musicBoostModal" onclick="overlayClick(event,'musicBoostModal')">
+  <div class="modal" style="max-width:560px;max-height:90vh;overflow-y:auto;">
+    <button class="modal-close" onclick="closeModal('musicBoostModal')">✕</button>
+    <h2>🎵 Boost Your Music</h2>
+    <p class="sub">Get your song or artist profile featured as a sponsored ad across CipherTech</p>
+
+    <div class="label-sm">What are you boosting?</div>
+    <div class="dest-type-grid" id="musicBoostTypeGrid">
+      <div class="dest-type selected" onclick="selectMusicBoostType(this,'song')">🎵 A Single Song</div>
+      <div class="dest-type" onclick="selectMusicBoostType(this,'profile')">🎤 My Artist Profile</div>
+    </div>
+
+    <div class="label-sm">Music Platform</div>
+    <div class="platform-grid" id="musicPlatformGrid">
+      <label class="platform-check checked" onclick="selectMusicPlatform(this,'Spotify')"><input type="radio" name="musicPlat" checked><span class="platform-icon">🎧</span> Spotify</label>
+      <label class="platform-check" onclick="selectMusicPlatform(this,'Apple Music')"><input type="radio" name="musicPlat"><span class="platform-icon">🍎</span> Apple Music</label>
+      <label class="platform-check" onclick="selectMusicPlatform(this,'YouTube Music')"><input type="radio" name="musicPlat"><span class="platform-icon">▶️</span> YouTube Music</label>
+      <label class="platform-check" onclick="selectMusicPlatform(this,'SoundCloud')"><input type="radio" name="musicPlat"><span class="platform-icon">☁️</span> SoundCloud</label>
+      <label class="platform-check" onclick="selectMusicPlatform(this,'Audiomack')"><input type="radio" name="musicPlat"><span class="platform-icon">🔊</span> Audiomack</label>
+      <label class="platform-check" onclick="selectMusicPlatform(this,'Boomplay')"><input type="radio" name="musicPlat"><span class="platform-icon">🎶</span> Boomplay</label>
+    </div>
+
+    <div class="form-group">
+      <label id="musicNameLabel">Song Title & Artist</label>
+      <input type="text" id="musicName" placeholder="e.g. Wave by Sky Fashion">
+    </div>
+    <div class="form-group">
+      <label id="musicLinkLabel">Link to the song on this platform</label>
+      <input type="url" id="musicAppLink" placeholder="https://open.spotify.com/track/...">
+      <p style="font-size:0.72rem;color:var(--muted);margin-top:6px;">Anyone who clicks your ad is sent straight here to play the full song</p>
+    </div>
+
+    <div class="label-sm">Ad Content Type</div>
+    <div class="ad-options" id="musicContentTypeGrid">
+      <div class="ad-option selected" onclick="selectMusicContentType(this,'picture')"><h4>🖼 Picture</h4><p>Cover art + the song's audio</p></div>
+      <div class="ad-option" onclick="selectMusicContentType(this,'video')"><h4>🎬 Video</h4><p>Music video (its own sound)</p></div>
+      <div class="ad-option" onclick="selectMusicContentType(this,'audio')"><h4>🎧 Audio Only</h4><p>Just the track</p></div>
+    </div>
+
+    <div id="musicMediaSlot"></div>
+
+    <textarea class="caption-area" id="musicCaption" placeholder="Caption for your ad... #NewMusic 🎵"></textarea>
+
+    <div class="label-sm" style="margin-top:14px;">Choose Your Plan</div>
+    <div class="pricing-grid" id="musicPricingGridModal"></div>
+
+    <div class="ad-summary-box" id="musicSummaryBox">
+      <div class="ad-summary-row"><span>Plan</span><span id="musicSummaryPlan">—</span></div>
+      <div class="ad-summary-row"><span>Duration</span><span id="musicSummaryDuration">—</span></div>
+      <div class="ad-summary-row"><span>Total</span><span id="musicSummaryTotal" style="color:var(--accent);">—</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Your Name / Artist Name</label>
+      <input type="text" id="musicAdvertiserName" placeholder="e.g. Sky Sound">
+    </div>
+    <div class="form-group">
+      <label>Your Email (for receipt & notifications)</label>
+      <input type="email" id="musicAdvertiserEmail" placeholder="your@email.com">
+    </div>
+
+    <div class="label-sm">Payment Method</div>
+    <div class="payment-methods" id="musicPayMethods">
+      <div class="pay-method selected" onclick="selectMusicPayMethod(this,'card')"><span class="pay-icon">💳</span> Credit Card</div>
+      <div class="pay-method" onclick="selectMusicPayMethod(this,'crypto')"><span class="pay-icon">🪙</span> Crypto</div>
+      <div class="pay-method" onclick="selectMusicPayMethod(this,'bank')"><span class="pay-icon">🏦</span> Bank Transfer</div>
+      <div class="pay-method" onclick="selectMusicPayMethod(this,'paypal')"><span class="pay-icon">🅿️</span> PayPal</div>
+    </div>
+    <div class="form-group" id="musicPayRefGroup" style="display:none;">
+      <label>Payment Reference / Transaction ID</label>
+      <input type="text" id="musicPayRef" placeholder="Enter your payment reference">
+    </div>
+
+    <button class="btn btn-primary" id="musicPayBtn" style="width:100%;padding:13px;font-size:0.92rem;border-radius:10px;margin-top:8px;" onclick="handleMusicBoostPayment()">
+      🎵 Pay & Launch Music Boost
+    </button>
+
+    <p style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:12px;">
+      ⚡ CipherTech.com logo watermark included • 📧 Email confirmation sent instantly
     </p>
   </div>
 </div>
@@ -2733,7 +2961,8 @@ function openAdLaunchModalWithPlan(planName, price, duration) {
     const planCards = document.querySelectorAll('#adLaunchModal .pricing-card');
     planCards.forEach(card => {
       card.classList.remove('selected');
-      if (card.dataset.plan && card.dataset.plan.includes(planName.substring(0,3))) {
+      const planKeyMap = { starter: '1week', standard: '1month', pro: '3months', elite: '6months' };
+      if (card.dataset.plan === planKeyMap[planName]) {
         card.classList.add('selected');
       }
     });
@@ -2743,8 +2972,7 @@ function openAdLaunchModalWithPlan(planName, price, duration) {
   }, 300);
 }
 
-// =================== AUTH ===================
-const OWNER_PASSWORD = 'cipher2026'; // Change this to your secret password
+// =================== AUTH (real Firebase Authentication — Google Sign-In) ===================
 function openOwnerLogin() {
   try {
     const modal = document.getElementById('loginModal');
@@ -2752,40 +2980,62 @@ function openOwnerLogin() {
     modal.style.display = 'flex';
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
-    setTimeout(() => {
-      const passInput = document.getElementById('loginPass');
-      if (passInput) { passInput.focus(); passInput.click(); }
-    }, 400);
   } catch(e) {
     console.error('Login error:', e);
   }
 }
-function doLogin() {
-  const passEl = document.getElementById('loginPass');
-  if (!passEl) { console.error('Password input not found'); return; }
-  const pass = passEl.value.trim();
-  if (!pass) { showToast('⚠️ Enter your password'); passEl.focus(); return; }
-  if (pass !== OWNER_PASSWORD) {
-    showToast('❌ Wrong password! Try again.');
-    passEl.value='';
-    passEl.focus();
-    // Shake animation
-    const modal = document.getElementById('loginModalBox');
-    if (modal) {
-      modal.style.animation='shake 0.4s ease';
-      setTimeout(()=>modal.style.animation='', 400);
-    }
+
+async function doLogin() {
+  if (typeof window.firebaseSignInWithGoogle !== 'function') {
+    showToast('❌ Auth not ready yet — try again in a moment');
     return;
   }
-  passEl.value='';
-  loginUser('CipherTech', '⚡');
-  closeModal('loginModal');
+  try {
+    await window.firebaseSignInWithGoogle();
+    // Success/failure of matching the Owner UID is handled by
+    // onOwnerAuthChanged (fired by onAuthStateChanged) — Firebase itself
+    // confirms who actually signed in, not the client code.
+    closeModal('loginModal');
+  } catch (e) {
+    console.error('Google sign-in failed:', e);
+    if (e && e.code === 'auth/popup-closed-by-user') {
+      showToast('Sign-in cancelled');
+    } else {
+      showToast('❌ Google sign-in failed — try again');
+    }
+  }
 }
 
+// Called by the module script's onAuthStateChanged listener.
+// isOwner is only ever true when Firebase itself has verified this browser
+// holds a valid session for the Google account configured as OWNER_EMAIL — this
+// is real authentication, not a client-side password string.
+window.onOwnerAuthChanged = function(isOwner, fbUser) {
+  if (isOwner) {
+    loginUser(fbUser.displayName || 'CipherTech', (fbUser.displayName || 'C').charAt(0).toUpperCase(), fbUser.email);
+  } else if (fbUser && !fbUser.isAnonymous && !isOwner) {
+    // Signed in with a REAL Google account, but not the configured Owner
+    // account — treat as a normal signed-out visitor, don't grant owner UI.
+    // (Anonymous visitors are excluded from this branch entirely — every
+    // regular visitor now silently holds an anonymous session so their
+    // private messages can be isolated; that is expected and not an error.)
+    showToast('Signed in, but this Google account is not the configured Owner.');
+    if (typeof window.firebaseSignOut === 'function') window.firebaseSignOut();
+  } else if (currentUser) {
+    // Signed out entirely
+    currentUser = null;
+    const authBtns = document.getElementById('authBtns');
+    const userBar = document.getElementById('userBar');
+    if (authBtns) authBtns.style.display = 'flex';
+    if (userBar) userBar.style.display = 'none';
+    const addAppBtn = document.getElementById('addAppBtnWrap');
+    if (addAppBtn) addAppBtn.style.display = 'none';
+    if (typeof renderBlog === 'function') renderBlog();
+  }
+};
 
-
-function loginUser(name, initial) {
-  currentUser = {name, avatar: initial, email: 'ciphertech65@gmail.com'};
+function loginUser(name, initial, email) {
+  currentUser = {name, avatar: initial, email: email || 'ciphertech65@gmail.com'};
   // Show user bar, hide auth buttons
   const authBtns = document.getElementById('authBtns');
   const userBar = document.getElementById('userBar');
@@ -2802,6 +3052,7 @@ function loginUser(name, initial) {
 }
 
 function logout() {
+  if (typeof window.firebaseSignOut === 'function') window.firebaseSignOut();
   currentUser = null;
   document.getElementById('authBtns').style.display='flex';
   document.getElementById('userBar').style.display='none';
@@ -2979,7 +3230,6 @@ function selectPayMethod(el, method) {
     otherBox.style.display = 'none';
     refGroup.style.display = 'none';
     payBtn.textContent = '💳 Pay with Flutterwave';
-    mountStripeCardElement();
   } else {
     cardBox.style.display = 'none';
     otherBox.style.display = 'block';
@@ -2994,35 +3244,10 @@ function selectPayMethod(el, method) {
   }
 }
 
-// =================== STRIPE CARD ELEMENT ===================
-let stripeElements = null;
-let stripeCardElement = null;
-
-function mountStripeCardElement() {
-  if (!window.stripeInstance) {
-    document.getElementById('ad-card-element').innerHTML = '<p style="color:var(--red);font-size:0.8rem;">Stripe failed to load. Try refreshing.</p>';
-    return;
-  }
-  if (stripeCardElement) return; // already mounted
-
-  stripeElements = window.stripeInstance.elements();
-  const style = {
-    base: {
-      color: getComputedStyle(document.body).getPropertyValue('--text').trim() || '#e2e8f0',
-      fontFamily: 'Sora, sans-serif',
-      fontSize: '15px',
-      '::placeholder': { color: '#7c8fa8' }
-    },
-    invalid: { color: '#f87171' }
-  };
-  stripeCardElement = stripeElements.create('card', { style });
-  stripeCardElement.mount('#ad-card-element');
-
-  stripeCardElement.on('change', (event) => {
-    const errEl = document.getElementById('ad-card-errors');
-    errEl.textContent = event.error ? event.error.message : '';
-  });
-}
+// Note: Stripe card mounting removed — this app charges exclusively via
+// Flutterwave (FlutterwaveCheckout in handleAdPayment / handleBoostPayment).
+// The old Stripe mount code referenced #ad-card-element, which never existed
+// in this modal, and threw an uncaught TypeError on every "Card" selection.
 
 function handleAdPayment() {
   if (selectedPayMethod !== 'card') {
@@ -3333,21 +3558,148 @@ function autoShareAdLaunch(campName, advertiser, expiry, price, ownerEarning) {
 }
 
 function loadOwnerDashboard() {
-  const ads = JSON.parse(localStorage.getItem('ciphertech_ads') || '[]');
+  const list = document.getElementById('ownerAdsList');
+  list.innerHTML = '<div class="post-loader"><div class="spinner"></div>Loading campaigns...</div>';
+  loadOwnerBoostOrders();
+  loadOwnerMusicBoostOrders();
+
+  // Firestore is the real, shared source of truth — every advertiser's
+  // campaign submission is written there regardless of which browser/device
+  // they used. localStorage only ever reflects THIS browser's own history,
+  // so reading only from it (the old behavior) meant the Owner could never
+  // see campaigns submitted by anyone else, on any other device.
+  if (window._db && window._fsLib) {
+    const { collection, getDocs, query, orderBy } = window._fsLib;
+    getDocs(query(collection(window._db, 'ad_campaigns'), orderBy('startDate', 'desc')))
+      .then(snapshot => {
+        const ads = [];
+        snapshot.forEach(d => ads.push(d.data()));
+        renderOwnerAdsList(ads);
+      })
+      .catch(err => {
+        console.error('Failed to load ad_campaigns from Firestore:', err);
+        // Fall back to this browser's local history only if Firestore is
+        // truly unreachable (offline), so the panel isn't just blank.
+        renderOwnerAdsList(JSON.parse(localStorage.getItem('ciphertech_ads') || '[]'));
+      });
+  } else {
+    renderOwnerAdsList(JSON.parse(localStorage.getItem('ciphertech_ads') || '[]'));
+  }
+}
+
+function loadOwnerBoostOrders() {
+  const list = document.getElementById('ownerBoostOrdersList');
+  if (!list) return;
+  list.innerHTML = '<div class="post-loader"><div class="spinner"></div>Loading boost orders...</div>';
+
+  if (!(window._db && window._fsLib)) {
+    renderOwnerBoostOrdersList(JSON.parse(localStorage.getItem('ciphertech_boost_orders') || '[]'));
+    return;
+  }
+  const { collection, getDocs, query, orderBy } = window._fsLib;
+  getDocs(query(collection(window._db, 'boost_orders'), orderBy('createdAt', 'desc')))
+    .then(snapshot => {
+      const orders = [];
+      snapshot.forEach(d => orders.push(d.data()));
+      renderOwnerBoostOrdersList(orders);
+    })
+    .catch(err => {
+      console.error('Failed to load boost_orders from Firestore:', err);
+      renderOwnerBoostOrdersList(JSON.parse(localStorage.getItem('ciphertech_boost_orders') || '[]'));
+    });
+}
+
+function renderOwnerBoostOrdersList(orders) {
+  const list = document.getElementById('ownerBoostOrdersList');
+  if (!list) return;
+  if (!orders || orders.length === 0) {
+    list.innerHTML = '<p style="text-align:center;color:var(--muted);font-size:0.85rem;">No boost orders yet</p>';
+    return;
+  }
+  list.innerHTML = orders.map(o => `
+    <div class="active-ad-item">
+      <div class="ad-thumb">📈</div>
+      <div class="ad-info">
+        <strong>${o.package || ''} — ${o.platform || ''}</strong>
+        <span>${o.name || 'Unknown'} • ${o.username || ''}</span><br>
+        <span style="font-size:0.7rem;">📧 ${o.email || ''}</span>
+      </div>
+      <div style="text-align:right;">
+        <div class="${o.status==='pending' ? 'ad-status-expired' : 'ad-status-live'}">${o.status === 'pending' ? 'Pending' : 'Confirmed'}</div>
+        <div style="font-size:0.75rem;color:var(--green);font-weight:700;margin-top:4px;">+$${o.ownerEarning || Math.floor((o.price||0)*0.5)}</div>
+        <div style="font-size:0.65rem;color:var(--muted);">${o.payMethod || ''}${o.payRef ? ' • ' + o.payRef : ''}</div>
+      </div>
+    </div>`).join('');
+}
+
+function loadOwnerMusicBoostOrders() {
+  const list = document.getElementById('ownerMusicBoostOrdersList');
+  if (!list) return;
+  list.innerHTML = '<div class="post-loader"><div class="spinner"></div>Loading music boost orders...</div>';
+
+  if (!(window._db && window._fsLib)) {
+    renderOwnerMusicBoostOrdersList([]);
+    return;
+  }
+  const { collection, getDocs, query, orderBy } = window._fsLib;
+  getDocs(query(collection(window._db, 'music_boost_orders'), orderBy('startDate', 'desc')))
+    .then(snapshot => {
+      const orders = [];
+      snapshot.forEach(d => orders.push(d.data()));
+      renderOwnerMusicBoostOrdersList(orders);
+    })
+    .catch(err => {
+      console.error('Failed to load music_boost_orders:', err);
+      list.innerHTML = '<p style="text-align:center;color:var(--red);font-size:0.85rem;">Could not load — are you signed in as Owner?</p>';
+    });
+}
+
+function renderOwnerMusicBoostOrdersList(orders) {
+  const list = document.getElementById('ownerMusicBoostOrdersList');
+  if (!list) return;
+  if (!orders || orders.length === 0) {
+    list.innerHTML = '<p style="text-align:center;color:var(--muted);font-size:0.85rem;">No music boost orders yet</p>';
+    return;
+  }
+  const now = new Date();
+  list.innerHTML = orders.map(o => {
+    const exp = new Date(o.expiryDate);
+    const isExpired = exp < now;
+    return `
+    <div class="active-ad-item">
+      <div class="ad-thumb">🎵</div>
+      <div class="ad-info">
+        <strong>${o.songName || ''} — ${o.platform || ''}</strong>
+        <span>${o.advertiser || 'Unknown'} • ${o.plan || ''} • ${o.contentType || ''}</span><br>
+        <span style="font-size:0.7rem;">📧 ${o.email || ''}</span>
+      </div>
+      <div style="text-align:right;">
+        <div class="${isExpired ? 'ad-status-expired' : 'ad-status-live'}">${isExpired ? 'Expired' : (o.status === 'pending_review' ? 'Pending Review' : 'Active')}</div>
+        <div style="font-size:0.75rem;color:var(--green);font-weight:700;margin-top:4px;">+$${o.ownerEarning || Math.floor((o.price||0)*0.5)}</div>
+        <div style="font-size:0.65rem;color:var(--muted);">${o.payMethod || ''}${o.payRef ? ' • ' + o.payRef : ''}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+
+function renderOwnerAdsList(ads) {
+  const list = document.getElementById('ownerAdsList');
   const now = new Date();
   let totalEarnings = 0, active = 0, expired = 0;
 
-  const list = document.getElementById('ownerAdsList');
-  if (ads.length === 0) {
+  if (!ads || ads.length === 0) {
     list.innerHTML = '<p style="text-align:center;color:var(--muted);font-size:0.85rem;padding:20px;">No campaigns yet</p>';
     document.getElementById('totalEarnings').textContent = '$0';
+    document.getElementById('activeAdCount').textContent = '0';
+    document.getElementById('totalAdCount').textContent = '0';
+    document.getElementById('expiredAdCount').textContent = '0';
     return;
   }
 
-  list.innerHTML = ads.reverse().map(ad => {
+  list.innerHTML = ads.map(ad => {
     const exp = new Date(ad.expiryDate);
     const isExpired = exp < now;
-    const isActive = !isExpired && ad.status !== 'pending';
     const earn = ad.ownerEarning || Math.floor(ad.price * 0.5);
     totalEarnings += earn;
     if (isExpired) expired++; else active++;
@@ -3362,7 +3714,7 @@ function loadOwnerDashboard() {
           ${!isExpired ? `<span style="font-size:0.7rem;color:var(--green);"> • ${daysLeft} days left</span>` : ''}
         </div>
         <div style="text-align:right;">
-          <div class="${isExpired?'ad-status-expired':'ad-status-live'}">${isExpired?'Expired':'Pending'}</div>
+          <div class="${isExpired?'ad-status-expired':'ad-status-live'}">${isExpired?'Expired':(ad.status==='pending_review'?'Pending Review':'Active')}</div>
           <div style="font-size:0.75rem;color:var(--green);font-weight:700;margin-top:4px;">+$${earn}</div>
           <div style="font-size:0.65rem;color:var(--muted);">${ad.payMethod}</div>
         </div>
@@ -3739,7 +4091,7 @@ function openBoostOrder(planId, tab, platform) {
   const summary = document.getElementById('boostOrderSummary');
   const ownerEarn = Math.floor(selectedBoostPlan.price * 0.5);
   summary.innerHTML = `
-    <div class="boost-order-row"><span>📈 Package</span><span>${selectedBoostPlan.followers} ${tab}</span></div>
+    <div class="boost-order-row"><span>📈 Package</span><span>${selectedBoostPlan.label}</span></div>
     <div class="boost-order-row"><span>🌍 Platform</span><span>${platform}</span></div>
     <div class="boost-order-row"><span>⚡ Delivery</span><span>${selectedBoostPlan.delivery}</span></div>
     <div class="boost-progress-bar"><div class="boost-progress-fill"></div></div>
@@ -3751,11 +4103,24 @@ function openBoostOrder(planId, tab, platform) {
   const platLabel = document.getElementById('boostPlatformLabel');
   if (platLabel) platLabel.textContent = platform;
 
-  // Show popular post section for $400+ orders
+  // Show the real popular-post submission UI for $400+ orders — this is
+  // the manual-submission version of "feature my top posts": CipherTech
+  // can't automatically pull "3 most popular posts" from a real Facebook/
+  // Instagram/TikTok/YouTube account without that account owner granting
+  // official OAuth API access per platform (a backend + per-platform app
+  // review process, out of scope for a static site) — so the advertiser
+  // supplies their own top posts directly instead.
   const popSection = document.getElementById('popularPostSection');
   if (popSection) {
     const price = selectedBoostPlan ? selectedBoostPlan.price : 0;
-    popSection.style.display = price >= 400 ? 'block' : 'none';
+    if (price >= 400) {
+      popSection.style.display = 'block';
+      document.getElementById('popularPostPlatformName').textContent = platform;
+      document.getElementById('popularPostSlots').innerHTML = buildPopularPostSlotsHtml();
+    } else {
+      popSection.style.display = 'none';
+      document.getElementById('popularPostSlots').innerHTML = '';
+    }
   }
 
   openModal('boostOrderModal');
@@ -3767,54 +4132,23 @@ function openBoostOrder(planId, tab, platform) {
   }, 200);
 }
 
-let boostStripeCardElement = null;
-
 function selectBoostPay(el, method) {
   selectedBoostPayMethod = method;
   el.closest('.payment-methods').querySelectorAll('.pay-method').forEach(m=>m.classList.remove('selected'));
   el.classList.add('selected');
 
-  const cardBox = document.getElementById('boostCardPaymentBox');
-  const refGroup = document.getElementById('boostPayRefGroup');
-  const payBtn = document.getElementById('boostPayBtn');
-
-  if (method === 'card') {
-    cardBox.style.display = 'block';
-    refGroup.style.display = 'none';
-    payBtn.textContent = '💳 Pay & Start Boost';
-    mountBoostStripeCardElement();
-  } else {
-    cardBox.style.display = 'none';
-    refGroup.style.display = 'block';
-    payBtn.textContent = '🚀 Confirm Order & Start Boost';
+  // Payment is collected via the single "Payment Reference" field for
+  // non-card methods, and via Flutterwave Checkout (see handleBoostPayment)
+  // for card. There is no separate card-entry box in this modal, so we
+  // just toggle the reference field's relevance — no dead element lookups.
+  const refInput = document.getElementById('boostPayRef');
+  if (refInput) {
+    refInput.placeholder = method === 'card'
+      ? 'Filled automatically after Flutterwave checkout'
+      : 'Enter your payment reference';
   }
 }
 
-function mountBoostStripeCardElement() {
-  if (!window.stripeInstance) {
-    document.getElementById('boost-card-element').innerHTML = '<p style="color:var(--red);font-size:0.8rem;">Stripe failed to load. Try refreshing.</p>';
-    return;
-  }
-  if (boostStripeCardElement) return;
-
-  const elements = window.stripeInstance.elements();
-  const style = {
-    base: {
-      color: getComputedStyle(document.body).getPropertyValue('--text').trim() || '#e2e8f0',
-      fontFamily: 'Sora, sans-serif',
-      fontSize: '15px',
-      '::placeholder': { color: '#7c8fa8' }
-    },
-    invalid: { color: '#f87171' }
-  };
-  boostStripeCardElement = elements.create('card', { style });
-  boostStripeCardElement.mount('#boost-card-element');
-
-  boostStripeCardElement.on('change', (event) => {
-    const errEl = document.getElementById('boost-card-errors');
-    errEl.textContent = event.error ? event.error.message : '';
-  });
-}
 
 function handleBoostPayment() {
   if (selectedBoostPayMethod !== 'card') {
@@ -3904,7 +4238,7 @@ function confirmBoostOrder() {
     name, email, username,
     platform: activeBoostPlatform,
     tab: activeBoostTab,
-    package: selectedBoostPlan ? selectedBoostPlan.followers : '',
+    package: selectedBoostPlan ? selectedBoostPlan.label : '',
     price: selectedBoostPlan ? selectedBoostPlan.price : 0,
     ownerEarning: selectedBoostPlan ? Math.floor(selectedBoostPlan.price * 0.5) : 0,
     delivery: selectedBoostPlan ? selectedBoostPlan.delivery : '',
@@ -3938,55 +4272,570 @@ function confirmBoostOrder() {
     if (el) el.value='';
   });
 
-  // If $400+ plan, save popular post as floating ad
+  // If $400+ plan, feature up to 3 of the advertiser's own top posts as
+  // floating sponsored ads. A slot only counts if it has a real post URL —
+  // that's the part visitors actually get sent to when they click, so a
+  // slot without one would just be a dead-end ad and is skipped instead.
   if (order.price >= 400) {
-    const caption = document.getElementById('popularPostCaption') ? document.getElementById('popularPostCaption').value.trim() : '';
-    const profileUrl = document.getElementById('popularPostProfileUrl') ? document.getElementById('popularPostProfileUrl').value.trim() : '';
-    const previewImg = document.getElementById('popularPostPreview');
-    const postImageUrl = (previewImg && previewImg.style.display !== 'none') ? previewImg.src : '';
-
-    const floatBoostAd = {
-      id: 'BFA-' + Date.now(),
-      type: 'boost_float',
-      advertiserName: name,
-      platform: activeBoostPlatform,
-      caption: caption || ('Check out ' + username + ' on ' + activeBoostPlatform),
-      profileUrl: profileUrl || '#',
-      imageUrl: postImageUrl,
-      price: order.price,
-      expiryDate: new Date(Date.now() + (selectedBoostPlan.duration || 30) * 24*60*60*1000).toISOString(),
-      createdAt: new Date().toISOString()
-    };
-
-    // Save to localStorage & Firebase
-    const bfAds = JSON.parse(localStorage.getItem('ciphertech_boost_float_ads') || '[]');
-    bfAds.push(floatBoostAd);
-    localStorage.setItem('ciphertech_boost_float_ads', JSON.stringify(bfAds));
-
-    if (window._db && window._fsLib) {
-      const {collection, addDoc, serverTimestamp} = window._fsLib;
-      addDoc(collection(window._db, 'boost_float_ads'), {...floatBoostAd, createdAt: serverTimestamp()}).catch(console.error);
-    }
-
-    // Show the floating ad immediately on this site
-    setTimeout(() => showBoostFloatAd(floatBoostAd), 2000);
-    showToast('🎉 Your post will now float as a sponsored ad across all platforms!');
+    featurePopularPosts(name, activeBoostPlatform, username, order.price, selectedBoostPlan);
   }
 
   console.log('New boost order:', order);
 }
 
-function previewPopularPost(e) {
+async function featurePopularPosts(advertiserName, platform, username, orderPrice, boostPlan) {
+  const expiryDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(); // 30-day feature window
+
+  const slots = [];
+  for (let i = 1; i <= 3; i++) {
+    const fileInput = document.getElementById('popularPost' + i + 'File');
+    const captionInput = document.getElementById('popularPost' + i + 'Caption');
+    const urlInput = document.getElementById('popularPost' + i + 'Url');
+    const url = urlInput ? urlInput.value.trim() : '';
+    if (!url) continue; // no real destination for this slot — skip it, don't create a dead-end ad
+    slots.push({
+      file: fileInput && fileInput.files[0] ? fileInput.files[0] : null,
+      caption: captionInput ? captionInput.value.trim() : '',
+      postUrl: url
+    });
+  }
+
+  if (slots.length === 0) {
+    showToast('ℹ️ No post links added — you can still add featured posts later by contacting support.');
+    return;
+  }
+
+  showToast('⏳ Uploading your featured posts...');
+
+  for (const slot of slots) {
+    try {
+      let imageUrl = '';
+      if (slot.file && typeof window.uploadToCloudinary === 'function') {
+        imageUrl = await window.uploadToCloudinary(slot.file);
+      }
+      const floatBoostAd = {
+        id: 'BFA-' + Date.now() + '-' + Math.floor(Math.random() * 10000),
+        type: 'boost_float',
+        advertiserName,
+        platform,
+        caption: slot.caption || ('Check out ' + username + ' on ' + platform),
+        postUrl: slot.postUrl,
+        imageUrl,
+        price: orderPrice,
+        expiryDate,
+        createdAt: new Date().toISOString()
+      };
+
+      const bfAds = JSON.parse(localStorage.getItem('ciphertech_boost_float_ads') || '[]');
+      bfAds.push(floatBoostAd);
+      localStorage.setItem('ciphertech_boost_float_ads', JSON.stringify(bfAds));
+
+      if (window._db && window._fsLib) {
+        const { collection, addDoc, serverTimestamp } = window._fsLib;
+        await addDoc(collection(window._db, 'boost_float_ads'), { ...floatBoostAd, createdAt: serverTimestamp() });
+      }
+    } catch (err) {
+      console.error('Failed to feature a popular post:', err);
+    }
+  }
+
+  showToast(`🎉 ${slots.length} post${slots.length > 1 ? 's' : ''} will now float as sponsored ads across the site!`);
+
+  // Show the first one immediately on this device as a preview
+  const bfAds = JSON.parse(localStorage.getItem('ciphertech_boost_float_ads') || '[]');
+  const justAdded = bfAds.filter(a => a.advertiserName === advertiserName).slice(-slots.length);
+  if (justAdded.length) setTimeout(() => showBoostFloatAd(justAdded[0]), 2000);
+}
+
+function buildPopularPostSlotsHtml() {
+  let html = '';
+  for (let i = 1; i <= 3; i++) {
+    html += `
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:10px;">
+        <div class="label-sm">Post ${i}${i === 1 ? ' (required)' : ' (optional)'}</div>
+        <div class="post-upload-area" id="popularPost${i}Drop" onclick="document.getElementById('popularPost${i}File').click()">
+          <input type="file" id="popularPost${i}File" accept="image/*,video/*" style="display:none;" onchange="previewPopularPost(event, ${i})">
+          <img id="popularPost${i}Preview" class="post-preview-img" style="display:none;">
+          <div id="popularPost${i}Placeholder" style="font-size:0.8rem;color:var(--muted);">📁 Tap to upload image/video</div>
+        </div>
+        <input type="text" id="popularPost${i}Caption" placeholder="Caption for this post" style="margin-bottom:8px;">
+        <input type="url" id="popularPost${i}Url" placeholder="Direct link to this exact post (not just your profile)">
+      </div>`;
+  }
+  return html;
+}
+
+function previewPopularPost(e, slotIndex) {
   const file = e.target.files[0];
   if (!file) return;
   const url = URL.createObjectURL(file);
-  const preview = document.getElementById('popularPostPreview');
+  const preview = document.getElementById('popularPost' + slotIndex + 'Preview');
+  const placeholder = document.getElementById('popularPost' + slotIndex + 'Placeholder');
+  const drop = document.getElementById('popularPost' + slotIndex + 'Drop');
   if (preview) {
-    preview.src = url;
-    preview.style.display = 'block';
+    if (file.type.startsWith('video')) {
+      // <img> can't play video — show a generic "video selected" placeholder instead of a broken image
+      preview.style.display = 'none';
+      if (placeholder) placeholder.textContent = '🎬 Video selected: ' + file.name;
+    } else {
+      preview.src = url;
+      preview.style.display = 'block';
+      if (placeholder) placeholder.style.display = 'none';
+    }
   }
-  document.getElementById('popularPostDrop').style.borderColor = 'var(--green)';
+  if (drop) drop.style.borderColor = 'var(--green)';
 }
+
+// =================== MUSIC BOOST ===================
+const musicBoostPlans = [
+  { key: 'starter',  price: 300,  duration: 7,   label: '⚡ Starter' },
+  { key: 'basic',    price: 500,  duration: 14,  label: '🎵 Basic' },
+  { key: 'growth',   price: 700,  duration: 30,  label: '📈 Growth' },
+  { key: 'popular',  price: 900,  duration: 45,  label: '🔥 Popular', popular: true },
+  { key: 'pro',      price: 1500, duration: 90,  label: '👑 Pro' },
+  { key: 'ultimate', price: 2000, duration: 180, label: '💎 Ultimate' }
+];
+// Note: durations above are CipherTech's own reasonable defaults (prices were
+// specified; day-counts per tier were not) — easy to change, they're only
+// used for the on-screen summary and the floating ad's expiry date. Edit
+// the `duration` values in musicBoostPlans if you want different windows.
+
+let selectedMusicBoostType = 'song';
+let selectedMusicPlatform = 'Spotify';
+let selectedMusicContentType = 'picture';
+let selectedMusicPlan = musicBoostPlans[0];
+let selectedMusicPayMethod = 'card';
+
+function renderMusicPricingGrids() {
+  const html = musicBoostPlans.map((p) => `
+    <div class="pricing-card ${p.popular ? 'popular' : ''}" data-plan="${p.key}" onclick="selectMusicPlanFromGrid(this,'${p.key}')">
+      <h4>${p.label}</h4>
+      <div class="price">$${p.price}</div>
+      <p>${p.duration} days featured</p>
+    </div>`).join('');
+  const pageGrid = document.getElementById('musicPricingGridPage');
+  const modalGrid = document.getElementById('musicPricingGridModal');
+  if (pageGrid) pageGrid.innerHTML = html.replace(/onclick="selectMusicPlanFromGrid\(this,'([a-z]+)'\)"/g, (m, key) => `onclick="openMusicBoostModalWithPlan('${key}')"`);
+  if (modalGrid) {
+    modalGrid.innerHTML = html;
+    const firstCard = modalGrid.querySelector('.pricing-card');
+    if (firstCard) firstCard.classList.add('selected');
+  }
+}
+
+function selectMusicPlanFromGrid(el, key) {
+  const plan = musicBoostPlans.find(p => p.key === key);
+  if (!plan) return;
+  selectedMusicPlan = plan;
+  document.querySelectorAll('#musicPricingGridModal .pricing-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  updateMusicSummary();
+}
+
+function openMusicBoostModalWithPlan(key) {
+  openMusicBoostModal();
+  setTimeout(() => {
+    const card = document.querySelector(`#musicPricingGridModal .pricing-card[data-plan="${key}"]`);
+    if (card) selectMusicPlanFromGrid(card, key);
+  }, 150);
+}
+
+function openMusicBoostModal() {
+  renderMusicPricingGrids();
+  selectedMusicPlan = musicBoostPlans[0];
+  selectedMusicBoostType = 'song';
+  selectedMusicPlatform = 'Spotify';
+  selectedMusicContentType = 'picture';
+  selectedMusicPayMethod = 'card';
+
+  // Reset every visual selector back to its default — without this, a
+  // second use in the same session could show e.g. "Profile"/"Crypto"
+  // still visually highlighted from a prior submission while the
+  // underlying JS state (and therefore what actually gets submitted) has
+  // already moved on, silently submitting something different from what
+  // the form appears to show.
+  const typeGrid = document.getElementById('musicBoostTypeGrid');
+  if (typeGrid) {
+    typeGrid.querySelectorAll('.dest-type').forEach((el, i) => el.classList.toggle('selected', i === 0));
+  }
+  const platGrid = document.getElementById('musicPlatformGrid');
+  if (platGrid) {
+    platGrid.querySelectorAll('.platform-check').forEach((el, i) => {
+      el.classList.toggle('checked', i === 0);
+      const radio = el.querySelector('input[type="radio"]');
+      if (radio) radio.checked = (i === 0);
+    });
+  }
+  const contentGrid = document.getElementById('musicContentTypeGrid');
+  if (contentGrid) {
+    contentGrid.querySelectorAll('.ad-option').forEach((el, i) => el.classList.toggle('selected', i === 0));
+  }
+  const payGrid = document.getElementById('musicPayMethods');
+  if (payGrid) {
+    payGrid.querySelectorAll('.pay-method').forEach((el, i) => el.classList.toggle('selected', i === 0));
+  }
+  const payRefGroup = document.getElementById('musicPayRefGroup');
+  if (payRefGroup) payRefGroup.style.display = 'none';
+  const payBtn = document.getElementById('musicPayBtn');
+  if (payBtn) payBtn.textContent = '🎵 Pay & Launch Music Boost';
+
+  // Reset labels back to "song" mode defaults
+  const nameLabel = document.getElementById('musicNameLabel');
+  const linkLabel = document.getElementById('musicLinkLabel');
+  if (nameLabel) nameLabel.textContent = 'Song Title & Artist';
+  if (linkLabel) linkLabel.textContent = 'Link to the song on this platform';
+
+  // Clear all text fields so a second submission never accidentally reuses
+  // the previous song's details.
+  ['musicName', 'musicAppLink', 'musicCaption', 'musicAdvertiserName', 'musicAdvertiserEmail', 'musicPayRef'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+
+  renderMusicMediaSlot();
+  updateMusicSummary();
+  openModal('musicBoostModal');
+}
+
+function selectMusicBoostType(el, type) {
+  selectedMusicBoostType = type;
+  el.closest('.dest-type-grid').querySelectorAll('.dest-type').forEach(d => d.classList.remove('selected'));
+  el.classList.add('selected');
+  const nameLabel = document.getElementById('musicNameLabel');
+  const linkLabel = document.getElementById('musicLinkLabel');
+  const nameInput = document.getElementById('musicName');
+  if (type === 'profile') {
+    if (nameLabel) nameLabel.textContent = 'Artist Name';
+    if (linkLabel) linkLabel.textContent = 'Link to your artist profile on this platform';
+    if (nameInput) nameInput.placeholder = 'e.g. Sky Sound';
+  } else {
+    if (nameLabel) nameLabel.textContent = 'Song Title & Artist';
+    if (linkLabel) linkLabel.textContent = 'Link to the song on this platform';
+    if (nameInput) nameInput.placeholder = 'e.g. Wave by Sky Fashion';
+  }
+}
+
+function selectMusicPlatform(el, platform) {
+  selectedMusicPlatform = platform;
+  el.closest('.platform-grid').querySelectorAll('.platform-check').forEach(l => l.classList.remove('checked'));
+  el.classList.add('checked');
+}
+
+function selectMusicContentType(el, type) {
+  selectedMusicContentType = type;
+  el.closest('.ad-options').querySelectorAll('.ad-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  renderMusicMediaSlot();
+}
+
+function renderMusicMediaSlot() {
+  const slot = document.getElementById('musicMediaSlot');
+  if (!slot) return;
+
+  if (selectedMusicContentType === 'picture') {
+    // Picture ads also carry the song's audio, per how this ad type works.
+    slot.innerHTML = `
+      <div class="label-sm">Cover Picture</div>
+      <div class="media-drop" onclick="document.getElementById('musicPictureInput').click()">
+        <div class="icon">🖼</div>
+        <p><strong>Tap to upload</strong> cover art</p>
+        <input type="file" id="musicPictureInput" accept="image/*" onchange="previewMusicFile(event,'picture')">
+      </div>
+      <div id="musicPicturePreviewWrap" class="media-preview"></div>
+      <div class="label-sm" style="margin-top:12px;">Song Audio</div>
+      <div class="media-drop" onclick="document.getElementById('musicAudioInput').click()">
+        <div class="icon">🎧</div>
+        <p><strong>Tap to upload</strong> the song's audio file</p>
+        <input type="file" id="musicAudioInput" accept="audio/*" onchange="previewMusicFile(event,'audio')">
+      </div>
+      <div id="musicAudioPreviewWrap" style="font-size:0.8rem;color:var(--muted);margin-top:6px;"></div>`;
+  } else if (selectedMusicContentType === 'video') {
+    // Video already carries its own audio — no separate audio field.
+    slot.innerHTML = `
+      <div class="label-sm">Music Video</div>
+      <div class="media-drop" onclick="document.getElementById('musicVideoInput').click()">
+        <div class="icon">🎬</div>
+        <p><strong>Tap to upload</strong> your music video</p>
+        <p style="font-size:0.75rem;margin-top:4px;">Its own audio track plays with it — no separate audio needed</p>
+        <input type="file" id="musicVideoInput" accept="video/*" onchange="previewMusicFile(event,'video')">
+      </div>
+      <div id="musicVideoPreviewWrap" class="media-preview"></div>`;
+  } else {
+    // Audio only.
+    slot.innerHTML = `
+      <div class="label-sm">Song Audio</div>
+      <div class="media-drop" onclick="document.getElementById('musicAudioOnlyInput').click()">
+        <div class="icon">🎧</div>
+        <p><strong>Tap to upload</strong> the audio file</p>
+        <input type="file" id="musicAudioOnlyInput" accept="audio/*" onchange="previewMusicFile(event,'audioOnly')">
+      </div>
+      <div id="musicAudioOnlyPreviewWrap" style="font-size:0.8rem;color:var(--muted);margin-top:6px;"></div>`;
+  }
+}
+
+function previewMusicFile(e, kind) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  if (kind === 'picture') {
+    document.getElementById('musicPicturePreviewWrap').innerHTML = `<div class="media-preview-item"><img src="${url}" alt="cover"></div>`;
+  } else if (kind === 'video') {
+    document.getElementById('musicVideoPreviewWrap').innerHTML = `<div class="media-preview-item"><video src="${url}" muted></video></div>`;
+  } else if (kind === 'audio') {
+    document.getElementById('musicAudioPreviewWrap').textContent = '🎧 ' + file.name;
+  } else if (kind === 'audioOnly') {
+    document.getElementById('musicAudioOnlyPreviewWrap').textContent = '🎧 ' + file.name;
+  }
+}
+
+function updateMusicSummary() {
+  document.getElementById('musicSummaryPlan').textContent = selectedMusicPlan.label;
+  document.getElementById('musicSummaryDuration').textContent = selectedMusicPlan.duration + ' days';
+  document.getElementById('musicSummaryTotal').textContent = '$' + selectedMusicPlan.price;
+}
+
+function selectMusicPayMethod(el, method) {
+  selectedMusicPayMethod = method;
+  el.closest('.payment-methods').querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
+  el.classList.add('selected');
+  const refGroup = document.getElementById('musicPayRefGroup');
+  const payBtn = document.getElementById('musicPayBtn');
+  if (method === 'card') {
+    if (refGroup) refGroup.style.display = 'none';
+    if (payBtn) payBtn.textContent = '🎵 Pay with Flutterwave';
+  } else {
+    if (refGroup) refGroup.style.display = 'block';
+    if (payBtn) payBtn.textContent = '✅ I\'ve Paid → Confirm';
+  }
+}
+
+function validateMusicBoostForm() {
+  const name = document.getElementById('musicAdvertiserName').value.trim();
+  const email = document.getElementById('musicAdvertiserEmail').value.trim();
+  const songName = document.getElementById('musicName').value.trim();
+  const appLink = document.getElementById('musicAppLink').value.trim();
+  if (!name) { showToast('⚠️ Enter your name/artist name'); return null; }
+  if (!email) { showToast('⚠️ Enter your email'); return null; }
+  if (!songName) { showToast('⚠️ Enter the song/artist name'); return null; }
+  if (!appLink) { showToast('⚠️ Enter the link listeners will be sent to'); return null; }
+
+  let mediaFile = null, audioFile = null;
+  if (selectedMusicContentType === 'picture') {
+    mediaFile = document.getElementById('musicPictureInput')?.files[0] || null;
+    audioFile = document.getElementById('musicAudioInput')?.files[0] || null;
+    if (!mediaFile) { showToast('⚠️ Upload a cover picture'); return null; }
+    if (!audioFile) { showToast('⚠️ Upload the song audio'); return null; }
+  } else if (selectedMusicContentType === 'video') {
+    mediaFile = document.getElementById('musicVideoInput')?.files[0] || null;
+    if (!mediaFile) { showToast('⚠️ Upload your music video'); return null; }
+  } else {
+    mediaFile = document.getElementById('musicAudioOnlyInput')?.files[0] || null;
+    if (!mediaFile) { showToast('⚠️ Upload the audio file'); return null; }
+  }
+
+  return {
+    name, email, songName, appLink, mediaFile, audioFile,
+    boostType: selectedMusicBoostType,
+    platform: selectedMusicPlatform,
+    contentType: selectedMusicContentType,
+    caption: document.getElementById('musicCaption').value.trim()
+  };
+}
+
+function handleMusicBoostPayment() {
+  const form = validateMusicBoostForm();
+  if (!form) return;
+
+  if (selectedMusicPayMethod !== 'card') {
+    const ref = document.getElementById('musicPayRef').value.trim();
+    if (!ref) { showToast('⚠️ Enter your payment reference'); return; }
+    completeMusicBoostSubmission(form, ref);
+    return;
+  }
+
+  const txRef = 'CT-MUSIC-' + Date.now();
+  FlutterwaveCheckout({
+    public_key: window.FLW_PUBLIC_KEY,
+    tx_ref: txRef,
+    amount: selectedMusicPlan.price,
+    currency: 'USD',
+    payment_options: 'card, ussd, bank_transfer',
+    customer: { email: form.email, name: form.name },
+    meta: { songName: form.songName, platform: form.platform, type: 'music_boost' },
+    customizations: {
+      title: 'CipherTech Music Boost',
+      description: selectedMusicPlan.label + ' — ' + form.songName,
+      logo: 'https://skypro-droid.github.io/CipherTech/logo.jpg'
+    },
+    callback: function(response) {
+      if (response.status === 'successful' || response.status === 'completed') {
+        completeMusicBoostSubmission(form, response.transaction_id || txRef);
+      } else {
+        showToast('❌ Payment failed. Please try again.');
+      }
+    },
+    onclose: function() { showToast('Payment window closed.'); }
+  });
+}
+
+async function completeMusicBoostSubmission(form, payRef) {
+  showToast('⏳ Uploading your music ad...');
+  closeModal('musicBoostModal');
+
+  try {
+    let mediaUrl = '', audioUrl = '';
+    if (typeof window.uploadToCloudinary === 'function') {
+      if (form.mediaFile) mediaUrl = await window.uploadToCloudinary(form.mediaFile);
+      if (form.audioFile) audioUrl = await window.uploadToCloudinary(form.audioFile);
+    }
+
+    const start = new Date();
+    const expiry = new Date(start.getTime() + selectedMusicPlan.duration * 24 * 60 * 60 * 1000);
+    const orderId = 'MUSIC-' + Date.now();
+
+    // Full record (Owner-only read) — includes email/payment reference.
+    const fullRecord = {
+      id: orderId,
+      advertiser: form.name,
+      email: form.email,
+      songName: form.songName,
+      boostType: form.boostType,
+      platform: form.platform,
+      contentType: form.contentType,
+      appLink: form.appLink,
+      caption: form.caption,
+      mediaUrl, audioUrl,
+      plan: selectedMusicPlan.label,
+      price: selectedMusicPlan.price,
+      ownerEarning: Math.floor(selectedMusicPlan.price * 0.5),
+      payMethod: selectedMusicPayMethod,
+      payRef,
+      startDate: start.toISOString(),
+      expiryDate: expiry.toISOString(),
+      status: 'pending_review'
+    };
+
+    // Public-safe record (publicly readable — every visitor's browser loads
+    // this to render the floating widget). Deliberately excludes email and
+    // payRef, same privacy pattern as the Ad Campaign floating ads.
+    const publicAd = {
+      id: orderId,
+      advertiser: form.name,
+      songName: form.songName,
+      platform: form.platform,
+      contentType: form.contentType,
+      appLink: form.appLink,
+      caption: form.caption,
+      mediaUrl, audioUrl,
+      expiryDate: expiry.toISOString()
+    };
+
+    if (window._db && window._fsLib) {
+      const { collection, addDoc, serverTimestamp } = window._fsLib;
+      await addDoc(collection(window._db, 'music_boost_orders'), { ...fullRecord, createdAt: serverTimestamp() });
+      await addDoc(collection(window._db, 'music_float_ads'), { ...publicAd, createdAt: serverTimestamp() });
+    }
+
+    sendEmailConfirmation({
+      to_name: form.name,
+      email: form.email,
+      order_type: 'Music Boost',
+      plan_name: selectedMusicPlan.label + ' — ' + form.songName,
+      amount: selectedMusicPlan.price,
+      transaction_id: payRef,
+      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+      delivery_time: selectedMusicPlan.duration + ' days'
+    });
+
+    showToast('🎉 Music boost submitted! Your ad goes live after review.');
+    setTimeout(() => showMusicFloatAd(publicAd), 2000);
+  } catch (err) {
+    console.error('Music boost submission failed:', err);
+    showToast('❌ Something went wrong submitting your music boost — please contact support.');
+  }
+}
+
+function showMusicFloatAd(ad) {
+  if (!ad) return;
+  if (new Date(ad.expiryDate) < new Date()) return;
+  if (sessionStorage.getItem('dismissed_music_' + ad.id)) return;
+
+  const existing = document.getElementById('musicFloatAdWidget');
+  if (existing) existing.remove();
+
+  let mediaHtml;
+  let audioPreviewHtml = '';
+  if (ad.contentType === 'video' && ad.mediaUrl) {
+    mediaHtml = `<video class="bfa-media" src="${ad.mediaUrl}" muted playsinline onclick="window.open('${ad.appLink}','_blank');trackMusicAdClick('${ad.id}')"></video>`;
+  } else if (ad.contentType === 'picture' && ad.mediaUrl) {
+    // Picture ads: mediaUrl is the cover image; audioUrl (separate field) is the song.
+    mediaHtml = `<img class="bfa-media" src="${ad.mediaUrl}" alt="Cover art" onclick="window.open('${ad.appLink}','_blank');trackMusicAdClick('${ad.id}')">`;
+    if (ad.audioUrl) audioPreviewHtml = `<audio controls src="${ad.audioUrl}" style="width:100%;margin-top:8px;height:32px;"></audio>`;
+  } else if (ad.contentType === 'audio') {
+    // Audio-only ads: mediaUrl (if set at all) is itself an audio file, not
+    // an image — rendering it in an <img> tag would just show a broken
+    // image icon, so show the placeholder plus an inline preview player.
+    mediaHtml = `<div class="bfa-media-placeholder" onclick="window.open('${ad.appLink}','_blank');trackMusicAdClick('${ad.id}')">🎵</div>`;
+    if (ad.mediaUrl) audioPreviewHtml = `<audio controls src="${ad.mediaUrl}" style="width:100%;margin-top:8px;height:32px;"></audio>`;
+  } else {
+    mediaHtml = `<div class="bfa-media-placeholder" onclick="window.open('${ad.appLink}','_blank');trackMusicAdClick('${ad.id}')">🎵</div>`;
+  }
+
+  const ctaLabel = ad.contentType === 'video' ? 'Watch full video on ' : 'Play full song on ';
+
+  const widget = document.createElement('div');
+  widget.id = 'musicFloatAdWidget';
+  widget.className = 'floating-ad';
+  widget.style.cssText = 'top:90px;bottom:auto;right:16px;left:auto;border-color:#f472b6;z-index:1797;';
+  widget.innerHTML = `
+    <div class="floating-ad-header" style="background:linear-gradient(135deg,#f472b6,var(--accent2));">
+      <span>🎵 Sponsored</span>
+      <button class="floating-ad-close" onclick="dismissMusicFloatAd('${ad.id}')">✕</button>
+    </div>
+    <div class="floating-ad-body">
+      ${mediaHtml}
+      ${audioPreviewHtml}
+      <p><strong>${ad.songName}</strong><br>by ${ad.advertiser}${ad.caption ? '<br>' + ad.caption : ''}</p>
+      <a class="floating-ad-visit" href="${ad.appLink}" target="_blank" onclick="trackMusicAdClick('${ad.id}')">
+        ${ctaLabel}${ad.platform} →
+      </a>
+      <div class="floating-ad-sponsor">⚡ Sponsored by CipherTech.com</div>
+    </div>`;
+  document.body.appendChild(widget);
+}
+
+function dismissMusicFloatAd(adId) {
+  sessionStorage.setItem('dismissed_music_' + adId, 'true');
+  const w = document.getElementById('musicFloatAdWidget');
+  if (w) { w.style.opacity = '0'; w.style.transform = 'translateY(30px)'; setTimeout(() => w.remove(), 300); }
+}
+
+function trackMusicAdClick(adId) {
+  if (window._db && window._fsLib) {
+    const { collection, addDoc } = window._fsLib;
+    addDoc(collection(window._db, 'music_ad_clicks'), { adId, timestamp: new Date().toISOString() }).catch(console.error);
+  }
+}
+
+// Load an active music float ad on page load, same pattern as the other floating ads.
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    if (window._db && window._fsLib) {
+      const { collection, getDocs, query, orderBy } = window._fsLib;
+      getDocs(query(collection(window._db, 'music_float_ads'), orderBy('expiryDate', 'desc')))
+        .then(snapshot => {
+          snapshot.forEach(d => {
+            const ad = d.data();
+            if (new Date(ad.expiryDate) > new Date() && !sessionStorage.getItem('dismissed_music_' + ad.id)) {
+              showMusicFloatAd(ad);
+            }
+          });
+        }).catch(() => {});
+    }
+  }, 4000);
+});
+
+window.addEventListener('load', () => setTimeout(renderMusicPricingGrids, 500));
 
 // =================== FLOATING BOOST POST ADS ===================
 function getPlatformSvgIcon(platform) {
@@ -4011,12 +4860,17 @@ function showBoostFloatAd(ad) {
   const existing = document.getElementById('boostFloatAdWidget');
   if (existing) existing.remove();
 
+  // postUrl is the exact post link (new, correct behavior); profileUrl is
+  // kept only as a fallback so any older ad records saved before this fix
+  // still work rather than pointing nowhere.
+  const destinationUrl = ad.postUrl || ad.profileUrl || '#';
+
   const platIcon = getPlatformSvgIcon(ad.platform || 'all');
   const platName = (ad.platform || 'social media').charAt(0).toUpperCase() + (ad.platform || 'social media').slice(1);
 
   const mediaHtml = ad.imageUrl
-    ? `<img class="bfa-media" src="${ad.imageUrl}" alt="Sponsored post" onclick="window.open('${ad.profileUrl}','_blank')">`
-    : `<div class="bfa-media-placeholder" onclick="window.open('${ad.profileUrl}','_blank')">📸</div>`;
+    ? `<img class="bfa-media" src="${ad.imageUrl}" alt="Sponsored post" onclick="window.open('${destinationUrl}','_blank');trackBoostAdClick('${ad.id}')">`
+    : `<div class="bfa-media-placeholder" onclick="window.open('${destinationUrl}','_blank');trackBoostAdClick('${ad.id}')">📸</div>`;
 
   const widget = document.createElement('div');
   widget.id = 'boostFloatAdWidget';
@@ -4034,8 +4888,8 @@ function showBoostFloatAd(ad) {
       <div class="bfa-name">${ad.advertiserName}</div>
       <div class="bfa-desc">${ad.caption}</div>
       <div class="bfa-cta">
-        <a class="bfa-visit" href="${ad.profileUrl}" target="_blank" onclick="trackBoostAdClick('${ad.id}')">
-          View on ${platName} →
+        <a class="bfa-visit" href="${destinationUrl}" target="_blank" onclick="trackBoostAdClick('${ad.id}')">
+          Watch full post on ${platName} →
         </a>
         <div class="bfa-powered">⚡ CipherTech.com</div>
       </div>
@@ -4577,6 +5431,15 @@ function timeAgo(date) {
   return Math.floor(diff/86400) + ' days ago';
 }
 
+// =================== SERVICE WORKER (PWA) ===================
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then((reg) => console.log('✅ Service worker registered:', reg.scope))
+      .catch((err) => console.log('Service worker registration failed:', err));
+  });
+}
+
 // =================== INIT ===================
 window.addEventListener('load', () => {
   typeEffect();
@@ -4870,6 +5733,97 @@ function showPaymentSuccessBanner(type, planName, txId) {
   setTimeout(() => { if (banner.parentElement) banner.remove(); }, 10000);
 }
 
+// =================== VISITOR ANALYTICS (Owner-only viewer) ===================
+// Logs a lightweight visit record once per browser session: which page was
+// viewed, referrer, and approximate location (city/region/country only —
+// derived from IP via a free public geolocation API, no raw IP is stored).
+// This is NOT GPS/precise location and requires no browser permission
+// prompt. Writes are allowed from any visitor (see firestore.rules), but
+// the log itself can only be READ by the Owner — enforced server-side.
+function logSiteVisit() {
+  if (sessionStorage.getItem('ct_visit_logged')) return; // once per tab session
+  if (!window._db || !window._fsLib) { setTimeout(logSiteVisit, 1000); return; }
+
+  fetch('https://ipapi.co/json/')
+    .then(res => res.ok ? res.json() : null)
+    .then(loc => {
+      const { collection, addDoc, serverTimestamp } = window._fsLib;
+      addDoc(collection(window._db, 'site_visits'), {
+        page: window.location.href,
+        path: window.location.pathname + window.location.hash,
+        referrer: document.referrer || 'direct',
+        city: (loc && loc.city) || 'Unknown',
+        region: (loc && loc.region) || '',
+        country: (loc && loc.country_name) || 'Unknown',
+        countryCode: (loc && loc.country_code) || '',
+        userAgent: navigator.userAgent,
+        createdAt: serverTimestamp()
+      }).then(() => sessionStorage.setItem('ct_visit_logged', 'true'))
+        .catch(err => console.log('Visit log failed:', err));
+    })
+    .catch(() => {
+      // Geolocation lookup failed (offline / rate-limited) — still log the
+      // page view itself, just without location.
+      const { collection, addDoc, serverTimestamp } = window._fsLib;
+      addDoc(collection(window._db, 'site_visits'), {
+        page: window.location.href,
+        path: window.location.pathname + window.location.hash,
+        referrer: document.referrer || 'direct',
+        city: 'Unknown', region: '', country: 'Unknown', countryCode: '',
+        userAgent: navigator.userAgent,
+        createdAt: serverTimestamp()
+      }).then(() => sessionStorage.setItem('ct_visit_logged', 'true')).catch(()=>{});
+    });
+}
+window.addEventListener('load', () => setTimeout(logSiteVisit, 1500));
+
+function loadVisitorAnalytics() {
+  const list = document.getElementById('vaList');
+  if (!list) return;
+  if (!window._db || !window._fsLib) {
+    list.innerHTML = '<p style="text-align:center;color:var(--muted);">Firebase not connected yet — try again in a moment.</p>';
+    return;
+  }
+  const { collection, getDocs, query, orderBy, limit } = window._fsLib;
+  getDocs(query(collection(window._db, 'site_visits'), orderBy('createdAt', 'desc'), limit(200)))
+    .then(snapshot => {
+      const visits = [];
+      snapshot.forEach(d => visits.push(d.data()));
+
+      document.getElementById('vaTotalVisits').textContent = visits.length;
+      const countries = new Set(visits.map(v => v.country).filter(c => c && c !== 'Unknown'));
+      document.getElementById('vaUniqueCountries').textContent = countries.size;
+
+      if (visits.length === 0) {
+        list.innerHTML = '<p style="text-align:center;color:var(--muted);font-size:0.85rem;padding:20px;">No visits logged yet.</p>';
+        return;
+      }
+
+      list.innerHTML = visits.map(v => {
+        const when = (v.createdAt && v.createdAt.toDate) ? timeAgo(v.createdAt.toDate()) : 'Just now';
+        const loc = [v.city, v.region, v.country].filter(Boolean).join(', ') || 'Unknown location';
+        const flag = v.countryCode ? countryCodeToFlag(v.countryCode) : '🌐';
+        return `
+          <div class="active-ad-item">
+            <div class="ad-thumb">${flag}</div>
+            <div class="ad-info">
+              <strong style="white-space:normal;word-break:break-all;">${v.path || v.page}</strong>
+              <span>📍 ${loc} • ${when}</span>
+            </div>
+          </div>`;
+      }).join('');
+    })
+    .catch(err => {
+      console.error('Failed to load visitor analytics:', err);
+      list.innerHTML = '<p style="text-align:center;color:var(--red);font-size:0.85rem;">Could not load visits — are you signed in as Owner, and have the Firestore rules been published?</p>';
+    });
+}
+
+function countryCodeToFlag(cc) {
+  if (!cc || cc.length !== 2) return '🌐';
+  return String.fromCodePoint(...[...cc.toUpperCase()].map(c => 127397 + c.charCodeAt(0)));
+}
+
 // =================== FIREBASE STATUS ===================
 window.addEventListener('load', () => {
   setTimeout(() => {
@@ -5034,14 +5988,28 @@ function shareAllAtOnce(platformsParam) {
 
 // =================== FLOATING AD WIDGET ===================
 function saveFloatingAd(adRecord) {
-  // Save to localStorage so it persists & shows on all pages
+  // Save the FULL record locally only (this browser's own history/receipt).
   localStorage.setItem('ciphertech_floating_ad', JSON.stringify(adRecord));
-  // Save to Firebase too so it's visible to all visitors
+
+  // floating_ads is PUBLICLY READABLE (every visitor's browser needs to see
+  // it to render the widget) — so we must only ever write the fields the
+  // widget actually displays. The full adRecord contains the advertiser's
+  // email and payment reference, which must never go into a public
+  // collection. Build a sanitized copy instead of writing adRecord as-is.
+  const publicAd = {
+    id: adRecord.id,
+    advertiser: adRecord.advertiser,
+    campaign: adRecord.campaign,
+    expiryDate: adRecord.expiryDate,
+    destinationType: adRecord.destinationType,
+    destination: adRecord.destination
+  };
+
   if (window._db && window._fsLib) {
     const {collection, addDoc} = window._fsLib;
-    addDoc(collection(window._db, 'floating_ads'), adRecord).catch(console.error);
+    addDoc(collection(window._db, 'floating_ads'), publicAd).catch(console.error);
   }
-  showFloatingAd(adRecord);
+  showFloatingAd(publicAd);
 }
 
 function showFloatingAd(ad) {
@@ -5156,65 +6124,222 @@ function switchMsgTab(btn, tab) {
   if (tab === 'chat') { if(typeof renderChat==='function') renderChat(); }
 }
 
-function getChatKey() {
-  if (!currentUser) return null;
-  return 'chat_' + (currentUser.email || currentUser.name || 'guest').replace(/[^a-zA-Z0-9]/g,'_');
-}
+// =================== PRIVATE CHAT (real, per-visitor via Firestore) ===================
+// Every visitor — Owner or anonymous — now has a real Firebase Auth uid
+// (see the module script). Messages are tagged with senderId = the
+// VISITOR's uid (not the writer's uid — that distinction matters for
+// Owner replies, see sendOwnerReply below), and Firestore Rules ensure a
+// visitor can only ever read messages where senderId matches their own
+// uid, while the Owner can read everything for the inbox.
+let _chatUnsubscribe = null;
 
 function renderChat() {
   const container = document.getElementById('chatMessages');
-  if (!currentUser) {
-    container.innerHTML = '<div class="chat-empty">🔒 Please log in to chat privately with CipherTech.</div>';
+  if (!container) return;
+
+  const myUid = typeof window.getMyUid === 'function' ? window.getMyUid() : null;
+  if (!myUid || !window._db || !window._fsLib) {
+    container.innerHTML = '<div class="chat-empty">🔒 Connecting…</div>';
+    setTimeout(renderChat, 800);
     return;
   }
-  const key = getChatKey();
-  const messages = JSON.parse(localStorage.getItem(key) || '[]');
-  if (messages.length === 0) {
-    container.innerHTML = '<div class="chat-empty">💬 Start a private conversation with CipherTech. Your messages are only visible to you and CipherTech.</div>';
+
+  // If the Owner is viewing this tab, show a nudge toward the real inbox
+  // instead — Owner's "own" thread isn't the point of this view.
+  if (currentUser) {
+    container.innerHTML = '<div class="chat-empty">👑 You\'re signed in as Owner. Use <strong>📨 Private Messages</strong> in your profile menu to see and reply to visitor conversations.</div>';
     return;
   }
-  container.innerHTML = messages.map(m => `
-    <div class="chat-msg ${m.from==='me'?'mine':'theirs'}">
-      ${m.text}
-      <span class="msg-time">${m.time}</span>
-    </div>
-  `).join('');
-  container.scrollTop = container.scrollHeight;
+
+  if (_chatUnsubscribe) { _chatUnsubscribe(); _chatUnsubscribe = null; }
+
+  const { collection, query, where, onSnapshot } = window._fsLib;
+  const q = query(collection(window._db, 'private_messages'), where('senderId', '==', myUid));
+  _chatUnsubscribe = onSnapshot(q, (snapshot) => {
+    const messages = [];
+    snapshot.forEach(d => messages.push(d.data()));
+    messages.sort((a, b) => {
+      const at = a.createdAt && a.createdAt.toMillis ? a.createdAt.toMillis() : 0;
+      const bt = b.createdAt && b.createdAt.toMillis ? b.createdAt.toMillis() : 0;
+      return at - bt;
+    });
+
+    if (messages.length === 0) {
+      container.innerHTML = '<div class="chat-empty">💬 Start a private conversation with CipherTech. Only you and CipherTech can see these messages.</div>';
+      return;
+    }
+    container.innerHTML = messages.map(m => {
+      const time = (m.createdAt && m.createdAt.toDate) ? m.createdAt.toDate().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}) : '';
+      return `
+        <div class="chat-msg ${m.fromOwner ? 'theirs' : 'mine'}">
+          ${escapeHtml(m.text)}
+          <span class="msg-time">${time}</span>
+        </div>`;
+    }).join('');
+    container.scrollTop = container.scrollHeight;
+  }, (err) => {
+    console.error('Chat listener error:', err);
+    container.innerHTML = '<div class="chat-empty">Could not load messages — try refreshing.</div>';
+  });
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str == null ? '' : String(str);
+  return div.innerHTML;
 }
 
 function sendChatMessage() {
-  if (!currentUser) { openModal('loginModal'); return; }
+  const myUid = typeof window.getMyUid === 'function' ? window.getMyUid() : null;
+  if (!myUid || !window._db || !window._fsLib) { showToast('⏳ Still connecting — try again in a second'); return; }
+  if (currentUser) { showToast('👑 Owner replies go through Private Messages, not this box.'); return; }
+
   const input = document.getElementById('chatInput');
   const text = input.value.trim();
   if (!text) return;
 
-  const key = getChatKey();
-  const messages = JSON.parse(localStorage.getItem(key) || '[]');
-  const time = new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-  messages.push({from:'me', text, time, sender: currentUser.email || currentUser.name});
-  localStorage.setItem(key, JSON.stringify(messages));
+  const { collection, addDoc, serverTimestamp } = window._fsLib;
+  addDoc(collection(window._db, 'private_messages'), {
+    senderId: myUid,
+    fromOwner: false,
+    text,
+    createdAt: serverTimestamp()
+  }).catch(err => {
+    console.error('Send message failed:', err);
+    showToast('❌ Message failed to send — try again');
+  });
 
-  // Save to Firebase for CipherTech to see
-  if (window._db && window._fsLib) {
-    const {collection, addDoc, serverTimestamp} = window._fsLib;
-    addDoc(collection(window._db, 'private_messages'), {
-      sender: currentUser.email || currentUser.name,
-      text,
-      createdAt: serverTimestamp()
-    }).catch(console.error);
+  input.value = '';
+  // renderChat() is already live via onSnapshot — no manual re-render needed,
+  // and no fake auto-reply: a real person (you) replies via Private Messages.
+}
+
+// =================== PRIVATE MESSAGES — OWNER INBOX ===================
+let _pmAllMessages = []; // cached from the last inbox load, reused for thread view
+let _pmActiveSenderId = null;
+
+function loadPrivateMessagesInbox() {
+  const list = document.getElementById('pmInboxList');
+  if (!list) return;
+  list.innerHTML = '<div class="post-loader"><div class="spinner"></div>Loading conversations...</div>';
+
+  if (!(window._db && window._fsLib)) {
+    list.innerHTML = '<p style="text-align:center;color:var(--muted);">Firebase not connected yet.</p>';
+    return;
+  }
+  const { collection, getDocs, query, orderBy } = window._fsLib;
+  getDocs(query(collection(window._db, 'private_messages'), orderBy('createdAt', 'desc')))
+    .then(snapshot => {
+      _pmAllMessages = [];
+      snapshot.forEach(d => _pmAllMessages.push({ id: d.id, ...d.data() }));
+      renderPmInboxList();
+    })
+    .catch(err => {
+      console.error('Failed to load private_messages:', err);
+      list.innerHTML = '<p style="text-align:center;color:var(--red);font-size:0.85rem;">Could not load messages — are you signed in as Owner?</p>';
+    });
+}
+
+function renderPmInboxList() {
+  const list = document.getElementById('pmInboxList');
+  if (!list) return;
+
+  // Group by senderId (the visitor's uid), newest message first per thread.
+  const threads = new Map();
+  _pmAllMessages.forEach(m => {
+    if (!m.senderId) return;
+    if (!threads.has(m.senderId) || (threads.get(m.senderId).createdAt?.toMillis?.() || 0) < (m.createdAt?.toMillis?.() || 0)) {
+      threads.set(m.senderId, m);
+    }
+  });
+
+  if (threads.size === 0) {
+    list.innerHTML = '<p style="text-align:center;color:var(--muted);font-size:0.85rem;padding:20px;">No conversations yet.</p>';
+    return;
   }
 
-  input.value='';
-  renderChat();
+  const sorted = [...threads.entries()].sort((a, b) => (b[1].createdAt?.toMillis?.() || 0) - (a[1].createdAt?.toMillis?.() || 0));
 
-  // Auto-reply simulation
-  setTimeout(() => {
-    const messages2 = JSON.parse(localStorage.getItem(key) || '[]');
-    messages2.push({from:'them', text:'Thanks for your message! The CipherTech team will respond shortly. 🚀', time: new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})});
-    localStorage.setItem(key, JSON.stringify(messages2));
-    renderChat();
-  }, 1200);
+  list.innerHTML = sorted.map(([senderId, lastMsg]) => {
+    const preview = (lastMsg.fromOwner ? 'You: ' : '') + (lastMsg.text || '').slice(0, 60);
+    const when = (lastMsg.createdAt && lastMsg.createdAt.toDate) ? timeAgo(lastMsg.createdAt.toDate()) : '';
+    const shortId = senderId.slice(0, 8);
+    return `
+      <div class="active-ad-item" style="cursor:pointer;" onclick="openPmThread('${senderId}')">
+        <div class="ad-thumb">👤</div>
+        <div class="ad-info">
+          <strong>Visitor ${shortId}…</strong>
+          <span>${escapeHtml(preview)}</span>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-size:0.7rem;color:var(--muted);">${when}</span>
+        </div>
+      </div>`;
+  }).join('');
 }
+
+function openPmThread(senderId) {
+  _pmActiveSenderId = senderId;
+  document.getElementById('pmInboxView').style.display = 'none';
+  document.getElementById('pmThreadView').style.display = 'block';
+  document.getElementById('pmThreadTitle').textContent = 'Visitor ' + senderId.slice(0, 8) + '…';
+  renderPmThreadMessages();
+}
+
+function closePmThread() {
+  _pmActiveSenderId = null;
+  document.getElementById('pmThreadView').style.display = 'none';
+  document.getElementById('pmInboxView').style.display = 'block';
+  loadPrivateMessagesInbox(); // refresh previews/order
+}
+
+function renderPmThreadMessages() {
+  const container = document.getElementById('pmThreadMessages');
+  if (!container || !_pmActiveSenderId) return;
+  const thread = _pmAllMessages
+    .filter(m => m.senderId === _pmActiveSenderId)
+    .sort((a, b) => (a.createdAt?.toMillis?.() || 0) - (b.createdAt?.toMillis?.() || 0));
+
+  if (thread.length === 0) {
+    container.innerHTML = '<div class="chat-empty">No messages yet.</div>';
+    return;
+  }
+  container.innerHTML = thread.map(m => {
+    const time = (m.createdAt && m.createdAt.toDate) ? m.createdAt.toDate().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}) : '';
+    // From the Owner's point of view: their own reply is "mine"; the visitor's message is "theirs".
+    return `
+      <div class="chat-msg ${m.fromOwner ? 'mine' : 'theirs'}">
+        ${escapeHtml(m.text)}
+        <span class="msg-time">${time}</span>
+      </div>`;
+  }).join('');
+  container.scrollTop = container.scrollHeight;
+}
+
+function sendOwnerReply() {
+  if (!_pmActiveSenderId) return;
+  const input = document.getElementById('pmReplyInput');
+  const text = input.value.trim();
+  if (!text) return;
+  if (!(window._db && window._fsLib)) { showToast('⏳ Still connecting'); return; }
+
+  const { collection, addDoc, serverTimestamp } = window._fsLib;
+  addDoc(collection(window._db, 'private_messages'), {
+    senderId: _pmActiveSenderId, // reply lands in the VISITOR's thread, not the Owner's
+    fromOwner: true,
+    text,
+    createdAt: serverTimestamp()
+  }).then(() => {
+    input.value = '';
+    // Reflect immediately in the UI without waiting for a full reload.
+    _pmAllMessages.push({ senderId: _pmActiveSenderId, fromOwner: true, text, createdAt: { toMillis: () => Date.now(), toDate: () => new Date() } });
+    renderPmThreadMessages();
+  }).catch(err => {
+    console.error('Owner reply failed:', err);
+    showToast('❌ Reply failed to send');
+  });
+}
+
 
 // =================== PUBLIC FEEDBACK ===================
 function renderFeedback() {
