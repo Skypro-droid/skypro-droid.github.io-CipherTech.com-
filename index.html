@@ -1064,7 +1064,7 @@
   <!-- Firebase SDKs -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, increment, arrayUnion, orderBy, query, where, limit, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { getFirestore, collection, addDoc, getDocs, getDoc, setDoc, deleteDoc, doc, updateDoc, increment, arrayUnion, orderBy, query, where, limit, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
     import { getAuth, GoogleAuthProvider, signInWithPopup, signInAnonymously, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
     const firebaseConfig = {
@@ -1114,18 +1114,53 @@
         return; // onAuthStateChanged will fire again once anon sign-in resolves
       }
 
-      const isOwner = !!user && user.email === OWNER_EMAIL && user.emailVerified;
+      const isOwnerAccount = !!user && user.email === OWNER_EMAIL && user.emailVerified;
+
+      // Keep the existing Owner-only callback working exactly as before —
+      // nothing about Owner behavior changes.
       if (typeof window.onOwnerAuthChanged === 'function') {
-        window.onOwnerAuthChanged(isOwner, user);
+        window.onOwnerAuthChanged(isOwnerAccount, user);
       }
       if (typeof window.onAuthReady === 'function') {
-        window.onAuthReady(user ? user.uid : null, isOwner);
+        window.onAuthReady(user ? user.uid : null, isOwnerAccount);
       }
+
+      // ===== RBAC: resolve real role (owner / admin / moderator / visitor) =====
+      // Anonymous visitors are never anything but 'visitor' — no lookup needed.
+      if (!user || user.isAnonymous) {
+        if (typeof window.onRoleResolved === 'function') window.onRoleResolved('visitor', user);
+        return;
+      }
+
+      // Maintain a users/{uid} directory entry for every real signed-in
+      // account, so the Owner can later look someone up by email when
+      // granting a role (Firestore has no email->uid lookup otherwise,
+      // and there's no backend here to use the Admin SDK for that).
+      setDoc(doc(db, 'users', user.uid), {
+        email: user.email,
+        displayName: user.displayName || '',
+        lastSeen: serverTimestamp()
+      }, { merge: true }).catch((err) => console.error('users/ upsert failed:', err));
+
+      if (isOwnerAccount) {
+        if (typeof window.onRoleResolved === 'function') window.onRoleResolved('owner', user);
+        return;
+      }
+
+      getDoc(doc(db, 'user_roles', user.uid))
+        .then((snap) => {
+          const role = snap.exists() ? (snap.data().role || 'visitor') : 'visitor';
+          if (typeof window.onRoleResolved === 'function') window.onRoleResolved(role, user);
+        })
+        .catch((err) => {
+          console.error('Role lookup failed:', err);
+          if (typeof window.onRoleResolved === 'function') window.onRoleResolved('visitor', user);
+        });
     });
 
     // Expose to global scope for use in inline scripts
     window._db = db;
-    window._fsLib = { collection, addDoc, getDocs, doc, updateDoc, increment, arrayUnion, orderBy, query, where, limit, onSnapshot, serverTimestamp };
+    window._fsLib = { collection, addDoc, getDocs, getDoc, setDoc, deleteDoc, doc, updateDoc, increment, arrayUnion, orderBy, query, where, limit, onSnapshot, serverTimestamp };
 
     // ===== LOAD POSTS FROM FIRESTORE IN REAL TIME =====
     window.addEventListener('load', () => {
@@ -1267,18 +1302,14 @@
   <!-- Flutterwave Payment SDK -->
   <script src="https://checkout.flutterwave.com/v3.js"></script>
   <script>
-    // ⚠️ LIVE PAYMENTS SETUP — this is still the TEST key, so no real money
-    // moves yet. To go live:
-    //   1. Log in to dashboard.flutterwave.com
-    //   2. Complete Flutterwave's business/KYC verification if you haven't
-    //      already — LIVE keys are only issued after this is approved
-    //   3. Settings → API → copy your LIVE Public Key (starts with
-    //      "FLWPUBK-" — no "_TEST" in it)
-    //   4. Replace the line below with that real key
-    // Do NOT put your Secret Key here or anywhere in this file — the
+    // ✅ LIVE PAYMENTS ARE ACTIVE — this is a real Flutterwave Live Public
+    // Key (starts with "FLWPUBK-", no "_TEST"). Every successful checkout
+    // from here on charges a real card / moves real money into your
+    // Flutterwave account.
+    // Do NOT ever put your Secret Key here or anywhere in this file — the
     // Secret Key must never appear in client-side code; the Public Key
     // below is the only one meant to be exposed in the browser.
-    window.FLW_PUBLIC_KEY = 'FLWPUBK_TEST-1a236ba90da6e5d02b48f3ce9e6d8510-X'; // <-- swap this string for your live key when ready
+    window.FLW_PUBLIC_KEY = 'FLWPUBK-e15c7c828451ed0bd67f72412aa4faf6-X'; // LIVE key — real payments now process
   </script>
 
 </head>
@@ -1365,7 +1396,7 @@
     </button>
     <div class="notif-badge" id="notifBell" onclick="showToast('🔔 3 new notifications')" style="cursor:pointer;font-size:1.2rem;">🔔<span class="notif-dot"></span></div>
     <div class="avatar" id="userAvatar" onclick="toggleDropdown()">S</div>
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    <button class="theme-btn" id="themeToggleBtnUser" onclick="toggleTheme()">🌙</button>
   </div>
   <button class="hamburger" onclick="openMobile()" style="display:flex;flex-direction:column;gap:5px;background:var(--card);border:1.5px solid var(--border);padding:10px;border-radius:10px;cursor:pointer;">
     <span style="display:block;width:22px;height:2.5px;background:var(--text);border-radius:2px;"></span>
@@ -1383,14 +1414,39 @@
   <div class="pd-item">👤 My Profile</div>
   <div class="pd-item" onclick="openModal('createPostModal');closeDropdown()">✏️ Create Post</div>
   <div class="pd-item" onclick="openAdLaunchModal();closeDropdown()">📣 Launch Ad</div>
-  <div class="pd-item" onclick="openModal('adsOwnerModal');loadOwnerDashboard();closeDropdown()">💰 Ads Dashboard & Earnings</div>
-  <div class="pd-item" onclick="openModal('visitorAnalyticsModal');loadVisitorAnalytics();closeDropdown()">📍 Visitor Analytics</div>
-  <div class="pd-item" onclick="openModal('privateMessagesModal');loadPrivateMessagesInbox();closeDropdown()">📨 Private Messages</div>
-  <div class="pd-item" onclick="openModal('addSocialModal');closeDropdown()">➕ Manage Socials</div>
-  <div class="pd-item" onclick="openModal('addAppModal');closeDropdown()">📱 Add App to Blog</div>
+  <div class="pd-item" id="pdDashboardItem" onclick="openModal('adsOwnerModal');loadOwnerDashboard();closeDropdown()">💰 Ads Dashboard & Earnings</div>
+  <div class="pd-item" id="pdVisitorAnalyticsItem" onclick="openModal('visitorAnalyticsModal');loadVisitorAnalytics();closeDropdown()">📍 Visitor Analytics</div>
+  <div class="pd-item" id="pdMessagesItem" onclick="openModal('privateMessagesModal');loadPrivateMessagesInbox();closeDropdown()">📨 Private Messages</div>
+  <div class="pd-item" id="pdManageSocialsItem" onclick="openModal('addSocialModal');closeDropdown()">➕ Manage Socials</div>
+  <div class="pd-item" id="pdAddAppItem" onclick="openModal('addAppModal');closeDropdown()">📱 Add App to Blog</div>
+  <div class="pd-item" id="pdManageTeamItem" onclick="openModal('manageTeamModal');loadTeamList();closeDropdown()">👥 Manage Team</div>
   <div class="pd-sep"></div>
   <div class="pd-item">⚙️ Settings</div>
   <div class="pd-item" onclick="logout()" style="color:var(--red);">🚪 Log Out</div>
+</div>
+
+<!-- ===================== MANAGE TEAM (OWNER ONLY) ===================== -->
+<div class="overlay" id="manageTeamModal" onclick="overlayClick(event,'manageTeamModal')">
+  <div class="modal" style="max-width:520px;max-height:90vh;overflow-y:auto;">
+    <button class="modal-close" onclick="closeModal('manageTeamModal')">✕</button>
+    <h2>👥 Manage Team</h2>
+    <p class="sub">Grant Admin or Moderator access by email. Only you can do this — it's never delegated, so no Admin can promote themselves or anyone else.</p>
+
+    <div class="form-group">
+      <label>Email of the person to grant access to</label>
+      <input type="email" id="teamSearchEmail" placeholder="their@email.com — they must have signed in with Google at least once">
+    </div>
+    <div class="platform-grid" style="grid-template-columns:1fr 1fr;">
+      <label class="platform-check checked" onclick="selectTeamRole(this,'admin')"><input type="radio" name="teamRole" checked><span class="platform-icon">🛠</span> Admin</label>
+      <label class="platform-check" onclick="selectTeamRole(this,'moderator')"><input type="radio" name="teamRole"><span class="platform-icon">🛡</span> Moderator</label>
+    </div>
+    <button class="btn btn-primary" style="width:100%;padding:12px;margin-top:10px;" onclick="grantTeamRole()">✅ Grant Access</button>
+
+    <h2 style="margin-top:26px;font-size:1.1rem;">Current Team</h2>
+    <div id="teamList">
+      <p style="text-align:center;color:var(--muted);font-size:0.85rem;">Loading...</p>
+    </div>
+  </div>
 </div>
 
 <!-- ===================== LOGIN MODAL ===================== -->
@@ -2829,8 +2885,23 @@ function buildPostHTML(post) {
     </div>`;
 }
 
+// Returns a display identity for whoever is using this browser right now —
+// the signed-in staff member's real name (Owner/Admin/Moderator), or a
+// stable per-browser "Guest" identity for anonymous visitors. Every visitor
+// has a real Firebase Auth uid (via Anonymous Auth), so this should only
+// ever return null very briefly before auth finishes resolving on load.
+// NOTE: this replaced a bug where liking/commenting/bookmarking/leaving
+// feedback all incorrectly required signing in as Owner — regular
+// visitors could never do any of these before this fix.
+function getVisitorIdentity() {
+  if (currentUser) return currentUser; // signed-in Owner/Admin/Moderator
+  const uid = typeof window.getMyUid === 'function' ? window.getMyUid() : null;
+  if (!uid) return null;
+  return { name: 'Guest ' + uid.slice(0, 4).toUpperCase(), avatar: 'G', email: null };
+}
+
 function toggleLike(id) {
-  if (!currentUser) { openModal('loginModal'); return; }
+  if (!getVisitorIdentity()) { showToast('⏳ Still connecting — try again in a second'); return; }
   const post = posts.find(p=>p.id===id);
   if (!post) return;
   post.liked = !post.liked;
@@ -2857,12 +2928,13 @@ function toggleComments(id) {
 }
 
 function addComment(id) {
-  if (!currentUser) { openModal('loginModal'); return; }
+  const identity = getVisitorIdentity();
+  if (!identity) { showToast('⏳ Still connecting — try again in a second'); return; }
   const input = document.getElementById('cmt-input-'+id);
   const text = input.value.trim();
   if (!text) return;
   const post = posts.find(p=>p.id===id);
-  const newComment = {author:currentUser.name, avatar:currentUser.avatar, text};
+  const newComment = {author:identity.name, avatar:identity.avatar, text};
   post.comments.push(newComment);
   const section = document.getElementById('comments-'+id);
   const commentEl = document.createElement('div');
@@ -2879,7 +2951,7 @@ function addComment(id) {
 }
 
 function bookmarkPost(id) {
-  if (!currentUser) { openModal('loginModal'); return; }
+  if (!getVisitorIdentity()) { showToast('⏳ Still connecting — try again in a second'); return; }
   showToast('🔖 Post saved!');
 }
 
@@ -3000,8 +3072,17 @@ async function doLogin() {
     console.error('Google sign-in failed:', e);
     if (e && e.code === 'auth/popup-closed-by-user') {
       showToast('Sign-in cancelled');
+    } else if (e && e.code === 'auth/unauthorized-domain') {
+      showToast('❌ This domain isn\'t authorized in Firebase yet (auth/unauthorized-domain)');
+    } else if (e && e.code === 'auth/operation-not-allowed') {
+      showToast('❌ Google sign-in isn\'t enabled in Firebase yet (auth/operation-not-allowed)');
+    } else if (e && e.code === 'auth/popup-blocked') {
+      showToast('❌ Your browser blocked the sign-in popup (auth/popup-blocked)');
     } else {
-      showToast('❌ Google sign-in failed — try again');
+      // Show the real Firebase error code so this can actually be
+      // diagnosed remotely instead of guessing — a generic message here
+      // was hiding the real cause.
+      showToast('❌ Sign-in failed: ' + (e && e.code ? e.code : (e && e.message ? e.message : 'unknown error')));
     }
   }
 }
@@ -3010,29 +3091,70 @@ async function doLogin() {
 // isOwner is only ever true when Firebase itself has verified this browser
 // holds a valid session for the Google account configured as OWNER_EMAIL — this
 // is real authentication, not a client-side password string.
+window.myRole = 'visitor'; // 'owner' | 'admin' | 'moderator' | 'visitor' — the source of truth for all RBAC UI below
+
 window.onOwnerAuthChanged = function(isOwner, fbUser) {
   if (isOwner) {
     loginUser(fbUser.displayName || 'CipherTech', (fbUser.displayName || 'C').charAt(0).toUpperCase(), fbUser.email);
-  } else if (fbUser && !fbUser.isAnonymous && !isOwner) {
-    // Signed in with a REAL Google account, but not the configured Owner
-    // account — treat as a normal signed-out visitor, don't grant owner UI.
-    // (Anonymous visitors are excluded from this branch entirely — every
-    // regular visitor now silently holds an anonymous session so their
-    // private messages can be isolated; that is expected and not an error.)
-    showToast('Signed in, but this Google account is not the configured Owner.');
-    if (typeof window.firebaseSignOut === 'function') window.firebaseSignOut();
-  } else if (currentUser) {
-    // Signed out entirely
-    currentUser = null;
-    const authBtns = document.getElementById('authBtns');
-    const userBar = document.getElementById('userBar');
-    if (authBtns) authBtns.style.display = 'flex';
-    if (userBar) userBar.style.display = 'none';
-    const addAppBtn = document.getElementById('addAppBtnWrap');
-    if (addAppBtn) addAppBtn.style.display = 'none';
-    if (typeof renderBlog === 'function') renderBlog();
   }
+  // Non-owner real accounts are no longer force-signed-out here — they may
+  // legitimately be an Admin or Moderator. window.onRoleResolved (below)
+  // is what actually decides their access, based on the real, server-side
+  // user_roles lookup — not just "is this the Owner's email."
 };
+
+window.onRoleResolved = function(role, fbUser) {
+  window.myRole = role;
+
+  if (role === 'owner') return; // already handled by onOwnerAuthChanged above
+
+  if (role === 'admin' || role === 'moderator') {
+    // A real, Firestore-verified staff account (not the Owner) — sign them
+    // in with their own name, same visual treatment as Owner, but later
+    // permission checks (below) use window.myRole to gate the specific
+    // things a Moderator shouldn't be able to do that an Admin/Owner can.
+    loginUser(fbUser.displayName || role, (fbUser.displayName || role).charAt(0).toUpperCase(), fbUser.email);
+  } else if (fbUser && !fbUser.isAnonymous && currentUser) {
+    // Signed in with a real Google account that turned out to have no
+    // elevated role at all — treat as a normal visitor, not an error.
+    // (Only relevant if they'd previously been shown as signed-in staff;
+    // otherwise this is just any regular visitor's real Google sign-in
+    // and there's nothing to undo.)
+    logout();
+  }
+
+  applyRolePermissions(role);
+};
+
+// Shows/hides the specific pieces of staff UI that should only be
+// available to certain roles, per this permission model:
+//   Owner + Admin  -> Ads/Boost/Music Dashboards, Visitor Analytics, Manage Apps, Publish Posts
+//   Owner + Admin + Moderator -> Private Messages inbox, delete spam reviews/feedback
+//   Owner ONLY -> Manage Team (grant/revoke roles) — never delegated, to prevent privilege escalation
+function applyRolePermissions(role) {
+  const isOwnerOrAdmin = (role === 'owner' || role === 'admin');
+  const isStaff = (role === 'owner' || role === 'admin' || role === 'moderator');
+
+  const dashboardItem = document.getElementById('pdDashboardItem');
+  const addAppItem = document.getElementById('pdAddAppItem');
+  const manageSocialsItem = document.getElementById('pdManageSocialsItem');
+  const visitorAnalyticsItem = document.getElementById('pdVisitorAnalyticsItem');
+  const manageTeamItem = document.getElementById('pdManageTeamItem');
+  const messagesItem = document.getElementById('pdMessagesItem');
+  const addAppBtnWrap = document.getElementById('addAppBtnWrap');
+
+  if (dashboardItem) dashboardItem.style.display = isOwnerOrAdmin ? 'flex' : 'none';
+  if (addAppItem) addAppItem.style.display = isOwnerOrAdmin ? 'flex' : 'none';
+  if (manageSocialsItem) manageSocialsItem.style.display = isOwnerOrAdmin ? 'flex' : 'none';
+  if (visitorAnalyticsItem) visitorAnalyticsItem.style.display = isOwnerOrAdmin ? 'flex' : 'none';
+  if (messagesItem) messagesItem.style.display = isStaff ? 'flex' : 'none';
+  if (manageTeamItem) manageTeamItem.style.display = (role === 'owner') ? 'flex' : 'none';
+  if (addAppBtnWrap) addAppBtnWrap.style.display = isOwnerOrAdmin ? 'block' : 'none';
+
+  if (typeof renderBlog === 'function') renderBlog();
+  if (typeof renderFeedback === 'function') renderFeedback();
+  if (typeof loadUserReviews === 'function') loadUserReviews();
+}
 
 function loginUser(name, initial, email) {
   currentUser = {name, avatar: initial, email: email || 'ciphertech65@gmail.com'};
@@ -3143,7 +3265,12 @@ async function publishPost() {
       document.getElementById('uploadBar').style.width='0%';
     }, 2000);
   }
-  if (!currentUser) { closeModal('createPostModal'); openModal('loginModal'); return; }
+  if (!currentUser || !(window.myRole === 'owner' || window.myRole === 'admin')) {
+    closeModal('createPostModal');
+    showToast(currentUser ? '⚠️ Only Owner/Admin can publish posts' : '');
+    if (!currentUser) openModal('loginModal');
+    return;
+  }
   const caption = document.getElementById('postCaption').value.trim();
   if (!caption) { showToast('⚠️ Write a caption first!'); return; }
   const platforms = getSelectedPlatforms();
@@ -3631,6 +3758,97 @@ function renderOwnerBoostOrdersList(orders) {
       </div>
     </div>`).join('');
 }
+
+// =================== MANAGE TEAM (RBAC) — Owner only ===================
+let selectedTeamRole = 'admin';
+
+function selectTeamRole(el, role) {
+  selectedTeamRole = role;
+  el.closest('.platform-grid').querySelectorAll('.platform-check').forEach(l => l.classList.remove('checked'));
+  el.classList.add('checked');
+}
+
+async function grantTeamRole() {
+  const emailInput = document.getElementById('teamSearchEmail');
+  const email = emailInput.value.trim().toLowerCase();
+  if (!email) { showToast('⚠️ Enter an email address'); return; }
+  if (!(window._db && window._fsLib)) { showToast('⏳ Still connecting'); return; }
+
+  const { collection, query, where, getDocs, doc, setDoc, serverTimestamp } = window._fsLib;
+
+  try {
+    const snap = await getDocs(query(collection(window._db, 'users'), where('email', '==', email)));
+    if (snap.empty) {
+      showToast('❌ No account found for that email — they need to sign in with Google at least once first, then try again.');
+      return;
+    }
+    const userDoc = snap.docs[0];
+    const uid = userDoc.id;
+    const userData = userDoc.data();
+
+    await setDoc(doc(window._db, 'user_roles', uid), {
+      role: selectedTeamRole,
+      email: userData.email,
+      displayName: userData.displayName || '',
+      grantedAt: serverTimestamp()
+    });
+
+    showToast(`✅ ${userData.displayName || email} is now ${selectedTeamRole === 'admin' ? 'an Admin' : 'a Moderator'}`);
+    emailInput.value = '';
+    loadTeamList();
+  } catch (err) {
+    console.error('Grant role failed:', err);
+    showToast('❌ Could not grant access — try again');
+  }
+}
+
+async function revokeTeamRole(uid, name) {
+  if (!(window._db && window._fsLib)) { showToast('⏳ Still connecting'); return; }
+  const { doc, deleteDoc } = window._fsLib;
+  try {
+    await deleteDoc(doc(window._db, 'user_roles', uid));
+    showToast(`🗑️ Removed ${name || 'their'} access`);
+    loadTeamList();
+  } catch (err) {
+    console.error('Revoke role failed:', err);
+    showToast('❌ Could not revoke access — try again');
+  }
+}
+
+function loadTeamList() {
+  const list = document.getElementById('teamList');
+  if (!list) return;
+  list.innerHTML = '<p style="text-align:center;color:var(--muted);font-size:0.85rem;">Loading...</p>';
+
+  if (!(window._db && window._fsLib)) {
+    list.innerHTML = '<p style="text-align:center;color:var(--muted);font-size:0.85rem;">Firebase not connected yet.</p>';
+    return;
+  }
+  const { collection, getDocs } = window._fsLib;
+  getDocs(collection(window._db, 'user_roles'))
+    .then(snapshot => {
+      const members = [];
+      snapshot.forEach(d => members.push({ uid: d.id, ...d.data() }));
+      if (members.length === 0) {
+        list.innerHTML = '<p style="text-align:center;color:var(--muted);font-size:0.85rem;">No Admins or Moderators yet — you\'re the only one with access.</p>';
+        return;
+      }
+      list.innerHTML = members.map(m => `
+        <div class="active-ad-item">
+          <div class="ad-thumb">${m.role === 'admin' ? '🛠' : '🛡'}</div>
+          <div class="ad-info">
+            <strong>${m.displayName || m.email}</strong>
+            <span>${m.email} • ${m.role === 'admin' ? 'Admin' : 'Moderator'}</span>
+          </div>
+          <button class="cs-remove" onclick="revokeTeamRole('${m.uid}','${(m.displayName || m.email).replace(/'/g, "\\'")}')">✕ Remove</button>
+        </div>`).join('');
+    })
+    .catch(err => {
+      console.error('Failed to load team:', err);
+      list.innerHTML = '<p style="text-align:center;color:var(--red);font-size:0.85rem;">Could not load team — are you signed in as Owner?</p>';
+    });
+}
+
 
 function loadOwnerMusicBoostOrders() {
   const list = document.getElementById('ownerMusicBoostOrdersList');
@@ -6393,16 +6611,17 @@ function renderFeedback() {
 }
 
 function postFeedback() {
-  if (!currentUser) { openModal('loginModal'); return; }
+  const identity = getVisitorIdentity();
+  if (!identity) { showToast('⏳ Still connecting — try again in a second'); return; }
   const input = document.getElementById('feedbackInput');
   const text = input.value.trim();
   if (!text) { showToast('⚠️ Write your feedback first'); return; }
 
   const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
   const newFb = {
-    name: currentUser.name,
-    email: currentUser.email || 'guest@ciphertech.com',
-    avatar: currentUser.avatar,
+    name: identity.name,
+    email: identity.email || 'guest@ciphertech.com',
+    avatar: identity.avatar,
     text,
     time: 'Just now',
     likes: 0,
@@ -6424,7 +6643,7 @@ function postFeedback() {
 }
 
 function toggleFeedbackLike(idx) {
-  if (!currentUser) { openModal('loginModal'); return; }
+  if (!getVisitorIdentity()) { showToast('⏳ Still connecting — try again in a second'); return; }
   const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
   const fb = feedbacks[idx];
   fb.liked = !fb.liked;
@@ -6439,14 +6658,15 @@ function toggleFeedbackReply(idx) {
 }
 
 function addFeedbackReply(idx) {
-  if (!currentUser) { openModal('loginModal'); return; }
+  const identity = getVisitorIdentity();
+  if (!identity) { showToast('⏳ Still connecting — try again in a second'); return; }
   const input = document.getElementById('fb-reply-input-'+idx);
   const text = input.value.trim();
   if (!text) return;
 
   const feedbacks = JSON.parse(localStorage.getItem('ciphertech_feedback') || '[]');
   feedbacks[idx].replies = feedbacks[idx].replies || [];
-  feedbacks[idx].replies.push({name: currentUser.name, avatar: currentUser.avatar, text});
+  feedbacks[idx].replies.push({name: identity.name, avatar: identity.avatar, text});
   localStorage.setItem('ciphertech_feedback', JSON.stringify(feedbacks));
   input.value='';
   renderFeedback();
