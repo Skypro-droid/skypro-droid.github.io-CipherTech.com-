@@ -3134,7 +3134,13 @@ document.addEventListener('click', e => {
 function switchPostTab(btn, tab) {
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('mediaTab').style.display = tab==='media'?'block':'none';
+  // The Sponsored tab's own format options ("🖼 Image Ad", "🎬 Video Ad")
+  // imply a photo/video should be attachable — but this tab previously had
+  // no upload control at all, since #mediaTab (the only real file input)
+  // was hidden for anything except the plain "media" tab. Reusing the same
+  // working upload control for "ad" too, so Sponsored posts can actually
+  // attach media — only Text-only genuinely has no media to attach.
+  document.getElementById('mediaTab').style.display = (tab==='media' || tab==='ad') ? 'block' : 'none';
   document.getElementById('textTab').style.display = tab==='text'?'block':'none';
   document.getElementById('adTabContent').style.display = tab==='ad'?'block':'none';
 }
@@ -3217,10 +3223,14 @@ async function publishPost() {
   document.getElementById('mediaPreview').innerHTML='';
   if (mediaInput) mediaInput.value='';
 
-  showProgress(10, '⏳ Preparing post...'); showToast('⏳ Publishing...');
+  const isVideo = mediaFile && mediaFile.type.startsWith('video');
+  showProgress(10, isVideo ? '⏳ Uploading video — large files can take a minute...' : '⏳ Preparing post...');
+  showToast('⏳ Publishing...');
 
   if (window.savePostToFirebase) {
+    showProgress(40, isVideo ? '⏳ Still uploading video...' : '⏳ Uploading...');
     await window.savePostToFirebase({ caption, platforms: ['CipherTech', ...platforms.filter(p=>p!=='CipherTech')] }, mediaFile);
+    showProgress(100, '✅ Done!');
   } else {
     // Fallback if Firebase not loaded yet
     const newPost = {
@@ -3232,7 +3242,13 @@ async function publishPost() {
     posts.unshift(newPost);
     renderPost(newPost, false);
     showToast('🚀 Posted!');
+    showProgress(100, '✅ Done!');
   }
+  // This was the actual bug: hideProgress() was never called anywhere in
+  // this function, so the progress bar/banner stayed stuck on screen
+  // permanently — regardless of whether the post succeeded or failed —
+  // which is exactly what looked like an upload "standing still forever."
+  hideProgress();
   document.getElementById('feed').scrollIntoView({behavior:'smooth'});
 }
 
